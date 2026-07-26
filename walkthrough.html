@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jay · Annotated walkthrough · Just Move In</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================================
+   JAY · ANNOTATED WALKTHROUGH
+   Companion to index.html. One screen per step, features called out around it.
+   Same token system as the clickable prototype so the two stay in sync.
+   ========================================================================== */
+
+:root{
+  --ink:#12121a; --ink-2:#4a4a5c; --ink-3:#86869b;
+  --paper:#f4f4f9; --card:#fff; --line:#e6e6ef;
+  --violet:#5b3df5; --violet-sub:#ede9ff;
+  --amber:#a75c07;  --amber-sub:#fdf1e0;
+  --moss:#12664c;   --moss-sub:#e3f3ec;
+  --fog:#5d7391;    --fog-sub:#eaeff5;
+  --sans:"Instrument Sans",ui-sans-serif,system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;
+  --r-sm:8px;--r-md:14px;--r-lg:20px;
+  --shadow-card:0 1px 2px rgba(18,18,26,.04),0 8px 24px -12px rgba(18,18,26,.12);
+  /* presentation surface */
+  --bg:#14141d; --bg-2:#1e1e2b; --bg-line:#2f2f42; --bg-txt:#c3c3d8; --bg-dim:#7b7b96;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--sans); color:var(--bg-txt);
+  background:radial-gradient(1200px 700px at 50% -12%,#2c2450 0%,transparent 62%),var(--bg);
+  -webkit-font-smoothing:antialiased; min-height:100vh;
+}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+ul,ol{margin:0;padding:0;list-style:none}
+h1,h2,h3,p{margin:0}
+:focus-visible{outline:2px solid #8a6bff;outline-offset:3px;border-radius:4px}
+
+/* ---- page chrome ------------------------------------------------------- */
+.wrap{max-width:1320px;margin:0 auto;padding:var(--s5) var(--s5) var(--s7)}
+
+.masthead{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s5)}
+.masthead__mark{display:flex;align-items:center;gap:var(--s2);font-size:14px;font-weight:650;color:#fff;letter-spacing:-.01em}
+.masthead__dot{width:8px;height:8px;border-radius:50%;background:#8a6bff}
+.masthead__meta{font-family:var(--mono);font-size:11px;color:var(--bg-dim)}
+.masthead__sp{flex:1}
+.masthead__link{font-family:var(--mono);font-size:11px;color:#b7a6ff;text-decoration:none;border:1px solid #3b3260;padding:6px 11px;border-radius:999px}
+.masthead__link:hover{background:#2a2350}
+
+/* ---- step rail --------------------------------------------------------- */
+.rail{display:flex;gap:4px;overflow-x:auto;padding-bottom:var(--s3);margin-bottom:var(--s5);scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail__b{
+  flex:0 0 auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.02em;
+  padding:7px 11px;border-radius:999px;border:1px solid var(--bg-line);background:var(--bg-2);
+  color:var(--bg-txt);white-space:nowrap;transition:.15s
+}
+.rail__b:hover{background:#2a2a3c;color:#fff}
+.rail__b[aria-current="true"]{background:var(--violet);border-color:var(--violet);color:#fff;font-weight:600}
+
+/* ---- step ------------------------------------------------------------- */
+.step{display:none;animation:fade .3s ease}
+.step[data-active="true"]{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.step__head{max-width:760px;margin:0 auto var(--s5);text-align:center}
+.step__eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#9b8bff}
+.step__title{font-size:31px;line-height:1.12;letter-spacing:-.03em;font-weight:600;color:#fff;margin-top:var(--s2)}
+.step__job{font-size:15px;line-height:1.55;color:var(--bg-txt);margin-top:var(--s3)}
+.step__tags{display:flex;justify-content:center;flex-wrap:wrap;gap:6px;margin-top:var(--s4)}
+.step__tag{font-family:var(--mono);font-size:10px;letter-spacing:.03em;padding:4px 9px;border-radius:6px;background:#252537;color:#a9a9c6;border:1px solid var(--bg-line)}
+.step__tag--state{background:#2b2350;color:#c0b0ff;border-color:#43376f}
+
+/* ---- annotated layout: callouts left, phone centre, callouts right ------ */
+.annot{display:grid;grid-template-columns:1fr auto 1fr;gap:var(--s5);align-items:start;justify-items:center}
+.annot__col{display:flex;flex-direction:column;gap:var(--s3);width:100%;max-width:300px;padding-top:var(--s5)}
+.annot__col--l{align-items:flex-end}
+.annot__col--r{align-items:flex-start}
+
+/* callout */
+.co{position:relative;background:var(--bg-2);border:1px solid var(--bg-line);border-radius:var(--r-md);padding:var(--s3) var(--s4);width:100%}
+.co::after{content:"";position:absolute;top:22px;width:22px;border-top:1px dashed #4b4b68}
+.annot__col--l .co::after{right:-23px}
+.annot__col--r .co::after{left:-23px}
+.co__n{
+  position:absolute;top:-9px;width:22px;height:22px;border-radius:50%;
+  background:var(--violet);color:#fff;font-family:var(--mono);font-size:11px;font-weight:600;
+  display:grid;place-items:center
+}
+.annot__col--l .co__n{right:var(--s3)}
+.annot__col--r .co__n{left:var(--s3)}
+/* callouts describing logic rather than a visible element */
+.co--behind{border-style:dashed;background:#1c1c29}
+.co--behind::after{display:none}
+.co--behind .co__n{background:transparent;border:1px dashed #6b5cb8;color:#8a7bd6;font-size:9px}
+.co__behind{font-family:var(--mono);font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:#6b5cb8;display:block;margin-top:6px}
+.co__t{font-size:13.5px;font-weight:650;color:#fff;letter-spacing:-.01em;margin-top:2px}
+.co__d{font-size:12.5px;line-height:1.5;color:#a6a6c2;margin-top:5px}
+.co__src{font-family:var(--mono);font-size:10px;color:#7f6fd0;margin-top:7px;display:block}
+.annot__col--l .co{text-align:right}
+
+/* ---- device ------------------------------------------------------------ */
+.device{
+  width:376px;flex:0 0 376px;background:var(--paper);border-radius:34px;
+  border:1px solid #35354a;box-shadow:0 34px 70px -26px rgba(0,0,0,.75),0 0 0 7px #0d0d14;
+  overflow:hidden;position:relative;height:716px;display:flex;flex-direction:column
+}
+.device__notch{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:94px;height:23px;background:#0d0d14;border-radius:999px;z-index:9}
+.device__vp{flex:1;overflow-y:auto;padding:50px var(--s4) var(--s5);color:var(--ink);font-size:14px}
+.device__vp::-webkit-scrollbar{width:5px}
+.device__vp::-webkit-scrollbar-thumb{background:#d5d5e2;border-radius:3px}
+
+/* hotspot highlight, keyed to callout number */
+.hs{position:relative;border-radius:var(--r-sm);transition:.2s}
+.hs::before{
+  content:attr(data-n);position:absolute;top:-8px;left:-8px;width:19px;height:19px;border-radius:50%;
+  background:var(--violet);color:#fff;font-family:var(--mono);font-size:10px;font-weight:600;
+  display:grid;place-items:center;z-index:5;box-shadow:0 0 0 3px var(--paper)
+}
+.hs.is-lit{box-shadow:0 0 0 2px var(--violet),0 0 0 7px rgba(91,61,245,.18)}
+
+/* ---- in-device components (subset of the prototype) -------------------- */
+.d-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.d-h1{font-size:24px;line-height:1.15;letter-spacing:-.025em;font-weight:600;margin-top:6px;color:var(--ink)}
+.d-h1 em{font-style:normal;color:var(--violet)}
+.d-sub{font-size:13.5px;line-height:1.5;color:var(--ink-2);margin-top:10px}
+.d-card{background:var(--card);border-radius:var(--r-lg);box-shadow:var(--shadow-card);padding:var(--s4)}
+.d-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.d-row:last-child{border-bottom:0}
+.d-row__t{font-size:13px;font-weight:600;color:var(--ink)}
+.d-row__n{font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
+.d-state{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10.5px;font-weight:500;padding:3px 7px;border-radius:6px;white-space:nowrap}
+.d-state::before{content:"";width:5px;height:5px;border-radius:1.5px;background:currentColor}
+.d-state--done{color:var(--moss);background:var(--moss-sub)}
+.d-state--sent{color:var(--fog);background:var(--fog-sub)}
+.d-state--needs{color:var(--amber);background:var(--amber-sub)}
+.d-state--blocked{color:var(--ink-3);background:#f0f0f5}
+.d-state--live{color:var(--violet);background:var(--violet-sub)}
+.d-task{display:block;width:100%;text-align:left;background:var(--card);border-radius:var(--r-md);padding:11px var(--s3);box-shadow:var(--shadow-card);margin-bottom:7px;border-left:3px solid transparent}
+.d-task[data-urgent]{border-left-color:var(--amber)}
+.d-task__top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.d-task__n{font-size:13.5px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.d-task__w{font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin-top:3px}
+.d-task__y{font-size:12px;line-height:1.45;color:var(--ink-2);margin-top:6px}
+.d-stepper{display:flex;gap:3px;margin-top:var(--s4)}
+.d-stepper__s{flex:1}
+.d-stepper__b{height:3px;border-radius:2px;background:var(--line)}
+.d-stepper__s[data-st="done"] .d-stepper__b{background:var(--moss)}
+.d-stepper__s[data-st="now"] .d-stepper__b{background:var(--violet)}
+.d-stepper__l{font-family:var(--mono);font-size:9px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin-top:5px;display:block}
+.d-stepper__s[data-st="now"] .d-stepper__l{color:var(--violet);font-weight:600}
+.d-tier{display:flex;align-items:baseline;gap:8px;margin:var(--s5) 0 6px}
+.d-tier__t{font-size:14px;font-weight:650;letter-spacing:-.015em;color:var(--ink)}
+.d-tier__n{font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
+.d-tier__note{font-size:11.5px;color:var(--ink-3);margin-bottom:10px}
+.d-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.d-could{text-align:left;border-radius:var(--r-md);padding:11px;background:linear-gradient(160deg,#fff,#fbfaff);box-shadow:var(--shadow-card);min-height:78px;display:flex;flex-direction:column;justify-content:space-between}
+.d-could__t{font-size:12.5px;font-weight:600;color:var(--ink)}
+.d-could__s{font-size:11px;color:var(--ink-3);margin-top:2px;line-height:1.35}
+.d-offer{position:relative;padding:var(--s4);margin-bottom:11px}
+.d-badge{position:absolute;top:-8px;left:var(--s4);font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#fff;background:var(--violet);padding:4px 8px;border-radius:999px}
+.d-offer__h{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-top:6px}
+.d-offer__b{font-size:15.5px;font-weight:650;letter-spacing:-.02em;color:var(--ink)}
+.d-offer__p{font-size:15.5px;font-weight:650;letter-spacing:-.02em;text-align:right;color:var(--ink)}
+.d-offer__p span{display:block;font-family:var(--mono);font-size:10px;font-weight:500;color:var(--moss)}
+.d-offer__r{font-size:12px;line-height:1.5;color:var(--ink-2);margin-top:10px;padding-left:10px;border-left:2px solid var(--violet-sub)}
+.d-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:10px}
+.d-chip{font-family:var(--mono);font-size:9.5px;padding:3px 7px;border-radius:5px;background:#f4f4f9;color:var(--ink-2)}
+.d-disc{margin-top:10px;padding:10px;border-radius:var(--r-sm);background:#fafaff;border:1px dashed #d9d5f5}
+.d-disc__r{display:flex;gap:8px;font-size:11.5px;line-height:1.45;color:var(--ink-2)}
+.d-disc__r+.d-disc__r{margin-top:6px}
+.d-disc__k{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);flex:0 0 48px;padding-top:1px}
+.d-disc__n{font-family:var(--mono);font-weight:600;color:var(--ink)}
+.d-exp{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);margin-top:10px}
+.d-btn{display:block;width:100%;text-align:center;padding:13px var(--s4);border-radius:var(--r-md);font-size:14px;font-weight:650;letter-spacing:-.01em}
+.d-btn--p{background:var(--violet);color:#fff;box-shadow:0 6px 18px -6px rgba(91,61,245,.55)}
+.d-btn--g{background:transparent;color:var(--ink-2);box-shadow:inset 0 0 0 1px var(--line);margin-top:7px}
+.d-trans{border-top:1px solid var(--line)}
+.d-trans__r{display:grid;grid-template-columns:56px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.d-trans__k{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);padding-top:2px}
+.d-trans__v{font-size:12.5px;line-height:1.5;color:var(--ink)}
+.d-trans__v b{font-weight:650}
+.d-datebar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 11px;border-radius:var(--r-md);background:#fff;box-shadow:var(--shadow-card);margin-top:var(--s4)}
+.d-datebar__l{font-family:var(--mono);font-size:10.5px;color:var(--ink-2)}
+.d-datebar__l b{color:var(--ink)}
+.d-datebar__a{font-size:11.5px;font-weight:600;color:var(--violet);white-space:nowrap}
+.d-diff{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:var(--s4)}
+.d-diff__i{background:#fff;border-radius:var(--r-md);padding:11px;box-shadow:var(--shadow-card)}
+.d-diff__n{font-size:22px;font-weight:650;letter-spacing:-.03em;color:var(--moss)}
+.d-diff__i--w .d-diff__n{color:var(--amber)}
+.d-diff__l{font-family:var(--mono);font-size:9px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin-top:3px;line-height:1.3}
+.d-voice{background:linear-gradient(165deg,#2a1d63,#1a1230);border-radius:24px;padding:var(--s5) var(--s4);color:#fff;text-align:center}
+.d-orb{width:74px;height:74px;margin:0 auto var(--s4);border-radius:50%;background:radial-gradient(circle at 34% 30%,#b9a6ff,#5b3df5 62%,#3a1fb8);box-shadow:0 0 0 11px rgba(139,109,255,.13),0 0 38px rgba(122,86,255,.45);animation:breathe 3.4s ease-in-out infinite}
+.d-voice__w{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#a99cf0}
+.d-voice__s{font-size:16.5px;line-height:1.35;letter-spacing:-.02em;margin-top:10px;font-weight:500}
+.d-voice__m{font-family:var(--mono);font-size:10px;color:#8b81c4;margin-top:var(--s4)}
+.d-meter{border-radius:var(--r-md);background:#16161f;padding:var(--s4);text-align:center;margin-top:10px}
+.d-meter__r{font-family:var(--mono);font-size:26px;font-weight:600;color:#7ee3b6;letter-spacing:.06em}
+.d-meter__l{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:#6a6a86;margin-top:6px}
+.d-home{background:linear-gradient(180deg,#eef0fb,#f8f6ff);border-radius:var(--r-lg);padding:var(--s4)}
+.d-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.d-tag{font-family:var(--mono);font-size:9.5px;padding:4px 7px;border-radius:5px;background:#fff;color:var(--ink-2);box-shadow:var(--shadow-card)}
+.d-tag[data-off]{color:#b9b9cb}
+.d-tick{width:48px;height:48px;border-radius:50%;background:var(--moss-sub);color:var(--moss);display:grid;place-items:center;font-size:22px;margin:0 auto var(--s3)}
+.d-prog{height:5px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:8px}
+.d-prog__f{height:100%;background:linear-gradient(90deg,var(--violet),#8a6bff)}
+.d-ask{display:flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:8px 8px 8px 14px;box-shadow:var(--shadow-card);margin-top:var(--s5)}
+.d-ask__t{flex:1;font-size:12px;color:var(--ink-3)}
+.d-ask__b{font-size:10.5px;font-weight:600;color:var(--violet);padding:6px 10px;border-radius:999px;background:var(--violet-sub)}
+.d-opts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.d-opt{padding:8px 12px;border-radius:999px;font-size:12px;font-weight:500;background:#fff;box-shadow:inset 0 0 0 1px var(--line);color:var(--ink)}
+.d-opt[data-on]{background:var(--violet);color:#fff;box-shadow:none}
+.d-q{font-size:14px;font-weight:650;letter-spacing:-.015em;color:var(--ink);margin-top:var(--s5)}
+
+/* ---- workflow map (step 0) --------------------------------------------- */
+.map{background:var(--bg-2);border:1px solid var(--bg-line);border-radius:var(--r-lg);padding:var(--s5);overflow-x:auto}
+.map pre{font-family:var(--mono);font-size:11.5px;line-height:1.65;color:#b9b9d6;margin:0;white-space:pre}
+.map__legend{display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s4);padding-top:var(--s4);border-top:1px solid var(--bg-line)}
+.map__k{font-family:var(--mono);font-size:10.5px;color:var(--bg-dim)}
+.map__k b{color:#b7a6ff}
+
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:var(--s3);margin-top:var(--s5)}
+.feat__i{background:var(--bg-2);border:1px solid var(--bg-line);border-radius:var(--r-md);padding:var(--s4)}
+.feat__n{font-family:var(--mono);font-size:10px;color:#8a7bd6;letter-spacing:.06em;text-transform:uppercase}
+.feat__t{font-size:14px;font-weight:650;color:#fff;margin-top:6px;letter-spacing:-.01em}
+.feat__d{font-size:12.5px;line-height:1.5;color:#a6a6c2;margin-top:6px}
+
+/* ---- footer nav -------------------------------------------------------- */
+.pager{display:flex;align-items:center;justify-content:center;gap:var(--s3);margin-top:var(--s6)}
+.pager__b{font-family:var(--mono);font-size:11.5px;padding:10px 18px;border-radius:999px;border:1px solid var(--bg-line);background:var(--bg-2);color:var(--bg-txt)}
+.pager__b:hover{background:#2a2a3c;color:#fff}
+.pager__b[disabled]{opacity:.3;cursor:default}
+.pager__c{font-family:var(--mono);font-size:11px;color:var(--bg-dim)}
+
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+
+@media (max-width:1120px){
+  .annot{grid-template-columns:1fr;justify-items:center}
+  .annot__col{max-width:376px;padding-top:0;align-items:stretch}
+  .annot__col--l{order:2}.annot__col--r{order:3}
+  .device{order:1}
+  .co::after{display:none}
+  .annot__col--l .co{text-align:left}
+  .annot__col--l .co__n{right:auto;left:var(--s3)}
+}
+@media (max-width:480px){
+  .wrap{padding:var(--s4) var(--s3) var(--s6)}
+  .device{width:100%;flex:1 1 auto;max-width:376px}
+  .step__title{font-size:25px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="masthead__mark"><span class="masthead__dot"></span> Jay · Just Move In</div>
+    <span class="masthead__meta">annotated walkthrough</span>
+    <span class="masthead__sp"></span>
+    <a class="masthead__link" href="index.html">Open the clickable prototype</a>
+  </header>
+
+  <nav class="rail" aria-label="Walkthrough steps">
+    <button class="rail__b" data-go="0" aria-current="true">The whole workflow</button>
+    <button class="rail__b" data-go="1">1 · Referral</button>
+    <button class="rail__b" data-go="2">2 · The Fog</button>
+    <button class="rail__b" data-go="3">3 · Discovery</button>
+    <button class="rail__b" data-go="4">4 · Basket</button>
+    <button class="rail__b" data-go="5">5 · Confirmed</button>
+    <button class="rail__b" data-go="6">6 · The Plan</button>
+    <button class="rail__b" data-go="7">7 · Task detail</button>
+    <button class="rail__b" data-go="8">8 · Date moved</button>
+    <button class="rail__b" data-go="9">9 · Moving day</button>
+    <button class="rail__b" data-go="10">10 · Settling in</button>
+  </nav>
+
+  <!-- ==================== STEP 0 · THE WHOLE WORKFLOW ==================== -->
+  <section class="step" data-step="0" data-active="true">
+    <div class="step__head">
+      <p class="step__eyebrow">End to end</p>
+      <h1 class="step__title">One plan, four stages, ten screens</h1>
+      <p class="step__job">The mover is referred by their letting agent and never chose us. From there, everything is triggered by events rather than dates, because 37% of moves never complete and the date moves constantly.</p>
+    </div>
+
+    <div class="map">
+<pre>
+   PARTNER REFERRAL  (letting agent / BTR operator)
+            |
+            v
+   [ watching ]  ..... nothing fires. profile stored. 37% of moves die here.
+            |
+            |  exchange confirmed   &lt;--- webhook from partner or solicitor feed
+            v
+   [ armed ]  -->  1. CONFIRM DETAILS  (~60s, pre-filled, correct not type)
+            |
+            v
+   2. ONE DISCOVERY PASS   6 to 9 questions, answers fan out to all products
+            |                 novice flag  ->  orientation before price
+            |                 &lt;14 days     ->  rank by speed, not price
+            v
+   3. BASKET   one pick per category  +  reason  +  commission  +  social proof
+            |
+            v
+   4. ONE CONFIRMATION   (not four separate checkouts)
+            |
+      +-----+------------------------------+
+      |                                    |
+      v                                    v
+   AUTO RUN under Letter of Authority   CONFIRMED ORDERS on panel APIs
+   council x2, water, TV licence,       energy, broadband, insurance
+   post redirection                            |
+      |                                        v
+      v                                  in progress -> confirmed
+   confirmed   OR   sent, no receipt
+   (many councils cannot confirm. we say so.)
+            |
+            v
+   [ active ]  5. THE PLAN     MUST DO   deadpan, ordered by cost of delay
+            |                  COULD DO  warm, no deadlines, browsable
+            |
+            |&lt;---- move_date_changed ----  cascade reschedules everything
+            |                              0 items re-entered by the mover
+            v
+   [ moved ]   6. MOVING DAY   VOICE ONLY, two intents
+            |                  keys confirmed  +  meter readings
+            v
+   [ settling ]  7. FIRST FORTNIGHT   estimated bill caught, home fills in,
+            |                         THEN ask for inbox access
+            v
+   [ dormant ]   renewal diary at t+11 months
+
+   ===== on every screen: a named human, reachable in one tap =====
+</pre>
+      <div class="map__legend">
+        <span class="map__k"><b>[ state ]</b> move state machine</span>
+        <span class="map__k"><b>MUST DO</b> lead-time critical, factual</span>
+        <span class="map__k"><b>COULD DO</b> discretionary, no deadlines</span>
+        <span class="map__k"><b>VOICE</b> only where there is no screen</span>
+      </div>
+    </div>
+
+    <div class="feat">
+      <div class="feat__i"><p class="feat__n">Feature 01</p><p class="feat__t">Event triggers, not dates</p><p class="feat__d">Activation waits for exchange. A date change fires a cascade that redraws the plan with nothing re-entered.</p></div>
+      <div class="feat__i"><p class="feat__n">Feature 02</p><p class="feat__t">One brief, many baskets</p><p class="feat__d">Overlapping questions asked once, fanned out across energy, broadband and insurance.</p></div>
+      <div class="feat__i"><p class="feat__n">Feature 03</p><p class="feat__t">One pick, not a grid</p><p class="feat__d">A single recommendation per category with a reason. Alternatives collapse behind an expander.</p></div>
+      <div class="feat__i"><p class="feat__n">Feature 04</p><p class="feat__t">Honest task states</p><p class="feat__d">Confirmed, or sent with no receipt. Never a green tick we cannot substantiate.</p></div>
+      <div class="feat__i"><p class="feat__n">Feature 05</p><p class="feat__t">Commission on the card</p><p class="feat__d">What we earn sits in the same block as the social proof, at the point of choice.</p></div>
+      <div class="feat__i"><p class="feat__n">Feature 06</p><p class="feat__t">Voice on moving day only</p><p class="feat__d">Two intents, scoped tight: keys confirmation and meter capture. No broadband needed.</p></div>
+      <div class="feat__i"><p class="feat__n">Feature 07</p><p class="feat__t">Two lists, two registers</p><p class="feat__d">Must do is deadpan. Could do is warm and untimed. Same data, different tone.</p></div>
+      <div class="feat__i"><p class="feat__n">Feature 08</p><p class="feat__t">A named human throughout</p><p class="feat__d">One specialist owns the move and receives every escalation. Reachable in one tap.</p></div>
+    </div>
+  </section>
+
+  <!-- ==================== STEP 1 · REFERRAL ============================== -->
+  <section class="step" data-step="1">
+    <div class="step__head">
+      <p class="step__eyebrow">Stage 1 · t minus 30</p>
+      <h1 class="step__title">Earning permission from someone who did not choose us</h1>
+      <p class="step__job">The mover arrives through their letting agent. They did not search for us. The first screen has to give before it asks for anything.</p>
+      <div class="step__tags"><span class="step__tag step__tag--state">state: watching</span><span class="step__tag">no outbound tasks</span><span class="step__tag">UI leads</span></div>
+    </div>
+
+    <div class="annot">
+      <div class="annot__col annot__col--l">
+        <div class="co"><span class="co__n">1</span><p class="co__t">Referral source, named</p><p class="co__d">The mover sees who sent us before they see anything else. Hiding the channel is what makes a cold approach feel cold.</p><span class="co__src">Trustpilot, 16 of 60 negative reviews</span></div>
+        <div class="co"><span class="co__n">2</span><p class="co__t">Nothing is due yet</p><p class="co__d">37% of pre-exchange moves never complete. We store the profile and fire nothing, and we say so out loud.</p><span class="co__src">Connells: 37% of sales fall through</span></div>
+        <div class="co"><span class="co__n">3</span><p class="co__t">The whole move, all 31 items</p><p class="co__d">The t-30 anxiety is the unknown unknown. The antidote is the full map with explicit permission not to act on it.</p><span class="co__src">Mover diaries</span></div>
+      </div>
+
+      <div class="device"><div class="device__notch"></div><div class="device__vp">
+        <p class="d-eyebrow hs" data-n="1">Referred by Kentish Town Lettings</p>
+        <h2 class="d-h1">Your move is on <em>14 August</em>. Here is everything it needs.</h2>
+        <p class="d-sub hs" data-n="2" style="padding:6px">Nothing is due yet. We will tell you when each thing starts to matter, and we will not contact anyone until your contracts are exchanged.</p>
+
+        <div class="hs" data-n="3" style="margin-top:var(--s5);padding:6px">
+          <p class="d-eyebrow">The whole move, 31 things</p>
+          <div class="d-row"><span class="d-row__t">Before contracts</span><span class="d-row__n">4 things</span></div>
+          <div class="d-row"><span class="d-row__t">Once your date is fixed</span><span class="d-row__n">9 things</span></div>
+          <div class="d-row"><span class="d-row__t">Moving day</span><span class="d-row__n">5 things</span></div>
+          <div class="d-row"><span class="d-row__t">Your first fortnight</span><span class="d-row__n">13 things</span></div>
+        </div>
+
+        <div class="d-card hs" data-n="4" style="margin-top:var(--s5)">
+          <p class="d-eyebrow">Who you will be dealing with</p>
+          <div style="display:flex;align-items:center;gap:11px;margin-top:11px">
+            <div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(150deg,#7d63ff,#4a2ee0);display:grid;place-items:center;color:#fff;font-weight:650;font-size:13px">LB</div>
+            <div><div style="font-size:13px;font-weight:600;color:var(--ink)">Lyndon Beadle</div><div style="font-size:11px;color:var(--ink-3)">Your move specialist · 340 moves completed</div></div>
+          </div>
+          <p style="font-size:12px;line-height:1.5;color:var(--ink-2);margin-top:11px">Jay does the admin. Lyndon owns your move and picks up anything Jay should not decide alone.</p>
+        </div>
+
+        <div class="hs" data-n="5" style="margin-top:var(--s5);display:flex;flex-wrap:wrap;gap:6px 14px;padding:6px">
+          <span style="font-family:var(--mono);font-size:10px;color:var(--ink-3)"><b style="color:var(--ink)">4.6</b> Trustpilot, 3,743</span>
+          <span style="font-family:var(--mono);font-size:10px;color:var(--ink-3)"><b style="color:var(--ink)">FCA</b> authorised</span>
+          <span style="font-family:var(--mono);font-size:10px;color:var(--ink-3)"><b style="color:var(--ink)">ICO</b> registered</span>
+        </div>
+
+        <div style="margin-top:var(--s5)">
+          <span class="d-btn d-btn--p">Show me my plan</span>
+          <span class="d-btn d-btn--g hs" data-n="6">Not now, remind me at exchange</span>
+        </div>
+      </div></div>
+
+      <div class="annot__col annot__col--r">
+        <div class="co"><span class="co__n">4</span><p class="co__t">A named human, up front</p><p class="co__d">35 of 39 reviews in your 2026 export name a specific specialist. Trust attaches to people, so the owner is a field on the move record and receives every escalation.</p><span class="co__src">Your Trustpilot reviews</span></div>
+        <div class="co"><span class="co__n">5</span><p class="co__t">Real trust markers only</p><p class="co__d">Live review count, not a curated badge. A sceptic checks the number.</p><span class="co__src">ACI/YouGov: 60% quit after one mistake</span></div>
+        <div class="co"><span class="co__n">6</span><p class="co__t">Permission to defer</p><p class="co__d">A second action that costs the mover nothing. Pushing a 31 item list at someone whose sale might collapse burns the relationship.</p><span class="co__src">Connells: 37% fall through</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STEP 2 · THE FOG =============================== -->
+  <section class="step" data-step="2">
+    <div class="step__head">
+      <p class="step__eyebrow">Stage 1 · t minus 30</p>
+      <h1 class="step__title">The stage where the right move is to do almost nothing</h1>
+      <p class="step__job">The date is not real yet. Standard advice is not to notify anyone before contracts exchange, because a fall-through means doing it all twice.</p>
+      <div class="step__tags"><span class="step__tag step__tag--state">state: watching</span><span class="step__tag">ambient only</span><span class="step__tag">two lists appear</span></div>
+    </div>
+
+    <div class="annot">
+      <div class="annot__col annot__col--l">
+        <div class="co"><span class="co__n">1</span><p class="co__t">Stage stepper, not a scroll</p><p class="co__d">Four fixed stages as primary navigation. It answers "where am I" in a process movers describe as formless, and it keeps every list short.</p><span class="co__src">Your note on scrolling</span></div>
+        <div class="co"><span class="co__n">2</span><p class="co__t">Only long lead-time items surface</p><p class="co__d">Broadband availability and the energy supplier question. Everything else waits, because early effort on a move that dies is wasted trust.</p><span class="co__src">TechRadar: 14 to 21 day installs</span></div>
+        <div class="co"><span class="co__n">3</span><p class="co__t">Blocked is shown honestly</p><p class="co__d">Removals cannot be booked without a date. We say blocked and name the dependency rather than nagging.</p><span class="co__src">Task state machine</span></div>
+      </div>
+
+      <div class="device"><div class="device__notch"></div><div class="device__vp">
+        <p class="d-eyebrow">Stage 1 of 4</p>
+        <h2 class="d-h1">Nothing to do yet.</h2>
+        <p class="d-sub">Your sale has not exchanged, so telling anyone now risks doing it all twice. We are watching for the date.</p>
+
+        <div class="d-stepper hs" data-n="1" style="padding:6px">
+          <div class="d-stepper__s" data-st="now"><div class="d-stepper__b"></div><span class="d-stepper__l">The fog</span></div>
+          <div class="d-stepper__s"><div class="d-stepper__b"></div><span class="d-stepper__l">Countdown</span></div>
+          <div class="d-stepper__s"><div class="d-stepper__b"></div><span class="d-stepper__l">The day</span></div>
+          <div class="d-stepper__s"><div class="d-stepper__b"></div><span class="d-stepper__l">Settling</span></div>
+        </div>
+
+        <div class="d-tier"><span class="d-tier__t hs" data-n="2">Worth doing early</span><span class="d-tier__n">3</span></div>
+        <p class="d-tier__note">Optional. These have long lead times, so early is cheaper.</p>
+
+        <div class="d-task"><div class="d-task__top"><div><div class="d-task__n">Check what broadband your street can get</div><div class="d-task__w">Jay · no action needed</div></div><span class="d-state d-state--done">checked</span></div><p class="d-task__y">Full fibre is available at 41 Ashby Road. Ordering has to wait until you have keys.</p></div>
+
+        <div class="d-task"><div class="d-task__top"><div><div class="d-task__n">Ask the seller who supplies the energy</div><div class="d-task__w">You · 2 min</div></div><span class="d-state d-state--needs">worth asking</span></div><p class="d-task__y">Knowing the supplier before you move saves about a week of guessing later.</p></div>
+
+        <div class="d-task hs" data-n="3"><div class="d-task__top"><div><div class="d-task__n">Book removals</div><div class="d-task__w">You · 10 min</div></div><span class="d-state d-state--blocked">blocked · no date</span></div><p class="d-task__y">Fridays and month ends book out first. We will nudge you the day your date is fixed.</p></div>
+
+        <div class="d-tier"><span class="d-tier__t hs" data-n="4">While you wait</span><span class="d-tier__n">4</span></div>
+        <p class="d-tier__note">No deadlines here. Just things people like knowing.</p>
+        <div class="d-grid hs" data-n="5" style="padding:6px">
+          <div class="d-could"><div><div class="d-could__t">Your new area</div><div class="d-could__s">2 GPs, 1 school, 3 parks</div></div></div>
+          <div class="d-could"><div><div class="d-could__t">Bin days</div><div class="d-could__s">Camden collects Tuesdays</div></div></div>
+          <div class="d-could"><div><div class="d-could__t">First night kit</div><div class="d-could__s">The 9 things people forget</div></div></div>
+          <div class="d-could"><div><div class="d-could__t">What it will cost</div><div class="d-could__s">2 bed, 6 miles</div></div></div>
+        </div>
+      </div></div>
+
+      <div class="annot__col annot__col--r">
+        <div class="co"><span class="co__n">4</span><p class="co__t">The second list starts here</p><p class="co__d">Must do and could do are separate from the first screen onwards. The mover can always tell which items are load bearing.</p><span class="co__src">Your two list idea</span></div>
+        <div class="co"><span class="co__n">5</span><p class="co__t">Could do has no states and no deadlines</p><p class="co__d">Warm, browsable, never chased. Gamification lives here and nowhere near a council tax penalty.</p><span class="co__src">Two lists, two registers</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STEP 3 · DISCOVERY ============================= -->
+  <section class="step" data-step="3">
+    <div class="step__head">
+      <p class="step__eyebrow">Stage 2 · exchange confirmed</p>
+      <h1 class="step__title">One brief, many baskets</h1>
+      <p class="step__job">A good specialist does not run six discoveries. They ask overlapping questions once and fan the answers across products. This does the same thing explicitly.</p>
+      <div class="step__tags"><span class="step__tag step__tag--state">state: armed</span><span class="step__tag">UI leads, voice explains</span><span class="step__tag">6 to 9 questions</span></div>
+    </div>
+
+    <div class="annot">
+      <div class="annot__col annot__col--l">
+        <div class="co"><span class="co__n">1</span><p class="co__t">A bounded promise</p><p class="co__d">Six questions, then it is handled. The enemy at this stage is not disagreement, it is the sense of an unbounded list.</p><span class="co__src">Ofgem: choice overload</span></div>
+        <div class="co"><span class="co__n">2</span><p class="co__t">Adaptive length</p><p class="co__d">The question set is scored by how much each answer moves a recommendation, and stops when confidence is met across all categories. Six if decisive, nine if ambiguous.</p><span class="co__src">Adaptive discovery</span></div>
+      </div>
+
+      <div class="device"><div class="device__notch"></div><div class="device__vp">
+        <p class="d-eyebrow">Stage 2 · 12 days to go</p>
+        <h2 class="d-h1 hs" data-n="1">Six questions, then I will sort the rest.</h2>
+        <p class="d-sub">These answers cover energy, broadband and insurance together. You will not be asked the same thing three times.</p>
+
+        <p class="d-eyebrow hs" data-n="2" style="margin-top:var(--s5);padding:6px">Question 3 of 6</p>
+        <p class="d-q" style="margin-top:6px">How many of you will be living there?</p>
+        <div class="d-opts"><span class="d-opt">Just me</span><span class="d-opt" data-on>Two of us</span><span class="d-opt">Three or four</span><span class="d-opt">Five or more</span></div>
+
+        <p class="d-q">Is anyone home during the day?</p>
+        <div class="d-opts"><span class="d-opt" data-on>Yes, most days</span><span class="d-opt">Sometimes</span><span class="d-opt">Rarely</span></div>
+
+        <div class="hs" data-n="3" style="padding:6px;margin-top:8px">
+          <p class="d-q" style="margin-top:8px">How long is your tenancy?</p>
+          <div class="d-opts"><span class="d-opt">6 months</span><span class="d-opt" data-on>12 months</span><span class="d-opt">Longer</span><span class="d-opt">I own it</span></div>
+        </div>
+
+        <div class="d-card hs" data-n="4" style="margin-top:var(--s5);background:#fafaff">
+          <p class="d-eyebrow">What these answers do</p>
+          <p style="font-size:12px;line-height:1.55;color:var(--ink-2);margin-top:8px">Two adults, home most days, sets your energy usage band and broadband speed tier. A 12 month tenancy caps the contract length we will offer you.</p>
+        </div>
+
+        <span class="d-btn d-btn--p" style="margin-top:var(--s5)">See what I would pick</span>
+      </div></div>
+
+      <div class="annot__col annot__col--r">
+        <div class="co"><span class="co__n">3</span><p class="co__t">Tenancy length caps contract length</p><p class="co__d">We never sell an 18 month deal into a 12 month tenancy. Reviewers praise your specialists for exactly this, so it becomes a rule rather than a habit.</p><span class="co__src">Your Trustpilot reviews</span></div>
+        <div class="co"><span class="co__n">4</span><p class="co__t">Show the fan-out</p><p class="co__d">Telling the mover what each answer is for is the cheapest trust mechanism in the flow. It also stops the questions feeling like data harvesting.</p><span class="co__src">ACI/YouGov: 60% quit after one mistake</span></div>
+        <div class="co co--behind"><span class="co__n">5</span><span class="co__behind">Behind the screen</span><p class="co__t">Two hidden branches</p><p class="co__d">A novice flag opens with orientation instead of price. Under 14 days to move flips ranking from price to activation speed.</p><span class="co__src">Trustpilot: novice and short notice movers</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STEP 4 · BASKET ================================ -->
+  <section class="step" data-step="4">
+    <div class="step__head">
+      <p class="step__eyebrow">Stage 2 · the commercial moment</p>
+      <h1 class="step__title">Three picks. One decision.</h1>
+      <p class="step__job">Ofgem's trials: a single offer converted at 14 to 29.5%, three or more at 2.4 to 13.4%. A comparison grid is a measured conversion penalty, not a style preference.</p>
+      <div class="step__tags"><span class="step__tag step__tag--state">state: armed</span><span class="step__tag">UI leads</span><span class="step__tag">commission disclosed</span></div>
+    </div>
+
+    <div class="annot">
+      <div class="annot__col annot__col--l">
+        <div class="co"><span class="co__n">1</span><p class="co__t">One pick per category</p><p class="co__d">Never a list. The API returns rank 1 only in the primary payload, so the shape of the data makes a comparison grid awkward to build.</p><span class="co__src">Ofgem: single offer converts 14 to 29.5%</span></div>
+        <div class="co"><span class="co__n">2</span><p class="co__t">The reason cites their own answers</p><p class="co__d">"Fixed for exactly as long as your tenancy" is traceable to question three. A recommendation without a reason is just an advert.</p><span class="co__src">Trustpilot positive sample</span></div>
+        <div class="co"><span class="co__n">3</span><p class="co__t">Commission and social proof share one block</p><p class="co__d">Split apart, a percentage next to a paid recommendation reads as a sales device. Together they read as candour. 75% trust an agent less when recommendations are paid for.</p><span class="co__src">Quad/Harris: 75% distrust paid results</span></div>
+      </div>
+
+      <div class="device"><div class="device__notch"></div><div class="device__vp">
+        <p class="d-eyebrow">Stage 2 · your basket</p>
+        <h2 class="d-h1">Three picks. One decision.</h2>
+
+        <div class="d-card d-offer hs" data-n="1" style="margin-top:var(--s5)">
+          <span class="d-badge">Top pick · energy</span>
+          <div class="d-offer__h"><div class="d-offer__b">Octopus 12M Fixed</div><div class="d-offer__p">£118<span>saves £214 / yr</span></div></div>
+          <p class="d-offer__r hs" data-n="2" style="padding:4px 4px 4px 10px">Fixed for exactly as long as your tenancy, so you will not pay an exit fee when you move again. Cheapest fixed rate at your postcode today.</p>
+          <div class="d-chips"><span class="d-chip">12 months</span><span class="d-chip">100% renewable</span><span class="d-chip">no exit fee</span></div>
+          <div class="d-disc hs" data-n="3">
+            <div class="d-disc__r"><span class="d-disc__k">We earn</span><span><b class="d-disc__n">£38</b> if you switch. It does not change your price, and it is the same fee across every supplier on our panel.</span></div>
+            <div class="d-disc__r"><span class="d-disc__k">Others</span><span><b class="d-disc__n">64%</b> of 2 person households moving into NW5 chose this, from 187 moves.</span></div>
+          </div>
+          <p class="d-exp hs" data-n="4">+ Why not the other 6</p>
+        </div>
+
+        <div class="d-card d-offer">
+          <span class="d-badge">Top pick · broadband</span>
+          <div class="d-offer__h"><div class="d-offer__b">Community Fibre 500Mb</div><div class="d-offer__p">£25<span>saves £96 / yr</span></div></div>
+          <p class="d-offer__r hs" data-n="5" style="padding:4px 4px 4px 10px">The only provider that can install before 14 August. Everyone else quotes 18 to 21 days, which would leave you offline for your first week.</p>
+          <div class="d-chips"><span class="d-chip">installs in 6 days</span><span class="d-chip">12 months</span></div>
+          <div class="d-disc">
+            <div class="d-disc__r"><span class="d-disc__k">We earn</span><span><b class="d-disc__n">£55</b> if you order through us.</span></div>
+          </div>
+        </div>
+
+        <div class="d-card d-offer">
+          <span class="d-badge">Top pick · contents</span>
+          <div class="d-offer__h"><div class="d-offer__b">Urban Jungle Renters</div><div class="d-offer__p">£9<span>from move day</span></div></div>
+          <p class="d-offer__r" style="padding:4px 4px 4px 10px">Starts on 14 August, so your things are covered while they are in the van.</p>
+          <div class="d-disc hs" data-n="6">
+            <div class="d-disc__r"><span class="d-disc__k">We earn</span><span><b class="d-disc__n">£12</b> if you take this policy.</span></div>
+            <div class="d-disc__r"><span class="d-disc__k">Others</span><span>Not enough movers in NW5 yet to show a number. We will not invent one.</span></div>
+          </div>
+        </div>
+
+        <div class="d-card hs" data-n="7" style="margin-top:var(--s4)">
+          <div class="d-row"><span class="d-row__t" style="font-weight:400;color:var(--ink-2)">Per month</span><span style="font-family:var(--mono);font-size:19px;font-weight:650;color:var(--ink)">£152</span></div>
+          <div class="d-row"><span class="d-row__t" style="font-weight:400;color:var(--ink-2)">Against doing nothing</span><span style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--moss)">saves £310 / yr</span></div>
+        </div>
+        <span class="d-btn d-btn--p" style="margin-top:var(--s4)">Confirm all three</span>
+      </div></div>
+
+      <div class="annot__col annot__col--r">
+        <div class="co"><span class="co__n">4</span><p class="co__t">Alternatives collapse, they are not peers</p><p class="co__d">Six rejected options with reasons, one tap away. Hiding them would be dishonest. Showing them as equals would cost conversion.</p><span class="co__src">Ofgem: single offer converts 14 to 29.5%</span></div>
+        <div class="co"><span class="co__n">5</span><p class="co__t">Time-compressed mode is on</p><p class="co__d">Under 14 days to move, broadband ranks by activation speed instead of price, and the reason says so. Movers accept a worse price for certainty, but only if told.</p><span class="co__src">Trustpilot: short notice moves</span></div>
+        <div class="co"><span class="co__n">6</span><p class="co__t">Social proof suppressed below threshold</p><p class="co__d">Under 50 comparable moves we show nothing rather than something vague. The denominator is everyone who saw the option, not everyone who bought.</p><span class="co__src">Social proof guardrails</span></div>
+        <div class="co"><span class="co__n">7</span><p class="co__t">One confirmation, not four checkouts</p><p class="co__d">This is the step that turns four decisions into one, and it is the direct analogue of the closure your phone call delivers.</p><span class="co__src">Trustpilot positive sample</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STEP 5 · CONFIRMED ============================= -->
+  <section class="step" data-step="5">
+    <div class="step__head">
+      <p class="step__eyebrow">Stage 2 · closure</p>
+      <h1 class="step__title">The sentence people rave about, rendered as a screen</h1>
+      <p class="step__job">What movers praise after the human call is not a dashboard. It is the moment someone says "that is everything, and here is what happens next".</p>
+      <div class="step__tags"><span class="step__tag step__tag--state">state: active</span><span class="step__tag">honest states</span><span class="step__tag">11 tasks running</span></div>
+    </div>
+
+    <div class="annot">
+      <div class="annot__col annot__col--l">
+        <div class="co"><span class="co__n">1</span><p class="co__t">Closure, not a dashboard</p><p class="co__d">A flow that ends by returning the mover to a home screen has not delivered the thing the phone call delivers. This screen is the ending.</p><span class="co__src">Trustpilot positive sample</span></div>
+        <div class="co"><span class="co__n">2</span><p class="co__t">Split by who is doing what</p><p class="co__d">Running now with nothing needed from you, versus needs you later. The mover should never have to work out which is which.</p><span class="co__src">Transparency card, Who field</span></div>
+      </div>
+
+      <div class="device"><div class="device__notch"></div><div class="device__vp">
+        <div style="margin-top:var(--s5)">
+          <div class="d-tick">✓</div>
+          <h2 class="d-h1 hs" data-n="1" style="text-align:center">That is the hard part done.</h2>
+          <p class="d-sub" style="text-align:center">Eleven things are now running. Two need you later. Nothing else needs a decision.</p>
+        </div>
+
+        <div class="d-card hs" data-n="2" style="margin-top:var(--s5)">
+          <p class="d-eyebrow">Running now, nothing needed from you</p>
+          <div style="margin-top:10px">
+            <div class="d-row"><span class="d-row__t">Octopus switch started</span><span class="d-state d-state--live">in progress</span></div>
+            <div class="d-row"><span class="d-row__t">Broadband install booked</span><span class="d-state d-state--done">8 Aug</span></div>
+            <div class="d-row"><span class="d-row__t">Contents cover</span><span class="d-state d-state--done">live 14 Aug</span></div>
+            <div class="d-row hs" data-n="3"><span class="d-row__t">Camden council tax</span><span class="d-state d-state--sent">sent · no receipt</span></div>
+            <div class="d-row"><span class="d-row__t">Islington, closing account</span><span class="d-state d-state--sent">sent · no receipt</span></div>
+            <div class="d-row"><span class="d-row__t">Thames Water</span><span class="d-state d-state--done">confirmed</span></div>
+            <div class="d-row"><span class="d-row__t">TV licence</span><span class="d-state d-state--done">confirmed</span></div>
+          </div>
+        </div>
+
+        <div class="d-card hs" data-n="4" style="margin-top:11px;background:var(--fog-sub);box-shadow:none">
+          <p style="font-size:12.5px;line-height:1.55;color:#33455e"><b>Why two of these are not green.</b> Camden and Islington do not send confirmations to third parties. We have sent it and we will check on 16 August. We would rather tell you that than show a tick we cannot back up.</p>
+        </div>
+
+        <span class="d-btn d-btn--p" style="margin-top:var(--s4)">See the full plan</span>
+      </div></div>
+
+      <div class="annot__col annot__col--r">
+        <div class="co"><span class="co__n">3</span><p class="co__t">sent, no receipt</p><p class="co__d">The load bearing state. A large share of councils have no confirmation mechanism. SlothMove's actual weakness is not narrow scope, it is that movers cannot verify anything landed.</p><span class="co__src">SlothMove: updates that silently did not land</span></div>
+        <div class="co"><span class="co__n">4</span><p class="co__t">The honesty is explained, not buried</p><p class="co__d">A green tick that might be false is worse than an honest gap, because 60% of UK adults abandon an agent after one mistake.</p><span class="co__src">ACI/YouGov: 60% quit after one mistake</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STEP 6 · THE PLAN ============================== -->
+  <section class="step" data-step="6">
+    <div class="step__head">
+      <p class="step__eyebrow">Stage 2 · steady state</p>
+      <h1 class="step__title">Two lists, two registers, one data model</h1>
+      <p class="step__job">Must do is deadpan and ordered by cost of delay. Could do is warm and untimed. Tone maps to the tier of task, not to a user preference, so nobody has to pick an interface before they can start.</p>
+      <div class="step__tags"><span class="step__tag step__tag--state">state: active</span><span class="step__tag">no gamification on must do</span><span class="step__tag">date control visible</span></div>
+    </div>
+
+    <div class="annot">
+      <div class="annot__col annot__col--l">
+        <div class="co"><span class="co__n">1</span><p class="co__t">The date control, before it is needed</p><p class="co__d">Persistent, one tap. 37% of sales fall through and exchange to completion runs 1 to 3 weeks. Movers expect to be let down here, which is exactly why it is the place to over deliver.</p><span class="co__src">Connells: 37% fall through</span></div>
+        <div class="co"><span class="co__n">2</span><p class="co__t">Ordered by cost of delay</p><p class="co__d">Not by category, not alphabetically. Deadline first, then lead time. The mover never has to work out what matters most.</p><span class="co__src">Cost of delay: real penalties only</span></div>
+        <div class="co"><span class="co__n">3</span><p class="co__t">Real consequences, real numbers</p><p class="co__d">The £70 is Camden's actual penalty. If we cannot cite a sourced consequence, the task does not belong on the must do list.</p><span class="co__src">Cost of delay: £70 penalty, daily charging</span></div>
+      </div>
+
+      <div class="device"><div class="device__notch"></div><div class="device__vp">
+        <p class="d-eyebrow">Stage 2 of 4 · 12 days to go</p>
+        <h2 class="d-h1">Your plan</h2>
+
+        <div class="d-stepper">
+          <div class="d-stepper__s" data-st="done"><div class="d-stepper__b"></div><span class="d-stepper__l">The fog</span></div>
+          <div class="d-stepper__s" data-st="now"><div class="d-stepper__b"></div><span class="d-stepper__l">Countdown</span></div>
+          <div class="d-stepper__s"><div class="d-stepper__b"></div><span class="d-stepper__l">The day</span></div>
+          <div class="d-stepper__s"><div class="d-stepper__b"></div><span class="d-stepper__l">Settling</span></div>
+        </div>
+
+        <div class="d-datebar hs" data-n="1"><span class="d-datebar__l">Moving <b>14 August</b> · confirmed</span><span class="d-datebar__a">Date moved?</span></div>
+
+        <div class="d-tier"><span class="d-tier__t hs" data-n="2">Must do</span><span class="d-tier__n">2 left of 9</span></div>
+        <div class="d-prog"><div class="d-prog__f" style="width:78%"></div></div>
+
+        <div style="margin-top:11px">
+          <div class="d-task" data-urgent><div class="d-task__top"><div><div class="d-task__n">Give Camden your move-in date</div><div class="d-task__w">Jay sent it · waiting on Camden</div></div><span class="d-state d-state--sent">sent · no receipt</span></div><p class="d-task__y hs" data-n="3" style="padding:4px">Council tax runs daily from the day you move in. Camden adds £70 if it is not registered within 21 days.</p></div>
+          <div class="d-task"><div class="d-task__top"><div><div class="d-task__n">Meter readings at both homes</div><div class="d-task__w">You + Jay · 90 seconds</div></div><span class="d-state d-state--blocked">waiting for keys</span></div><p class="d-task__y">The most forgotten job on moving day. I will ring you on the day and do it with you.</p></div>
+          <div class="d-task"><div class="d-task__top"><div><div class="d-task__n">Redirect your post</div><div class="d-task__w">You · 5 min · needs ID</div></div><span class="d-state d-state--needs">do by 9 Aug</span></div><p class="d-task__y">Royal Mail needs five working days. After that your post goes to strangers.</p></div>
+        </div>
+
+        <div class="d-tier"><span class="d-tier__t hs" data-n="4">Could do</span><span class="d-tier__n">no deadlines</span></div>
+        <p class="d-tier__note">Yours to browse. Nothing here expires and nothing here is chased.</p>
+        <div class="d-grid">
+          <div class="d-could"><div><div class="d-could__t">Where to eat</div><div class="d-could__s">7 places open past 10pm</div></div></div>
+          <div class="d-could"><div><div class="d-could__t">Register with a GP</div><div class="d-could__s">2 practices taking patients</div></div></div>
+          <div class="d-could"><div><div class="d-could__t">First night box</div><div class="d-could__s">Kettle, loo roll, 7 more</div></div></div>
+          <div class="d-could hs" data-n="5"><div><div class="d-could__t">Deep clean</div><div class="d-could__s">From £89 · we earn £14</div></div></div>
+        </div>
+
+        <div class="d-ask hs" data-n="6"><span class="d-ask__t">Ask Jay, or reach Lyndon</span><span class="d-ask__b">Call</span></div>
+      </div></div>
+
+      <div class="annot__col annot__col--r">
+        <div class="co"><span class="co__n">4</span><p class="co__t">Could do gets no states and no progress bar</p><p class="co__d">Progress counts must do only. Nothing here is chased, and the house in the settling view never decays. A punishment mechanic aimed at people mid-move is the wrong instinct.</p><span class="co__src">Your Sims idea, adapted</span></div>
+        <div class="co"><span class="co__n">5</span><p class="co__t">Affiliate carries the same disclosure</p><p class="co__d">"We earn £14" in plain English. CAP Code rule 2.1 requires commercial intent to be obvious, and the ASA has ruled the word "affiliate" alone is not sufficient.</p><span class="co__src">ASA and the CAP Code</span></div>
+        <div class="co"><span class="co__n">6</span><p class="co__t">The human is never behind a bot</p><p class="co__d">Persistent on every screen. 55% of UK adults trust a human expert against 19% for AI, so hiding the human is fighting the customer's stated preference.</p><span class="co__src">ACI/YouGov</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STEP 7 · TASK DETAIL =========================== -->
+  <section class="step" data-step="7">
+    <div class="step__head">
+      <p class="step__eyebrow">Any task, any stage</p>
+      <h1 class="step__title">Who, what, when, where, why</h1>
+      <p class="step__job">One component renders every task in the product. It is the most reusable thing in the handoff and it carries the trust architecture inside it.</p>
+      <div class="step__tags"><span class="step__tag">c-transparency</span><span class="step__tag">3 data sources</span><span class="step__tag">escalation named</span></div>
+    </div>
+
+    <div class="annot">
+      <div class="annot__col annot__col--l">
+        <div class="co"><span class="co__n">1</span><p class="co__t">Who did it, explicitly</p><p class="co__d">Jay, you, Lyndon, or the provider. And it names the Letter of Authority as the thing that permits it, which turns consent into something legible rather than a buried checkbox.</p><span class="co__src">SlothMove: the Letter of Authority pattern</span></div>
+        <div class="co"><span class="co__n">2</span><p class="co__t">Where, named specifically</p><p class="co__d">Not "the council" but Camden's council tax team and the form used. Vagueness here is what makes movers doubt anything happened.</p><span class="co__src">SlothMove: updates that silently did not land</span></div>
+        <div class="co"><span class="co__n">3</span><p class="co__t">Why, sourced from the ledger</p><p class="co__d">Daily charging, the 21 day window, the £70 penalty. This is fear-led framing done honestly. No countdown timers, no invented scarcity.</p><span class="co__src">Cost of delay: real penalties only</span></div>
+      </div>
+
+      <div class="device"><div class="device__notch"></div><div class="device__vp">
+        <p class="d-eyebrow">Must do · council</p>
+        <h2 class="d-h1">Give Camden your move-in date</h2>
+        <div style="margin-top:11px"><span class="d-state d-state--sent">sent · no receipt</span></div>
+
+        <div class="d-card" style="margin-top:var(--s4);padding:0 var(--s4) 8px">
+          <div class="d-trans">
+            <div class="d-trans__r"><span class="d-trans__k">What</span><span class="d-trans__v">Open a council tax account at 41 Ashby Road in your name, starting 14 August.</span></div>
+            <div class="d-trans__r hs" data-n="1"><span class="d-trans__k">Who</span><span class="d-trans__v"><b>Jay did this.</b> You signed the authority on 2 August, which is what lets us act for you.</span></div>
+            <div class="d-trans__r"><span class="d-trans__k">When</span><span class="d-trans__v">Sent 2 August. Camden want to know within <b>21 days</b> of you moving in.</span></div>
+            <div class="d-trans__r hs" data-n="2"><span class="d-trans__k">Where</span><span class="d-trans__v">London Borough of Camden, council tax team, via their change of occupancy form.</span></div>
+            <div class="d-trans__r hs" data-n="3"><span class="d-trans__k">Why</span><span class="d-trans__v">Council tax is charged <b>daily</b> from the day you move in, whether or not you have registered. Camden can add a <b>£70 penalty</b> for late notification.</span></div>
+            <div class="d-trans__r hs" data-n="4"><span class="d-trans__k">Status</span><span class="d-trans__v">Camden does not send confirmations to third parties, so we cannot show this as confirmed. <b>We will check on 16 August</b> and tell you either way.</span></div>
+            <div class="d-trans__r" style="border:0"><span class="d-trans__k">Cost</span><span class="d-trans__v">Free. We earn nothing on council notifications.</span></div>
+          </div>
+        </div>
+
+        <div class="d-card hs" data-n="5" style="margin-top:var(--s4)">
+          <p class="d-eyebrow">If this goes wrong</p>
+          <div style="display:flex;align-items:center;gap:11px;margin-top:11px">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(150deg,#7d63ff,#4a2ee0);display:grid;place-items:center;color:#fff;font-weight:650;font-size:12px">LB</div>
+            <div><div style="font-size:12.5px;font-weight:600;color:var(--ink)">Lyndon picks this up</div><div style="font-size:11px;color:var(--ink-3)">Escalates automatically if Camden has not replied by 16 Aug</div></div>
+          </div>
+        </div>
+      </div></div>
+
+      <div class="annot__col annot__col--r">
+        <div class="co"><span class="co__n">4</span><p class="co__t">Status explains itself, and names a date</p><p class="co__d">Not just "pending". Why it cannot be confirmed, and exactly when we will chase. Uncertainty about state is what causes the anxiety, not the work itself.</p><span class="co__src">Task state machine</span></div>
+        <div class="co"><span class="co__n">5</span><p class="co__t">Escalation is automatic and named</p><p class="co__d">Triggers include repeat failure, distress language, complaint intent and the vulnerability flag. Handoff is designed as a feature, not a failure state.</p><span class="co__src">Klarna rehired humans in 2025</span></div>
+        <div class="co co--behind"><span class="co__n">6</span><span class="co__behind">Behind the screen</span><p class="co__t">Three data sources feed one card</p><p class="co__d">Task catalogue for what and who, the council rules table for when and where, the cost of inaction ledger for why. The rules table needs a named owner and an annual budget.</p><span class="co__src">Task catalogue, rules table, cost ledger</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STEP 8 · DATE MOVED ============================ -->
+  <section class="step" data-step="8">
+    <div class="step__head">
+      <p class="step__eyebrow">Cross-cutting event</p>
+      <h1 class="step__title">The date moves. Nothing is lost.</h1>
+      <p class="step__job">The single most important behaviour in the product, and the one no competitor has. Every task is an offset against a mutable date, not a fixed calendar entry.</p>
+      <div class="step__tags"><span class="step__tag step__tag--state">event: move_date_changed</span><span class="step__tag">0 re-entry</span><span class="step__tag">one message, not fourteen</span></div>
+    </div>
+
+    <div class="annot">
+      <div class="annot__col annot__col--l">
+        <div class="co"><span class="co__n">1</span><p class="co__t">One tap, no re-entry</p><p class="co__d">The mover picks a new date. They do not re-answer discovery, re-pick offers, or re-sign anything. If lostOrReentered is ever above zero, that is a bug rather than a message.</p><span class="co__src">Date change cascade</span></div>
+        <div class="co"><span class="co__n">2</span><p class="co__t">A diff, not a wall of updates</p><p class="co__d">Fourteen rescheduled, one needs redoing, zero lost. The mover reads three numbers instead of fourteen notifications.</p><span class="co__src">Ofgem: choice overload</span></div>
+      </div>
+
+      <div class="device"><div class="device__notch"></div><div class="device__vp">
+        <p class="d-eyebrow">Your date</p>
+        <h2 class="d-h1">Moved to 28 August.</h2>
+        <p class="d-sub hs" data-n="1" style="padding:6px">I have redone the plan. You do not need to re-enter anything.</p>
+
+        <div class="d-diff hs" data-n="2">
+          <div class="d-diff__i"><div class="d-diff__n">14</div><div class="d-diff__l">tasks<br>rescheduled</div></div>
+          <div class="d-diff__i d-diff__i--w"><div class="d-diff__n">1</div><div class="d-diff__l">needs<br>redoing</div></div>
+          <div class="d-diff__i"><div class="d-diff__n">0</div><div class="d-diff__l">lost or<br>re-entered</div></div>
+        </div>
+
+        <div class="d-card" style="margin-top:var(--s4)">
+          <p class="d-eyebrow">What changed</p>
+          <div style="margin-top:10px">
+            <div class="d-row"><span class="d-row__t">Broadband install</span><span class="d-state d-state--live">rebooking 22 Aug</span></div>
+            <div class="d-row"><span class="d-row__t">Contents cover start</span><span class="d-state d-state--done">moved to 28 Aug</span></div>
+            <div class="d-row hs" data-n="3"><span class="d-row__t">Camden council tax</span><span class="d-state d-state--sent">amended, resent</span></div>
+            <div class="d-row"><span class="d-row__t">Energy switch</span><span class="d-state d-state--done">paused, resumes 28 Aug</span></div>
+            <div class="d-row hs" data-n="4"><span class="d-row__t">Post redirection</span><span class="d-state d-state--needs">redo · cannot amend</span></div>
+          </div>
+        </div>
+
+        <div class="d-card hs" data-n="5" style="margin-top:11px;background:var(--amber-sub);box-shadow:none">
+          <p style="font-size:12.5px;line-height:1.55;color:#6b3d05"><b>One thing needs you.</b> Royal Mail cannot change the start date on a redirection once it is placed. You will need to cancel and re-book. It takes four minutes and I can open the form for you.</p>
+        </div>
+
+        <span class="d-btn d-btn--p" style="margin-top:var(--s4)">Looks right</span>
+      </div></div>
+
+      <div class="annot__col annot__col--r">
+        <div class="co"><span class="co__n">3</span><p class="co__t">Amendable destinations amend silently</p><p class="co__d">Where the destination allows it, the task keeps its state and we log the amendment. The mover does not need to know Camden accepts changes and Royal Mail does not.</p><span class="co__src">Date change cascade</span></div>
+        <div class="co"><span class="co__n">4</span><p class="co__t">Non-amendable ones fail loudly</p><p class="co__d">Royal Mail redirection start dates cannot be amended. The task returns to needs you with the reason named. One honest redo beats fourteen silently wrong tasks.</p><span class="co__src">Per-destination rules table</span></div>
+        <div class="co"><span class="co__n">5</span><p class="co__t">The failure comes with the fix</p><p class="co__d">Errors do not apologise and they are never vague. They name what happened, how long the fix takes, and offer to start it.</p><span class="co__src">Content principle</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STEP 9 · MOVING DAY ============================ -->
+  <section class="step" data-step="9">
+    <div class="step__head">
+      <p class="step__eyebrow">Stage 3 · the day</p>
+      <h1 class="step__title">The only part that happens by voice</h1>
+      <p class="step__job">Access decides modality, not taste. On moving day the mover has mobile data at best, a dying battery, one free hand and no broadband. Voice is the only rail that works, and it is the moment your human service does not currently reach.</p>
+      <div class="step__tags"><span class="step__tag step__tag--state">state: moved</span><span class="step__tag">voice leads</span><span class="step__tag">two intents only</span></div>
+    </div>
+
+    <div class="annot">
+      <div class="annot__col annot__col--l">
+        <div class="co"><span class="co__n">1</span><p class="co__t">Two intents, and no more</p><p class="co__d">Vendors claim 67 to 86% resolution. Production clusters at 38 to 50%, and 70 to 85% is only reachable on well-scoped, deeply integrated use cases. Two intents is what well-scoped looks like.</p><span class="co__src">Production agents resolve 38 to 50%</span></div>
+        <div class="co"><span class="co__n">2</span><p class="co__t">Keys confirmation fires everything downstream</p><p class="co__d">One spoken yes sets the council tax start date, activates the contents cover and notifies water and energy of occupancy. The mover says one word.</p><span class="co__src">Voice intents, locked outside move day</span></div>
+      </div>
+
+      <div class="device"><div class="device__notch"></div><div class="device__vp">
+        <p class="d-eyebrow">Stage 3 · moving day</p>
+        <h2 class="d-h1">Jay is calling you.</h2>
+
+        <div class="d-voice hs" data-n="1" style="margin-top:var(--s4)">
+          <div class="d-orb"></div>
+          <p class="d-voice__w hs" data-n="4">Jay · automated · 0:42</p>
+          <p class="d-voice__s">"Two things and I will leave you to it. Have you got the keys?"</p>
+          <p class="d-voice__m">say yes · or press 1</p>
+        </div>
+
+        <div class="d-card hs" data-n="2" style="margin-top:var(--s4)">
+          <p class="d-eyebrow">Intent 1 · keys confirmed</p>
+          <div style="margin-top:10px">
+            <div class="d-row"><span class="d-row__t">Council tax start date</span><span class="d-state d-state--done">set to today</span></div>
+            <div class="d-row"><span class="d-row__t">Contents cover</span><span class="d-state d-state--done">live now</span></div>
+            <div class="d-row"><span class="d-row__t">Water, energy occupancy</span><span class="d-state d-state--live">notifying</span></div>
+          </div>
+        </div>
+
+        <div class="d-card hs" data-n="3" style="margin-top:11px">
+          <p class="d-eyebrow">Intent 2 · meter readings</p>
+          <p style="font-size:12px;color:var(--ink-2);line-height:1.5;margin-top:8px">"Point your camera at the meter. I will read it out and you tell me if I have it wrong."</p>
+          <div class="d-meter"><div class="d-meter__r">48213.7</div><div class="d-meter__l">electricity · 14 aug 11:04 · photo stored</div></div>
+          <div style="margin-top:10px">
+            <div class="d-row"><span class="d-row__t">Sent to Octopus, new home</span><span class="d-state d-state--done">confirmed</span></div>
+            <div class="d-row"><span class="d-row__t">Sent to EDF, old home</span><span class="d-state d-state--done">confirmed</span></div>
+          </div>
+        </div>
+
+        <div class="d-card hs" data-n="5" style="margin-top:11px;background:var(--violet-sub);box-shadow:none">
+          <p style="font-size:12.5px;line-height:1.5;color:var(--ink)"><b>That is everything for today.</b> Your broadband engineer arrives tomorrow between 8 and 1. There is a chippy on Ashby Road open until 11.</p>
+        </div>
+      </div></div>
+
+      <div class="annot__col annot__col--r">
+        <div class="co"><span class="co__n">3</span><p class="co__t">Meter capture, read back before submitting</p><p class="co__d">The highest leverage micro-task in the whole journey, and the most forgotten. Camera, OCR, timestamp, photo retained as evidence, sent to both suppliers. The reading is confirmed aloud, never assumed from OCR.</p><span class="co__src">Mumsnet: the most forgotten job</span></div>
+        <div class="co"><span class="co__n">4</span><p class="co__t">It does not pretend to be human</p><p class="co__d">"Jay · automated" on screen and disclosed at call open. Consumers already identify AI by responses that arrive too fast or sound too formal, so a machine caught pretending loses everything.</p><span class="co__src">Your line: it is a robot and it gets things done</span></div>
+        <div class="co"><span class="co__n">5</span><p class="co__t">Then it stops</p><p class="co__d">36% of movers report feeling excited on moving day. There is a joy layer to protect, not only a stress layer to remove. Two jobs in ninety seconds, one useful local fact, then silence.</p><span class="co__src">Realtor.com: 36% feel excited</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STEP 10 · SETTLING ============================= -->
+  <section class="step" data-step="10">
+    <div class="step__head">
+      <p class="step__eyebrow">Stage 4 · t plus 14</p>
+      <h1 class="step__title">Where a transaction becomes a relationship</h1>
+      <p class="step__job">The least settled phase emotionally, and where motivation collapses once the frightening items are done. High need, low motivation, which is exactly where a proactive agent earns its keep.</p>
+      <div class="step__tags"><span class="step__tag step__tag--state">state: settling</span><span class="step__tag">could do takes over</span><span class="step__tag">retention thesis</span></div>
+    </div>
+
+    <div class="annot">
+      <div class="annot__col annot__col--l">
+        <div class="co"><span class="co__n">1</span><p class="co__t">The home fills in, and never decays</p><p class="co__d">Your Sims idea, built as a progress layer over existing task data rather than a second product. Lights on when energy is set, number on the door when the council registers. No streaks, no timers.</p><span class="co__src">Your idea, adapted</span></div>
+        <div class="co"><span class="co__n">2</span><p class="co__t">Each element maps to a real task</p><p class="co__d">Router appears when broadband confirms. Meter box when readings land. It is a visualisation, not decoration, so it stays honest.</p><span class="co__src">Progress layer, not a game</span></div>
+        <div class="co"><span class="co__n">3</span><p class="co__t">The estimated bill catch</p><p class="co__d">We captured the real opening reading on Day 0, so we can see the first bill is estimated and by how much. This is the moment that earns the right to ask for inbox access.</p><span class="co__src">Nous.co: inbox connection earns its ask</span></div>
+      </div>
+
+      <div class="device"><div class="device__notch"></div><div class="device__vp">
+        <p class="d-eyebrow">Stage 4 of 4 · day 14</p>
+        <h2 class="d-h1">41 Ashby Road</h2>
+        <p class="d-sub">The admin is finished. This part has no deadlines.</p>
+
+        <div class="d-home hs" data-n="1" style="margin-top:var(--s4)">
+          <svg viewBox="0 0 300 168" style="display:block;width:100%;height:auto" role="img" aria-label="Your home, filling in as things get done">
+            <rect x="46" y="62" width="208" height="86" rx="6" fill="#fff"/>
+            <path d="M36 64 L150 14 L264 64 Z" fill="#5b3df5"/>
+            <path d="M36 64 L150 14 L264 64 Z" fill="#000" opacity=".08"/>
+            <rect x="68" y="80" width="42" height="34" rx="4" fill="#ffd98a"/>
+            <rect x="126" y="80" width="42" height="34" rx="4" fill="#ffd98a"/>
+            <rect x="184" y="80" width="42" height="34" rx="4" fill="#ffd98a"/>
+            <rect x="128" y="118" width="38" height="30" rx="3" fill="#2f2a4a"/>
+            <text x="147" y="137" font-family="IBM Plex Mono, monospace" font-size="11" fill="#fff" text-anchor="middle">41</text>
+            <g transform="translate(196,120)"><rect width="26" height="9" rx="3" fill="#12664c"/><circle cx="6" cy="4.5" r="1.6" fill="#7ee3b6"/></g>
+            <rect x="58" y="120" width="20" height="16" rx="3" fill="#5d7391"/>
+            <g transform="translate(238,126)"><rect x="2" y="10" width="12" height="12" rx="2" fill="#c98a5e"/><path d="M8 10 C8 2 2 4 3 0 M8 10 C8 3 14 5 13 1" stroke="#2f7a52" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+          </svg>
+          <div class="d-tags hs" data-n="2" style="padding:4px">
+            <span class="d-tag">lights on</span><span class="d-tag">number registered</span><span class="d-tag">wifi live</span><span class="d-tag">meters read</span><span class="d-tag" data-off>no plants yet</span>
+          </div>
+        </div>
+
+        <div class="d-tier"><span class="d-tier__t">Two left</span><span class="d-tier__n">must do</span></div>
+        <div class="d-task hs" data-n="3" data-urgent><div class="d-task__top"><div><div class="d-task__n">Your first Octopus bill is an estimate</div><div class="d-task__w">Jay spotted it · 1 tap to fix</div></div><span class="d-state d-state--needs">worth £34</span></div><p class="d-task__y">They billed 512 kWh. Your actual opening reading makes it 388 kWh. I can send them the real figure.</p></div>
+        <div class="d-task"><div class="d-task__top"><div><div class="d-task__n">Register to vote here</div><div class="d-task__w">You · 4 min</div></div><span class="d-state d-state--needs">do anytime</span></div><p class="d-task__y">The most forgotten job after a move. It also affects your credit file.</p></div>
+
+        <div class="d-tier"><span class="d-tier__t hs" data-n="4">Making it yours</span><span class="d-tier__n">no deadlines</span></div>
+        <div class="d-grid">
+          <div class="d-could"><div><div class="d-could__t">Coffee near you</div><div class="d-could__s">4 places, one opens at 6.30</div></div></div>
+          <div class="d-could"><div><div class="d-could__t">Sunday football</div><div class="d-could__s">Two teams need players</div></div></div>
+          <div class="d-could"><div><div class="d-could__t">Plants for north light</div><div class="d-could__s">From £12 · we earn £2</div></div></div>
+          <div class="d-could"><div><div class="d-could__t">Meet the street</div><div class="d-could__s">3 neighbours said hello</div></div></div>
+        </div>
+
+        <div class="d-card hs" data-n="5" style="margin-top:var(--s5)">
+          <p class="d-eyebrow">How did we do</p>
+          <p style="font-size:13px;font-weight:600;margin-top:8px;color:var(--ink)">Was the broadband recommendation right for you?</p>
+          <div class="d-opts"><span class="d-opt">Yes</span><span class="d-opt">No</span><span class="d-opt">Too early</span></div>
+        </div>
+      </div></div>
+
+      <div class="annot__col annot__col--r">
+        <div class="co"><span class="co__n">4</span><p class="co__t">The could do tier takes over</p><p class="co__d">Belonging is the job here. Movers describe grief for lost familiarity and deliberately manufacture routine. This is also the only surface where commercial content can appear without feeling predatory, because the mover is pulling.</p><span class="co__src">Mover diaries: the unsettled fortnight</span></div>
+        <div class="co"><span class="co__n">5</span><p class="co__t">Feedback per decision, at day 14</p><p class="co__d">Attached to a specific recommendation, not to the session. Never asked during the move, when the mover has no capacity. We learn the broadband pick was wrong, not that the app scored 6.</p><span class="co__src">Feedback per decision, at day 14</span></div>
+        <div class="co co--behind"><span class="co__n">6</span><span class="co__behind">Behind the screen</span><p class="co__t">And then the renewal diary</p><p class="co__d">Contract end dates are seeded at signup. At t plus 11 months the move becomes a switch, which is where the recurring revenue is.</p><span class="co__src">Renewal diary seeded at signup</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pager">
+    <button class="pager__b" id="prev">Previous</button>
+    <span class="pager__c" id="count">The whole workflow</span>
+    <button class="pager__b" id="next">Next</button>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var steps = [].slice.call(document.querySelectorAll('[data-step]'));
+  var rail  = [].slice.call(document.querySelectorAll('.rail__b'));
+  var prev  = document.getElementById('prev');
+  var next  = document.getElementById('next');
+  var count = document.getElementById('count');
+  var labels = rail.map(function(b){ return b.textContent.trim(); });
+  var i = 0;
+
+  function show(n){
+    i = Math.max(0, Math.min(n, steps.length - 1));
+    steps.forEach(function(s, k){ s.setAttribute('data-active', k === i ? 'true' : 'false'); });
+    rail.forEach(function(b, k){ b.setAttribute('aria-current', k === i ? 'true' : 'false'); });
+    prev.disabled = i === 0;
+    next.disabled = i === steps.length - 1;
+    count.textContent = labels[i];
+    if (rail[i]) rail[i].scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (history.replaceState) history.replaceState(null, '', '#' + i);
+  }
+
+  rail.forEach(function(b){ b.addEventListener('click', function(){ show(+b.getAttribute('data-go')); }); });
+  prev.addEventListener('click', function(){ show(i - 1); });
+  next.addEventListener('click', function(){ show(i + 1); });
+
+  // hover a callout, highlight the thing it points at
+  document.addEventListener('mouseover', function(e){
+    var co = e.target.closest('.co');
+    if (!co) return;
+    var n = co.querySelector('.co__n').textContent;
+    var host = co.closest('[data-step]');
+    var hs = host.querySelector('.hs[data-n="' + n + '"]');
+    if (hs) hs.classList.add('is-lit');
+  });
+  document.addEventListener('mouseout', function(e){
+    var co = e.target.closest('.co');
+    if (!co) return;
+    var host = co.closest('[data-step]');
+    host.querySelectorAll('.is-lit').forEach(function(el){ el.classList.remove('is-lit'); });
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight') show(i + 1);
+    if (e.key === 'ArrowLeft')  show(i - 1);
+  });
+
+  var h = parseInt((location.hash || '').replace('#',''), 10);
+  show(isNaN(h) ? 0 : h);
+})();
+</script>
+</body>
+</html>

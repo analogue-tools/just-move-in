@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jay · Product analytics dashboard (mock)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #12121a;
+    --ink-2: #4a4a5c;
+    --ink-3: #86869b;
+    --paper: #f4f4f9;
+    --card: #fff;
+    --line: #e6e6ef;
+    --violet: #5b3df5;
+    --violet-sub: #ede9ff;
+    --moss: #12664c;
+    --moss-sub: #e3f3ec;
+    --amber: #a75c07;
+    --amber-sub: #fdf1e0;
+    --fog: #5d7391;
+    --fog-sub: #eaeff5;
+    --danger: #8a2b2b;
+    --danger-sub: #f8e8e8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Instrument Sans", sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.45;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 28px 20px 64px; }
+  header { margin-bottom: 28px; }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 8px;
+  }
+  h1 { font-size: 28px; font-weight: 600; letter-spacing: -.025em; margin: 0 0 8px; }
+  .sub { color: var(--ink-2); font-size: 15px; max-width: 62ch; margin: 0; }
+  .banner {
+    margin-top: 16px;
+    padding: 10px 14px;
+    background: var(--amber-sub);
+    color: var(--amber);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    border-radius: 8px;
+  }
+  .banner a { color: var(--violet); }
+  .grid { display: grid; gap: 14px; }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .grid-2 { grid-template-columns: 1.4fr 1fr; }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 900px) {
+    .grid-4, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+  .card h2 {
+    font-size: 13px;
+    font-weight: 650;
+    margin: 0 0 12px;
+    letter-spacing: -.01em;
+  }
+  .card h2 span {
+    display: block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--ink-3);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .kpi .n {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -.03em;
+  }
+  .kpi .l { font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+  .kpi .d {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    margin-top: 8px;
+  }
+  .up { color: var(--moss); }
+  .down { color: var(--danger); }
+  .warn { color: var(--amber); }
+  .ok { color: var(--moss); }
+  section { margin-top: 22px; }
+  section > .label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 10px;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th, td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+  th {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 500;
+  }
+  td.num, th.num { text-align: right; font-family: "IBM Plex Mono", monospace; font-size: 12.5px; }
+  .bar {
+    height: 8px;
+    background: var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    min-width: 80px;
+  }
+  .bar > i {
+    display: block;
+    height: 100%;
+    background: var(--violet);
+    border-radius: 4px;
+  }
+  .funnel { display: flex; flex-direction: column; gap: 8px; }
+  .funnel__row {
+    display: grid;
+    grid-template-columns: 160px 1fr 64px 56px;
+    gap: 12px;
+    align-items: center;
+    font-size: 13.5px;
+  }
+  @media (max-width: 700px) {
+    .funnel__row { grid-template-columns: 1fr; gap: 4px; }
+  }
+  .funnel__name { font-weight: 600; }
+  .funnel__track {
+    height: 28px;
+    background: var(--violet-sub);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .funnel__fill {
+    height: 100%;
+    background: var(--violet);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    color: #fff;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 500;
+    min-width: fit-content;
+  }
+  .chip {
+    display: inline-block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: var(--fog-sub);
+    color: var(--fog);
+  }
+  .chip--ok { background: var(--moss-sub); color: var(--moss); }
+  .chip--warn { background: var(--amber-sub); color: var(--amber); }
+  .chip--bad { background: var(--danger-sub); color: var(--danger); }
+  .stack { display: flex; flex-direction: column; gap: 10px; }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 13.5px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .row:last-child { border-bottom: 0; }
+  .muted { color: var(--ink-3); font-size: 12.5px; }
+  footer {
+    margin-top: 36px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    color: var(--ink-3);
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">Jay · product analytics</p>
+      <h1>Move success &amp; drop-off</h1>
+      <p class="sub">Monitors activation, feature health, and honest task outcomes. Metric definitions, warehouse path, and P0 guardrails: <a href="../FLOWS-EVENTS-ANALYTICS.md">FLOWS-EVENTS-ANALYTICS.md §D</a>.</p>
+      <div class="banner">Illustrative sample data for dashboard design · not live production metrics · window: last 28 days · cohort: referred moves · wire to fact_event / fact_funnel_step</div>
+    </header>
+
+    <section>
+      <p class="label">Health strip</p>
+      <div class="grid grid-4">
+        <div class="card kpi">
+          <div class="n">1,248</div>
+          <div class="l">Active moves</div>
+          <div class="d up">watching 312 · armed 188 · active 410 · moved 97 · settling 241</div>
+        </div>
+        <div class="card kpi">
+          <div class="n ok">0</div>
+          <div class="l">Outbound while watching</div>
+          <div class="d ok">Alert threshold: any &gt; 0</div>
+        </div>
+        <div class="card kpi">
+          <div class="n">94.2%</div>
+          <div class="l">Cascade integrity (lost = 0)</div>
+          <div class="d warn">7 cascades with named redo only</div>
+        </div>
+        <div class="card kpi">
+          <div class="n">0</div>
+          <div class="l">False confirmed tasks</div>
+          <div class="d ok">confirmed requires receipt_id</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="label">Activation funnel</p>
+      <div class="card">
+        <h2>App activation <span>Event path · referral_continue → keys_confirmed</span></h2>
+        <div class="funnel" id="funnel"></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="grid grid-2">
+        <div class="card">
+          <h2>Drop-off by step <span>Entered step N, no N+1 within SLA</span></h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Step gap</th>
+                <th class="num">Entered</th>
+                <th class="num">Dropped</th>
+                <th class="num">Drop %</th>
+                <th>Median lag</th>
+              </tr>
+            </thead>
+            <tbody id="dropRows"></tbody>
+          </table>
+        </div>
+        <div class="card">
+          <h2>Task honesty <span>Terminal states for Tier 2 notifies</span></h2>
+          <div class="stack" id="honesty"></div>
+          <p class="muted" style="margin-top:12px">Fog (`unconfirmable`) is success when no confirmation API exists. Never merge into confirmed.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="label">Feature success</p>
+      <div class="grid grid-3" id="features"></div>
+    </section>
+
+    <section>
+      <div class="grid grid-2">
+        <div class="card">
+          <h2>Day 0 modality <span>keys_confirmed · meter_read_submit</span></h2>
+          <table>
+            <thead>
+              <tr><th>Action</th><th>Voice</th><th>UI</th><th>Mix</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Keys</td>
+                <td class="num">38%</td>
+                <td class="num">62%</td>
+                <td><div class="bar"><i style="width:38%;background:var(--violet)"></i></div></td>
+              </tr>
+              <tr>
+                <td>Meters</td>
+                <td class="num">21%</td>
+                <td class="num">79%</td>
+                <td><div class="bar"><i style="width:21%;background:var(--violet)"></i></div></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="muted" style="margin-top:12px">Guardrail: UI-only completion must remain viable (mic blocked / unsupported).</p>
+        </div>
+        <div class="card">
+          <h2>Side channels <span>Not funnel gates</span></h2>
+          <div class="row"><span>human_escape_tap</span><span class="num">4.8% of moves</span></div>
+          <div class="row"><span>chat_open</span><span class="num">11.2%</span></div>
+          <div class="row"><span>faq_open</span><span class="num">9.1%</span></div>
+          <div class="row"><span>escalation_created</span><span class="num">1.6%</span></div>
+          <div class="row"><span>survey_complete</span><span class="num">22% of settling</span></div>
+          <p class="muted" style="margin-top:8px">Rising escape rate with stable CSAT is healthy. Falling escape + rising false-confirmed is not.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="label">Alerts (last 28 days)</p>
+      <div class="card">
+        <table>
+          <thead>
+            <tr><th>Alert</th><th>Status</th><th>Detail</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Watching leak</td>
+              <td><span class="chip chip--ok">clear</span></td>
+              <td class="muted">0 notify_sent while move.state=watching</td>
+            </tr>
+            <tr>
+              <td>False confirmed</td>
+              <td><span class="chip chip--ok">clear</span></td>
+              <td class="muted">Constraint held</td>
+            </tr>
+            <tr>
+              <td>Basket cliff</td>
+              <td><span class="chip chip--warn">watch</span></td>
+              <td class="muted">Discovery→confirm 61% (threshold 40%; watching trend −3pp WoW)</td>
+            </tr>
+            <tr>
+              <td>Cascade integrity</td>
+              <td><span class="chip chip--ok">clear</span></td>
+              <td class="muted">lost&gt;0 count = 0; redos are named Royal Mail only</td>
+            </tr>
+            <tr>
+              <td>Safety bypass</td>
+              <td><span class="chip chip--ok">clear</span></td>
+              <td class="muted">0 basket_confirmed with safety flags and no escalation</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      Source of truth for event names and SLAs: FLOWS-EVENTS-ANALYTICS.md §4-§6.<br>
+      Wire production to fact_event / fact_funnel_step. Replace this mock with Looker, Metabase, or Hex on the same schema.
+    </footer>
+  </div>
+
+<script>
+(function () {
+  var funnel = [
+    { name: 'referral_continue', n: 1000, pct: 100 },
+    { name: 'discovery_start', n: 720, pct: 72 },
+    { name: 'discovery_complete', n: 610, pct: 61 },
+    { name: 'basket_open', n: 580, pct: 58 },
+    { name: 'basket_confirmed', n: 440, pct: 44 },
+    { name: 'closure_continue', n: 420, pct: 42 },
+    { name: 'keys_confirmed', n: 310, pct: 31 }
+  ];
+  var funEl = document.getElementById('funnel');
+  funnel.forEach(function (s) {
+    var row = document.createElement('div');
+    row.className = 'funnel__row';
+    row.innerHTML =
+      '<div class="funnel__name">' + s.name + '</div>' +
+      '<div class="funnel__track"><div class="funnel__fill" style="width:' + s.pct + '%">' + s.n.toLocaleString() + '</div></div>' +
+      '<div class="num">' + s.pct + '%</div>' +
+      '<div class="muted">of entry</div>';
+    funEl.appendChild(row);
+  });
+
+  var drops = [
+    { gap: 'Continue → discovery_start', entered: 1000, dropped: 280, pct: 28, lag: '2.1d' },
+    { gap: 'Discovery start → complete', entered: 720, dropped: 110, pct: 15.3, lag: '18m' },
+    { gap: 'Basket open → confirmed', entered: 580, dropped: 140, pct: 24.1, lag: '26m' },
+    { gap: 'Confirmed → keys', entered: 420, dropped: 110, pct: 26.2, lag: '11d' },
+    { gap: 'Keys → meters submitted', entered: 310, dropped: 42, pct: 13.5, lag: '4h' }
+  ];
+  var dropEl = document.getElementById('dropRows');
+  drops.forEach(function (d) {
+    var tr = document.createElement('tr');
+    tr.innerHTML =
+      '<td>' + d.gap + '</td>' +
+      '<td class="num">' + d.entered + '</td>' +
+      '<td class="num">' + d.dropped + '</td>' +
+      '<td class="num">' + d.pct + '%</td>' +
+      '<td class="num">' + d.lag + '</td>';
+    dropEl.appendChild(tr);
+  });
+
+  var honesty = [
+    { label: 'confirmed (receipt)', n: 62, cls: 'chip--ok' },
+    { label: 'unconfirmable (fog)', n: 28, cls: 'chip--warn' },
+    { label: 'failed / redo', n: 7, cls: 'chip--bad' },
+    { label: 'in progress', n: 3, cls: '' }
+  ];
+  var hEl = document.getElementById('honesty');
+  honesty.forEach(function (h) {
+    var row = document.createElement('div');
+    row.className = 'row';
+    row.innerHTML =
+      '<span><span class="chip ' + h.cls + '">' + h.label + '</span></span>' +
+      '<span class="num">' + h.n + '%</span>';
+    hEl.appendChild(row);
+  });
+
+  var features = [
+    { title: 'One-pick basket', metric: '71%', detail: 'confirm with recommended SKU', guard: 'Change plan 19%' },
+    { title: 'Time-compressed BB', metric: '88%', detail: 'fastest install when days&lt;14', guard: 'Price regret 6%' },
+    { title: 'Date cascade', metric: '94%', detail: 'lost = 0 on move_date_changed', guard: 'Named redo 6%' },
+    { title: 'Unconfirmable UX', metric: '100%', detail: 'fog shown when no API', guard: 'False green 0' },
+    { title: 'Day 0 UI fallback', metric: '100%', detail: 'can finish without mic', guard: 'Voice share 38% keys' },
+    { title: 'Market soft landing', metric: '24%', detail: 'listing_open from Day 0 food', guard: 'Unlabelled affiliate 0' }
+  ];
+  var fEl = document.getElementById('features');
+  features.forEach(function (f) {
+    var card = document.createElement('div');
+    card.className = 'card kpi';
+    card.innerHTML =
+      '<div class="l" style="font-weight:650;color:var(--ink);margin-bottom:8px">' + f.title + '</div>' +
+      '<div class="n">' + f.metric + '</div>' +
+      '<div class="l">' + f.detail + '</div>' +
+      '<div class="d muted">Guardrail · ' + f.guard + '</div>';
+    fEl.appendChild(card);
+  });
+})();
+</script>
+</body>
+</html>
