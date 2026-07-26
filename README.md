@@ -79,13 +79,4 @@ A discovery artefact for co-building: case study + clickable prototype + the dep
 | Working notes by theme | [`docs/wiki/working/`](docs/wiki/working/) |
 | What I would send vs hold | [`docs/wiki/00-INDEX.md`](docs/wiki/00-INDEX.md) |
 
----
-
-## Judgment calls worth arguing
-
-- **Receipts before AI.** Fix “told handled, was not” before scaling a model on top of it.  
-- **Competition is a status-quo anchor**, not the creative engine. Four empty cells: lead times, date resilience, Day 0 presence, commission at choice.  
-- **Later is intentional.** Ads, packing hierarchy, voucher hub, room planner, user stories for marketing: parked so they are not forgotten and not smuggled into v1.  
-- **n=12 is labelled directional.** Trust and modality denominators differ where people skipped questions; I cite the true n each time.
-
-Built with AI in the loop (Claude, Gemini, Cursor / Grok) and my own first pass protected. Prototype for critique. Ready to be wrong in public with the team.
+Built with AI in the loop (Claude, Gemini, Cursor / Grok) and a first pass I protected as mine. Prototype for critique.
