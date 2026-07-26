@@ -61,19 +61,22 @@ North star I would measure: **Critical Path Completion** (time-sensitive setup f
 
 ## What this repo is
 
-A discovery artefact for co-building: case study + clickable prototype + the depth behind them. It is **not** a production system and **not** brand-final UI.
+A discovery artefact for co-building: case study + clickable prototype + the depth behind them. It is **not** a production system and **not** brand-final UI. Older one-pagers / six-pagers / walkthrough decks were removed so this stays one spine.
 
 | If you care about… | Open |
 |---|---|
 | Narrative for interview / Notion | [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md) |
 | Primary survey (n=12, directional) + sheet links | Case study §2 · [`01d-primary-research-survey.md`](01d-primary-research-survey.md) |
+| Desk research framing | [`01-research-and-problem-framing.md`](01-research-and-problem-framing.md) |
 | Trustpilot coding (secondary) | [`01c-negative-review-analysis.md`](01c-negative-review-analysis.md) |
 | Competitive landscape | [`02-competitive-analysis.md`](02-competitive-analysis.md) |
 | Full PRD / tradeoffs / risks | [`03-product-strategy-prd.md`](03-product-strategy-prd.md) |
-| States, acceptance, data shapes | [`HANDOFF.md`](HANDOFF.md) |
-| Events, funnels, dashboard contract | [`FLOWS-EVENTS-ANALYTICS.md`](FLOWS-EVENTS-ANALYTICS.md) · [`analytics/dashboard.html`](analytics/dashboard.html) |
-| Rollout phases + kill gates | [`06-rollout-plan.md`](06-rollout-plan.md) |
-| Design / eng / sales working notes | [`docs/wiki/working/`](docs/wiki/working/) |
+| Eng detail + component inventory | [`04-engineering-spec.md`](04-engineering-spec.md) · [`COMPONENTS.md`](COMPONENTS.md) · [`HANDOFF.md`](HANDOFF.md) |
+| Events, funnels, dashboard | [`FLOWS-EVENTS-ANALYTICS.md`](FLOWS-EVENTS-ANALYTICS.md) · [`analytics/dashboard.html`](analytics/dashboard.html) |
+| Rollout + testing | [`06-rollout-plan.md`](06-rollout-plan.md) · [`08-testing-plan.md`](08-testing-plan.md) |
+| Journey + Market note | [`USER-JOURNEY.md`](USER-JOURNEY.md) · [`09-local-services-note.md`](09-local-services-note.md) |
+| Design language / FAQ / lo-fi | [`DESIGN-LANGUAGE.md`](DESIGN-LANGUAGE.md) · [`FAQ.md`](FAQ.md) · [`wireframes/`](wireframes/) |
+| Working notes by theme | [`docs/wiki/working/`](docs/wiki/working/) |
 | What I would send vs hold | [`docs/wiki/00-INDEX.md`](docs/wiki/00-INDEX.md) |
 
 ---
