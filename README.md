@@ -1,60 +1,88 @@
 # Jay · Just Move In
 
-**Jeanne Piffaut · July 2026**
+**Jeanne Piffaut · Product discovery case · July 2026**
 
-Product discovery case: the digital / AI equivalent of Just Move In’s home-setup call. Jay does the admin, shows honest proof it happened, and survives the move date changing.
+> The home-setup call already works. Automating only the conversation would scale the wrong layer.  
+> **Jay** is the digital operator that does the admin, shows honest proof it happened, and survives the move date changing.
+
+**Read this first:** [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md)  
+**Click this next:** https://just-move-in-liard.vercel.app  
+**Repo:** https://github.com/analogue-tools/just-move-in
 
 ---
 
-## Start here
+## The problem in one breath
 
-| What | Link |
+Just Move In’s five-star reviews name people. A meaningful slice of one-star reviews say they were *told* something was handled when it was not. Councils often never acknowledge. About **37% of agreed sales never complete** (Connells), so contacting suppliers too early creates real harm. Trust dies on one fake “done.”
+
+So the product is not a smarter chat. It is **execution you can see**, on the same partner referral funnel that already knows a move is happening.
+
+---
+
+## The bet
+
+| | |
 |---|---|
-| **Case study** (the narrative) | [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md) |
-| **Live demo** | https://just-move-in-liard.vercel.app |
-| **This repo** | https://github.com/analogue-tools/just-move-in |
-| **Local demo** | open [`prototype/index.html`](prototype/index.html) (no build) |
+| **From** | Specialist phone call that works because of people |
+| **To** | AI-assisted operator that keeps the partner funnel and earns trust with receipts |
+| **Commercial** | Yearly utility attach + recurring layers (Market, later vouchers/ads) via trust and usefulness, still on that funnel |
+| **Moat** | Partner trigger + integration rails. Not the model |
 
-In the demo toolbar (outside the phone): **For design · eng · sales · CS**, then **Features · evidence**.
-
-The rest of this repo is the working depth behind that pack: research, competitive analysis, PRD, eng handoff, rollout, analytics. You do not have to read it all. It is here so the work is visible and usable if you dig.
+**Understand / Decide / Do:** Jay explains; the mover decides money in UI; the system does admin mostly invisibly. Voice is for access on moving day, never for financial commitment. A named customer support person stays on money, complaints, vulnerability, and failed automation.
 
 ---
 
-## What is in the repo
+## How to spend 20 minutes
 
-```
-docs/CASE-STUDY.md              share narrative
-docs/wiki/00-INDEX.md           what to send vs hold
-docs/wiki/working/              longer notes by theme
-prototype/index.html            app UI (source of truth)
-index.html                      same build (Vercel serves this)
-HANDOFF.md                      states, contracts, acceptance
-FLOWS-EVENTS-ANALYTICS.md       events, funnels, metrics
-01d-primary-research-survey.md  survey instrument + results (n=12)
-01c-negative-review-analysis.md Trustpilot coding
-02-competitive-analysis.md      full competitive
-03-product-strategy-prd.md      full PRD
-04-engineering-spec.md          eng detail
-06-rollout-plan.md              phases + kill criteria
-08-testing-plan.md              testing risks
-analytics/dashboard.html        metrics dashboard mock
-```
+| Time | Do this |
+|---|---|
+| 2 min | Skim the case study brief map + thesis |
+| 8 min | Demo: Referral → Discovery → Basket → Confirm → Pre-move → Day 0 → Tasks |
+| 5 min | Demo toolbar: **For design · eng · sales · CS**, then **Features · evidence** |
+| 5 min | Case study §4.1 Impact (OKRs, counters, kill criteria) + §7 Later (what I parked on purpose) |
 
-Survey live links are also in the case study (§2).
+Local: open [`prototype/index.html`](prototype/index.html) (no build). Vercel serves the same build from root `index.html`.
 
 ---
 
-## Non-negotiables (short)
+## Product contracts (non-negotiable)
 
-1. **Watching** = referred, move not yet real → no contact with councils or suppliers.  
-2. **Confirmed** only with a real receipt. Otherwise show `sent · no receipt`.  
-3. **Date change** redraws the plan; nothing silently drops.  
-4. **UI** for money; voice optional on moving day for access.  
-5. **Named customer support person** on high-stakes moments.
+These are the rules I would hand an engineer before polish:
+
+1. **Watching** — referred, move not yet real → no outbound to councils or suppliers.  
+2. **Confirmed** — only with a stored receipt. Otherwise **`sent · no receipt`** (neither success nor failure).  
+3. **Date cascade** — deadlines redraw; **`lost = 0`** (nothing silently drops).  
+4. **Money in UI** — never by voice alone; panel fee said once at choice.  
+5. **Human path real** — named support on high stakes; pause and opt-out actually stop outreach.
+
+North star I would measure: **Critical Path Completion** (time-sensitive setup finished before it becomes expensive or impossible), plus a **false confidence rate** (mover believes done vs honest state). Kill if we confirm without a receipt, or act on the wrong property.
 
 ---
 
-## Design notes
+## What this repo is
 
-Type and colour rationale: [`DESIGN-LANGUAGE.md`](DESIGN-LANGUAGE.md). Tokens: [`tokens/`](tokens/). Built to sit near Tailwind / shadcn patterns in JMI’s Figma, without pretending this HTML is brand-final.
+A discovery artefact for co-building: case study + clickable prototype + the depth behind them. It is **not** a production system and **not** brand-final UI.
+
+| If you care about… | Open |
+|---|---|
+| Narrative for interview / Notion | [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md) |
+| Primary survey (n=12, directional) + sheet links | Case study §2 · [`01d-primary-research-survey.md`](01d-primary-research-survey.md) |
+| Trustpilot coding (secondary) | [`01c-negative-review-analysis.md`](01c-negative-review-analysis.md) |
+| Competitive landscape | [`02-competitive-analysis.md`](02-competitive-analysis.md) |
+| Full PRD / tradeoffs / risks | [`03-product-strategy-prd.md`](03-product-strategy-prd.md) |
+| States, acceptance, data shapes | [`HANDOFF.md`](HANDOFF.md) |
+| Events, funnels, dashboard contract | [`FLOWS-EVENTS-ANALYTICS.md`](FLOWS-EVENTS-ANALYTICS.md) · [`analytics/dashboard.html`](analytics/dashboard.html) |
+| Rollout phases + kill gates | [`06-rollout-plan.md`](06-rollout-plan.md) |
+| Design / eng / sales working notes | [`docs/wiki/working/`](docs/wiki/working/) |
+| What I would send vs hold | [`docs/wiki/00-INDEX.md`](docs/wiki/00-INDEX.md) |
+
+---
+
+## Judgment calls worth arguing
+
+- **Receipts before AI.** Fix “told handled, was not” before scaling a model on top of it.  
+- **Competition is a status-quo anchor**, not the creative engine. Four empty cells: lead times, date resilience, Day 0 presence, commission at choice.  
+- **Later is intentional.** Ads, packing hierarchy, voucher hub, room planner, user stories for marketing: parked so they are not forgotten and not smuggled into v1.  
+- **n=12 is labelled directional.** Trust and modality denominators differ where people skipped questions; I cite the true n each time.
+
+Built with AI in the loop (Claude, Gemini, Cursor / Grok) and my own first pass protected. Prototype for critique. Ready to be wrong in public with the team.
