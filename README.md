@@ -12,6 +12,7 @@ Product discovery case: the digital / AI equivalent of Just Move In’s home-set
 |---|---|
 | **Case study** (the narrative) | [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md) |
 | **Live demo** | https://just-move-in-liard.vercel.app |
+| **This repo** | https://github.com/analogue-tools/just-move-in |
 | **Local demo** | open [`prototype/index.html`](prototype/index.html) (no build) |
 
 In the demo toolbar (outside the phone): **For design · eng · sales · CS**, then **Features · evidence**.

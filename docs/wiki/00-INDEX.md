@@ -4,7 +4,7 @@
 
 1. [`docs/CASE-STUDY.md`](../CASE-STUDY.md) → paste into Notion  
 2. Demo: https://just-move-in-liard.vercel.app  
-3. Optional: link to this GitHub repo (full depth; they can ignore it)
+3. Optional: https://github.com/analogue-tools/just-move-in (full depth; they can ignore it)
 
 **In the demo toolbar**
 

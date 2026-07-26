@@ -356,4 +356,4 @@ These are **intentional bets and questions**, parked by theme until debated. The
 
 # 10. Where the rest of the work lives
 
-This page + the demo are enough to interview. The full set (research coding, competitive tables, PRD, eng states/events, rollout, testing) is in the project repo so the depth is available without stuffing it into the share pack. Start at the repo `README.md`.
+This page + the demo are enough to interview. The full set (research coding, competitive tables, PRD, eng states/events, rollout, testing) is in the project repo so the depth is available without stuffing it into the share pack: https://github.com/analogue-tools/just-move-in · start at `README.md`.
