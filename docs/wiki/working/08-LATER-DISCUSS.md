@@ -98,12 +98,14 @@ Nothing here is forgotten. These are **not** in the v1 demo spine, or they need 
 
 ## 8. Research & marketing content
 
+**User-collected stories for branding (the idea):** the survey and directed storytelling already produce real mover language (Day 0 rituals, headaches, trust conditions). Reuse that as a content engine for Marketing: short true stories for LinkedIn / SaaS presence, maybe a light cartoon series, and later a client newsletter. Product research and brand voice share the same source. Discuss with Marketing before building a separate content programme.
+
 | Idea | Notes | Status | Open question |
 |---|---|---|---|
-| Primary research for marketing narratives | Stories for social / SaaS presence | `discuss` with Marketing | Platforms: LinkedIn cartoon series? |
+| **User stories → marketing narratives** | Mine open answers + follow-up storytelling; consent for use; anonymise or attribute with permission | `discuss` with Marketing | Platforms: LinkedIn series? Cartoon? |
 | Newsletter / magazine for clients | Commercial value + fun; sketch + human stories; series | `parked-after-P0` | Owner |
 | SEO + LLM findability | App stores + answer engines | `needs-JMI` | Brand guidelines |
-| Rituals research | How people organise; feeds stickiness features | `discuss` | Sample plan |
+| Rituals research | How people organise; feeds stickiness features *and* story content | `discuss` | Sample plan |
 | Partner discovery interviews | Estate agent wants/needs | `needs-partner-discovery` | Script |
 
 ---

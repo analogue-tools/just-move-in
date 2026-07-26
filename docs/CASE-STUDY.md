@@ -294,7 +294,7 @@ The spine is for the mover. The same work has to make sense to the people who se
 | **Sales / partnerships** | Story: starts at referral, watching gate, confirm = commerce, date change survives, Day 0 evidence, stickiness after keys | Bills bundling; “AI replaces the specialist”; chatbot-first pitch |
 | **Customer support** | Clear when FAQ ends and a person starts; show `sent · no receipt` instead of a fake green tick; distress priority; pause/opt-out actually kill outreach | Ticket volume as the success metric (success = stuck notifications chased, no false confirms, humans reachable) |
 | **Engineering** | Three hard contracts: watching = no outbound; confirmed only with receipt; date cascade loses nothing. Demo + toolbar are the whiteboard | That the HTML is production; adapters and receipt model still need reality-check |
-| **Design** | Calm operator tone; no expanders for must-do; status language that matches CS scripts | Final brand polish or Market ad density without another design pass |
+| **Design** | Calm operator tone; no expanders for must-do; status language that matches CS scripts. Open topics: brand kit vs operator language, ads treatment, voucher hub, packing density, motion budget, support-path frequency, Figma Story ownership | Final brand polish or Market ad density without another design pass |
 
 **How I would run a working session (if we go deeper than the interview)**  
 1. Playback research with bias labels (n=12 is directional).  
@@ -304,6 +304,8 @@ The spine is for the mover. The same work has to make sense to the people who se
 5. Spike watching + confirm + cascade + Day 0 before Market polish.
 
 Open topics I would bring to Sales / CS / Partnerships: panel economics and disclosure; partner weekly reports; Market ads rules; voucher hub vs spam; when AI FAQ ends and a human starts; specialist change-management (tell them week 0).
+
+Open topics for Design (same list, more detail in the design working notes): operator language vs brand kit; trust-safe sponsored Market; Revolut-like vouchers vs simple Market; packing hierarchy vs calm; feature voting later; how often to show the human support path; 2–3 intentional motions; who owns the Figma Story template.
 
 ---
 
@@ -324,7 +326,7 @@ These are **intentional bets and questions**, parked by theme until debated. The
 | **Analytics / agents** | Backwards from best data layout; incident automations; weekly partner report agent |
 | **Partner ops** | Partner Day 0 notify; discovery on agent↔mover streamline (report first) |
 | **CS ops** | Peak coverage around exchange / Day 0 / failed automation; named fallback if primary unavailable; confirm whether 24/7; when AI FAQ ends and a human starts (capacity) |
-| **Research / content** | Marketing narratives; newsletter; rituals research; partner discovery interviews |
+| **Research / content** | **User-collected stories for branding:** reuse survey + storytelling language for Marketing (LinkedIn / SaaS, later newsletter); rituals research; partner discovery interviews |
 | **Process** | In-flow surveys; watch sessions; Loom homework; UI style experiments (Monzo/Revolut/Wise/…); soft wavy aesthetic experiment |
 
 ---

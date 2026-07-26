@@ -1,9 +1,10 @@
 # Design · stakeholder wiki
+
 **Jeanne Piffaut · July 2026**
 
-Source of truth for screens: live prototype + Figma Present. Authoritative product constraints: [`HANDOFF.md`](../../HANDOFF.md) · [`COMPONENTS.md`](../../COMPONENTS.md)
+Source of truth for screens: live prototype. Product constraints: [`HANDOFF.md`](../../HANDOFF.md) · [`COMPONENTS.md`](../../COMPONENTS.md)
 
-This page is for design working sessions: vision, language of the product, what each surface should feel like, and topics to discuss. Feature-by-wireframe Story columns (Challenge / Decision / Why / How / Evidence / Next) come next in Figma comments, this doc sets the shared vocabulary.
+For design working sessions: vision, language, what each surface should feel like, and open topics. Per-screen Story columns live in the demo toolbar and (next) in Figma comments.
 
 ---
 
@@ -11,9 +12,9 @@ This page is for design working sessions: vision, language of the product, what 
 
 Jay should feel like a **calm operator**, not a chatbot, not a checklist app, not a marketplace landing page.
 
-The first impression after a partner referral: *someone capable is already on it, and I know what is mine vs theirs.*
+First impression after a partner referral: *someone capable is already on it, and I know what is mine vs theirs.*
 
-Directed storytelling across the move: stage → one next action → honest status. Social proof and nudging only where they reduce uncertainty, not where they manufacture urgency.
+Story across the move: stage → one next action → honest status. Social proof and nudging only where they reduce uncertainty, never to manufacture urgency.
 
 ---
 
@@ -21,13 +22,13 @@ Directed storytelling across the move: stage → one next action → honest stat
 
 | Principle | What it means in Jay |
 |---|---|
-| **Directed storytelling** | One stage, one primary CTA, supporting context below. Home is not a dashboard dump. |
+| Storytelling | One stage, one primary CTA, supporting context below. Home is not a dashboard dump. |
 | **Intention-led** | Every screen answers: what am I doing here / what happens next / who owns it. |
 | **Honest status** | `sent · no receipt` beats fake green ticks. Trust > polish. |
 | **Social proof with restraint** | Partner name + real context (e.g. Priya Shah · Kentish Town). No fake review stacks in the hero. |
 | **Nudging without panic** | Deadlines and “Needs you next” are clear; no alarm theatre. |
-| **Human escape is visible** | The customer support human agent is a named path, not buried support chrome. |
-| **Dual lens without expanders** | You vs Jay-is-handling stays visible. No toggle-to-reveal patterns for critical ownership. |
+| **Human escape is visible** | Named customer support person on high stakes, not buried chrome. |
+| **Dual lens without expanders** | You vs Jay stays visible. No toggle-to-reveal for critical ownership. |
 | **Commerce is explicit** | Confirm is a decision moment, not a soft continue. |
 
 Typography / motion / colour in the prototype follow the existing Just Move In demo system. When we formalise a design system, preserve calm operator tone over consumer-fintech flash.
@@ -39,16 +40,16 @@ Typography / motion / colour in the prototype follow the existing Just Move In d
 | Surface | Design job | Avoid |
 |---|---|---|
 | Referral | Brand + partner trust + watching clarity | Chatbot front door |
-| Discovery | Short, adaptive, one question at a time feel | Long forms that feel like KYC |
-| Basket | Compare → choose → confirm | Bundling pressure; fake scarcity |
+| Discovery | Short, adaptive, one continuous flow | Long forms that feel like KYC |
+| Basket | Choose → confirm | Bundling pressure; fake scarcity |
 | Confirmed | Snapshot of running work | Second competing home |
 | Home stages | Stage story + one CTA | Stats strips, promo clutter |
 | Pre-move | Ownership split readable at a glance | Collapsed “Jay is handling” |
-| Day 0 | Capture confidence (meters/keys) | Voice-only gate; survey said voice=0 as preference |
+| Day 0 | Capture confidence (meters/keys) | Voice-only gate |
 | Tasks | List default; Board/Visual as lenses | Three competing truths |
-| Market | Browse with clear listing type | Checkatrade clone chrome without rules |
+| Market | Browse with clear listing type | Sponsored chrome without rules |
 | Settings | Pause / opt-out obvious | Hidden kill switches |
-| Ask Jay / customer support human agent | FAQ cards always open; escalate clear | `<details>` expanders; bot theatre |
+| Ask Jay / customer support | FAQ open; escalate clear | Expanders; bot theatre |
 
 ---
 
@@ -63,17 +64,19 @@ Typography / motion / colour in the prototype follow the existing Just Move In d
 
 ## 5. Topics to discuss with design
 
-1. Formalising the operator visual language vs inheriting brand kit  
-2. Market ads / sponsored treatment (if ever), trust-safe patterns  
-3. Revolut-like voucher hub vs current Market simplicity  
-4. Packing / hierarchical lists, Notion-like density vs calm  
-5. Feature voting UI for movers (Later)  
-6. Reducing customer-support-escape duplication across screens  
-7. Motion budget: 2-3 intentional motions, not noise  
-8. Wireframe Story template in Figma (Challenge → Next) ownership  
+| Topic | Why it matters | Tension | Open question |
+|---|---|---|---|
+| **Operator visual language vs brand kit** | Prototype proves the product idea; JMI already has a Figma system | Calm operator vs inheriting kit that may pull toward consumer chrome | What do we keep from this demo vs adopt from brand? |
+| **Market ads / sponsored treatment** | Extra cash after trust; Checkatrade-like | Revenue vs “this feels like spam” | Trust-safe patterns, frequency caps, labelling rules |
+| **Revolut-like voucher hub vs Market simplicity** | Stickiness and affiliate value | One calm Market vs a noisy offers surface | Hub under Market vs own tab; after experience only |
+| **Packing / Notion-like lists vs calm** | Survey and stickiness want hierarchy | Density that helps packing vs anxiety of a second product | Own tab? After Day 0 only? |
+| **Feature voting UI (Later)** | Movers co-shape the roadmap | Engagement vs derailing P0 | Moderation; when to show |
+| **Customer-support path duplication** | Named human builds trust | Showing it on every screen trains people to ignore it | High-stakes only; frequency rules |
+| **Motion budget** | Presence and hierarchy | 2–3 intentional motions vs decorative noise | Which moments earn motion (confirm, keys Yes, date cascade)? |
+| **Figma Story template ownership** | Same Challenge → Next structure as the demo toolbar | Who writes / maintains comments per frame | Design owns template; Product owns constraints in the row |
 
 ---
 
 ## 6. Collaboration model
 
-See [09 · Stakeholder collaboration](09-STAKEHOLDER-COLLABORATION.md). Short version: design owns Story columns + language; product owns constraints; eng owns events; we reconcile in the same Figma comment structure per wireframe.
+See [09 · Stakeholder collaboration](09-STAKEHOLDER-COLLABORATION.md). Design owns Story columns + language; product owns constraints; eng owns events; reconcile in the same structure per screen (demo toolbar now, Figma comments next).
