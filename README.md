@@ -75,7 +75,7 @@ A discovery artefact for co-building: case study + clickable prototype + the dep
 | Events, funnels, dashboard | [`FLOWS-EVENTS-ANALYTICS.md`](FLOWS-EVENTS-ANALYTICS.md) · [`analytics/dashboard.html`](analytics/dashboard.html) |
 | Rollout + testing | [`06-rollout-plan.md`](06-rollout-plan.md) · [`08-testing-plan.md`](08-testing-plan.md) |
 | Journey + Market note | [`USER-JOURNEY.md`](USER-JOURNEY.md) · [`09-local-services-note.md`](09-local-services-note.md) |
-| Design language / FAQ / lo-fi | [`DESIGN-LANGUAGE.md`](DESIGN-LANGUAGE.md) · [`FAQ.md`](FAQ.md) · [`wireframes/`](wireframes/) |
+| Design language / FAQ | [`DESIGN-LANGUAGE.md`](DESIGN-LANGUAGE.md) · [`FAQ.md`](FAQ.md) |
 | Working notes by theme | [`docs/wiki/working/`](docs/wiki/working/) |
 | What I would send vs hold | [`docs/wiki/00-INDEX.md`](docs/wiki/00-INDEX.md) |
 
