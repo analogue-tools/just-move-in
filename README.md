@@ -43,7 +43,7 @@ So the product is not a smarter chat. It is **execution you can see**, on the sa
 | 5 min | Demo toolbar: **For design · eng · sales · CS**, then **Features · evidence** |
 | 5 min | Case study §4.1 Impact (OKRs, counters, kill criteria) + §7 Later (what I parked on purpose) |
 
-Local: open [`prototype/index.html`](prototype/index.html) (no build). Vercel serves the same build from root `index.html`.
+Local: open [`prototype/index.html`](prototype/index.html) in a browser (no build, no server; single file). Root [`index.html`](index.html) is the synced copy Vercel serves at `/`.
 
 ---
 
@@ -68,7 +68,7 @@ A discovery artefact for co-building: case study + clickable prototype + the dep
 | If you care about… | Open |
 |---|---|
 | Narrative for interview / Notion | [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md) |
-| Primary survey (n=12, directional) + sheet links | Case study §2 · [`01d-primary-research-survey.md`](01d-primary-research-survey.md) |
+| Primary survey (n=12, directional, denominators vary) + sheet links | Case study §2 · [`01d-primary-research-survey.md`](01d-primary-research-survey.md) |
 | Desk research framing | [`01-research-and-problem-framing.md`](01-research-and-problem-framing.md) |
 | Trustpilot coding (secondary) | [`01c-negative-review-analysis.md`](01c-negative-review-analysis.md) |
 | Competitive landscape | [`02-competitive-analysis.md`](02-competitive-analysis.md) |
@@ -79,6 +79,6 @@ A discovery artefact for co-building: case study + clickable prototype + the dep
 | Journey + Market note | [`USER-JOURNEY.md`](USER-JOURNEY.md) · [`09-local-services-note.md`](09-local-services-note.md) |
 | Design language / FAQ | [`DESIGN-LANGUAGE.md`](DESIGN-LANGUAGE.md) · [`FAQ.md`](FAQ.md) |
 | Working notes by theme | [`docs/wiki/working/`](docs/wiki/working/) |
-| What I would send vs hold | [`docs/wiki/00-INDEX.md`](docs/wiki/00-INDEX.md) |
+| Scope decisions (send vs hold) | [`docs/wiki/00-INDEX.md`](docs/wiki/00-INDEX.md) |
 
 Built with AI in the loop (Claude, Gemini, Cursor / Grok) and a first pass I protected as mine. Prototype for critique.
