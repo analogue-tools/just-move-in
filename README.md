@@ -36,11 +36,9 @@ So the product is not a smarter chat. It is **execution you can see**, on the sa
 | Time | Do this |
 |---|---|
 | 2 min | Skim the theme list below |
-| 8 min | Demo: Referral → Discovery → Basket → Confirm → Pre-move → Day 0 → Tasks |
+| 8 min | [Demo](https://just-move-in-liard.vercel.app): Referral → Discovery → Basket → Confirm → Pre-move → Day 0 → Tasks |
 | 5 min | Demo toolbar: **By team**, then **Why this** |
 | Rest | Open the themes you care about; use instruments when a note is not enough |
-
-Local: open [`prototype/index.html`](prototype/index.html) in a browser (no build, no server; single file). Root [`index.html`](index.html) is the synced copy Vercel serves at `/`.
 
 ---
 
