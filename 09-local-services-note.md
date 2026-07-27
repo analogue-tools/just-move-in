@@ -2,6 +2,8 @@
 ### Why it should not be a search box
 **Jeanne Piffaut · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 ---
 
 ## 1. The instinct is right
@@ -84,7 +86,7 @@ Three places, none of them the front door.
 
 Booking commission is materially better than affiliate click-through. An end of tenancy clean runs £150 to £300, so a booking fee in the low double digits per job is realistic, which puts it in the same range as the energy commission. Two or three high value move-specific categories are worth more than a hundred affiliate links.
 
-Everything here carries the same disclosure component as the panel: **"We earn £14 if you book this."** Same wording, same placement, no exceptions. The CAP Code requires commercial intent to be obvious, and consistency across tiers is what makes the disclosure read as candour rather than as a legal footnote in one corner of the app.
+Marketplace listings use the same once-per-surface panel-fee footer as the basket: one clear line that suppliers on the panel pay Just Move In a fee, it does not change the mover price, and the fee is the same across the panel. Same wording and placement as confirm. The CAP Code requires commercial intent to be obvious; one shared footer is candour, not a legal footnote on every card.
 
 ---
 
@@ -100,4 +102,4 @@ Everything here carries the same disclosure component as the panel: **"We earn �
 
 ## 9. The line I would use in the room
 
-We are not building a marketplace. We are building the only local booking that knows your completion date, and moves your cleaner when your solicitor moves your move.
+This is the only local booking that knows your completion date, and moves your cleaner when your solicitor moves your move.

@@ -2,6 +2,8 @@
 ### How we validate this, who we test with, and what we ask
 **Jeanne Piffaut · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 ---
 
 ## 1. What we are actually testing
@@ -66,7 +68,7 @@ Recruit for the move, not for demographics.
 
 ## 4. Testing inside the UI, done properly
 
-Your instinct is right. Two refinements would make it much stronger.
+Testing inside the UI is the right instinct, and two refinements make it much stronger.
 
 ### Refinement one: ask about the decision, not the session
 

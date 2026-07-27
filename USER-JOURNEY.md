@@ -2,9 +2,11 @@
 ### What happens today, what happens with Jay, and where each bit actually happens
 **Jeanne Piffaut · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 ---
 
-**The thing this table shows.** There are 38 steps in a UK move. Today the mover does 34 of them. With Jay they do 11, and only 7 of those happen in an app.
+**The thing this table shows.** 31 items appear in the plan the mover sees; the full journey is 38 steps including the ones that happen invisibly or in the world. There are 38 steps in a UK move. Today the mover does 34 of them. With Jay they do 11, and only 7 of those happen in an app.
 
 Most of this product has no interface. That's the point. The screens exist for the two things a person has to do themselves: understand a choice, and approve one. Everything else should be invisible or arrive as a text message.
 
@@ -12,7 +14,7 @@ Most of this product has no interface. That's the point. The screens exist for t
 
 ---
 
-## Stage 1 · The Fog · offer accepted to exchange
+## Stage 1 · Offer accepted to exchange
 
 The date isn't real yet. 37% of sales at this stage never complete, so the right move is almost nothing.
 

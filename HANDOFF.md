@@ -2,6 +2,8 @@
 
 **Jeanne Piffaut · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 Behavioural spec. **The prototype is authoritative on anything visual. This file is authoritative on anything behavioural.** If the prototype shows a state this file does not define, this file is wrong and needs updating.
 
 Prototype path: `prototype/index.html`. Tokens: `tokens/tokens.json`, `tokens/tailwind.config.js`.

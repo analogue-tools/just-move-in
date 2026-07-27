@@ -29,7 +29,7 @@
    Design language (keep):
    - Type: Instrument Sans for UI; IBM Plex Mono for machine-derived values only
      (states, prices, timestamps, meter readings, panel counts).
-   - Fog #5d7391 = sent · no receipt (neither success nor fail).
+   - Sent · no receipt #5d7391 = neither success nor fail (CSS token --fog).
    - Moss = confirmed by the destination. Amber = deadline pressure (not error).
    - Violet sparingly for Jay actions and primary CTAs.
    - Floor: 14px metadata; 16px for actionable text; 44px min touch targets.
@@ -137,7 +137,7 @@ h1, h2, h3, h4, p { margin: 0; }
   text-align: center;
 }
 .demo-bar__title {
-  font-size: 13px; font-weight: 600; letter-spacing: .01em;
+  font-size: 14px; font-weight: 600; letter-spacing: .01em;
   display: flex; align-items: center; gap: var(--s2);
 }
 .demo-bar__dot { width: 7px; height: 7px; border-radius: 50%; background: #8a6bff; }
@@ -188,16 +188,16 @@ h1, h2, h3, h4, p { margin: 0; }
   gap: 16px; margin-bottom: 14px;
 }
 .story-panel__head h2 { font-size: 22px; font-weight: 650; letter-spacing: -.02em; margin: 0; }
-.story-panel__head p { font-size: 13px; color: var(--ink-2); margin: 6px 0 0; max-width: 62ch; line-height: 1.45; }
+.story-panel__head p { font-size: 14px; color: var(--ink-2); margin: 6px 0 0; max-width: 62ch; line-height: 1.45; }
 .story-panel__close {
-  font-family: var(--mono); font-size: 12px; font-weight: 600;
+  font-family: var(--mono); font-size: 14px; font-weight: 600;
   color: var(--violet); min-height: 40px; padding: 0 10px; flex-shrink: 0;
 }
 .story-tabs {
   display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px;
 }
 .story-tab {
-  font-family: var(--mono); font-size: 12px; letter-spacing: .02em;
+  font-family: var(--mono); font-size: 14px; letter-spacing: .02em;
   padding: 8px 12px; border-radius: 999px;
   border: 1px solid #d0d0dc; background: #fff; color: var(--ink-2); cursor: pointer;
 }
@@ -209,7 +209,7 @@ h1, h2, h3, h4, p { margin: 0; }
   display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px;
 }
 .story-jump a {
-  font-family: var(--mono); font-size: 11px; letter-spacing: .02em;
+  font-family: var(--mono); font-size: 14px; letter-spacing: .02em;
   padding: 5px 8px; border-radius: 999px;
   border: 1px solid #d8d8e4; background: #fff; color: var(--ink-2); text-decoration: none;
 }
@@ -226,30 +226,30 @@ h1, h2, h3, h4, p { margin: 0; }
   font-size: 16px; font-weight: 650; letter-spacing: -.015em; margin: 0;
 }
 .story-feature__screen {
-  font-family: var(--mono); font-size: 11px; letter-spacing: .05em;
+  font-family: var(--mono); font-size: 12px; letter-spacing: .05em;
   text-transform: uppercase; color: var(--ink-3);
 }
 .story-feature__tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .story-tag {
-  font-family: var(--mono); font-size: 10px; letter-spacing: .04em;
+  font-family: var(--mono); font-size: 12px; letter-spacing: .04em;
   text-transform: uppercase; padding: 3px 7px; border-radius: 999px;
   background: #efeaff; color: #4a3a9e;
 }
 .story-table {
-  width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.4;
+  width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.4;
 }
 .story-table th, .story-table td {
   border-top: 1px solid #ececf3; padding: 8px 10px; vertical-align: top;
   text-align: left;
 }
 .story-table th {
-  width: 9.5rem; font-family: var(--mono); font-size: 11px; font-weight: 600;
+  width: 9.5rem; font-family: var(--mono); font-size: 12px; font-weight: 600;
   letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3);
   white-space: nowrap;
 }
 .story-table td { color: var(--ink-2); }
 .story-table code, .story-mono {
-  font-family: var(--mono); font-size: 12px; color: #3d3d55;
+  font-family: var(--mono); font-size: 14px; color: #3d3d55;
 }
 .story-decision {
   background: #fff; border-radius: 14px; padding: 16px 18px; margin-bottom: 12px;
@@ -260,35 +260,35 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 .story-decision dl { margin: 0; }
 .story-decision dt {
-  font-family: var(--mono); font-size: 11px; letter-spacing: .06em;
+  font-family: var(--mono); font-size: 12px; letter-spacing: .06em;
   text-transform: uppercase; color: var(--ink-3); margin-top: 8px;
 }
 .story-decision dt:first-child { margin-top: 0; }
 .story-decision dd {
-  margin: 2px 0 0; font-size: 13.5px; line-height: 1.45; color: var(--ink-2);
+  margin: 2px 0 0; font-size: 14px; line-height: 1.45; color: var(--ink-2);
 }
-.story-decision .cite, .story-cite { font-family: var(--mono); font-size: 12px; color: var(--fog); }
+.story-decision .cite, .story-cite { font-family: var(--mono); font-size: 14px; color: var(--fog); }
 .story-teams-intro {
-  font-size: 13px; color: var(--ink-2); line-height: 1.45; margin: 0 0 14px; max-width: 62ch;
+  font-size: 14px; color: var(--ink-2); line-height: 1.45; margin: 0 0 14px; max-width: 62ch;
 }
 .story-source {
   margin-top: 12px; padding: 12px 14px; border-radius: 12px;
   border: 1px solid #d4b56a; background: #fffdf6;
 }
 .story-source__label, .story-takeaways__label {
-  font-family: var(--mono); font-size: 11px; letter-spacing: .06em;
+  font-family: var(--mono); font-size: 12px; letter-spacing: .06em;
   text-transform: uppercase; color: var(--ink-3); margin-bottom: 6px;
 }
 .story-source__meta {
-  font-size: 12px; color: var(--ink-3); margin: 0 0 8px; line-height: 1.4;
+  font-size: 14px; color: var(--ink-3); margin: 0 0 8px; line-height: 1.4;
 }
 .story-source blockquote {
   margin: 0 0 8px; padding: 0; border: 0;
-  font-size: 13.5px; line-height: 1.45; color: var(--ink);
+  font-size: 14px; line-height: 1.45; color: var(--ink);
 }
 .story-source blockquote:last-child { margin-bottom: 0; }
 .story-source cite {
-  display: inline; font-family: var(--mono); font-size: 11px;
+  display: inline; font-family: var(--mono); font-size: 14px;
   font-style: normal; color: var(--ink-3); margin-left: 4px;
 }
 .story-takeaways {
@@ -296,7 +296,7 @@ h1, h2, h3, h4, p { margin: 0; }
   background: #fff8e8; border: 1px solid #efe0b8;
 }
 .story-takeaways ol {
-  margin: 0; padding-left: 1.2rem; font-size: 13.5px; line-height: 1.45; color: var(--ink-2);
+  margin: 0; padding-left: 1.2rem; font-size: 14px; line-height: 1.45; color: var(--ink-2);
 }
 .story-takeaways li { margin-bottom: 6px; }
 .story-takeaways li:last-child { margin-bottom: 0; }
@@ -365,7 +365,7 @@ h1, h2, h3, h4, p { margin: 0; }
 
 /* c-eyebrow : small typed label. Encodes source or stage, never decoration. */
 .c-eyebrow {
-  font-family: var(--mono); font-size: 14px; font-weight: 500;
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
   letter-spacing: .09em; text-transform: uppercase; color: var(--ink-3);
 }
 
@@ -376,7 +376,7 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 .c-display em { font-style: normal; color: var(--violet); }
 .c-sub { font-size: var(--fs-floor); line-height: 1.5; color: var(--ink-2); margin-top: var(--s3); }
-.c-sub--soft { font-size: 13px; color: var(--ink-3); }
+.c-sub--soft { font-size: 14px; color: var(--ink-3); }
 
 /* c-card : the base surface */
 .c-card, .c-task, .c-offer, .c-could, .c-value__card, .c-listing, .c-mile {
@@ -399,7 +399,7 @@ h1, h2, h3, h4, p { margin: 0; }
 /* c-state : THE SIGNATURE ELEMENT.
    Every task shows its machine state in lowercase mono, like a system log.
    The product thesis is honesty about state, so state is rendered, not hidden.
-   Four visual registers, and the fog register is the important one: it is
+   Four visual registers; sent · no receipt is the important one: it is
    deliberately neither green nor red. */
 .c-state {
   display: inline-flex; align-items: center; gap: 6px;
@@ -421,7 +421,7 @@ h1, h2, h3, h4, p { margin: 0; }
 .c-stepper__seg[data-status="done"]    .c-stepper__bar { background: var(--moss); }
 .c-stepper__seg[data-status="current"] .c-stepper__bar { background: var(--violet); }
 .c-stepper__label {
-  font-family: var(--mono); font-size: 14px; letter-spacing: .04em;
+  font-family: var(--mono); font-size: 12px; letter-spacing: .04em;
   text-transform: uppercase; color: var(--ink-3); margin-top: 6px; display: block;
 }
 .c-stepper__seg[data-status="current"] .c-stepper__label { color: var(--violet); font-weight: 600; }
@@ -446,7 +446,7 @@ h1, h2, h3, h4, p { margin: 0; }
 .c-task__top { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--s3); }
 .c-task__name { font-size: var(--fs-action); font-weight: 600; letter-spacing: -.01em; }
 .c-task__who {
-  font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0;
+  font-family: var(--sans); font-size: 14px; font-weight: 500; letter-spacing: 0;
   text-transform: none; color: var(--ink-3); margin-top: 3px;
 }
 .c-task__why { font-size: 14px; color: var(--ink-2); line-height: 1.45; margin-top: 7px; }
@@ -462,8 +462,8 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 .c-could:hover { transform: translateY(-2px); }
 .c-could__ico { font-size: 17px; }
-.c-could__t { font-size: 13px; font-weight: 600; letter-spacing: -.01em; }
-.c-could__s { font-size: 11.5px; color: var(--ink-3); margin-top: 2px; line-height: 1.35; }
+.c-could__t { font-size: 14px; font-weight: 600; letter-spacing: -.01em; }
+.c-could__s { font-size: 14px; color: var(--ink-3); margin-top: 2px; line-height: 1.35; }
 
 /* c-transparency : who / what / when / where / why. One component, every task. */
 .c-trans { border-top: 1px solid var(--line); }
@@ -472,7 +472,7 @@ h1, h2, h3, h4, p { margin: 0; }
   font-family: var(--mono); font-size: 14px; letter-spacing: .08em;
   text-transform: uppercase; color: var(--ink-3); padding-top: 2px;
 }
-.c-trans__v { font-size: 13.5px; line-height: 1.5; color: var(--ink); }
+.c-trans__v { font-size: 14px; line-height: 1.5; color: var(--ink); }
 .c-trans__v strong { font-weight: 650; }
 
 /* c-offer : one recommendation per category. Alternatives via carousel, not a peer grid. */
@@ -480,7 +480,7 @@ h1, h2, h3, h4, p { margin: 0; }
 .c-offer__badge {
   position: relative; top: 0; left: 0; display: inline-block; z-index: 2;
   margin: 0 0 var(--s2);
-  font-family: var(--mono); font-size: 14px; font-weight: 600; letter-spacing: .07em;
+  font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .07em;
   text-transform: uppercase; color: #fff; background: var(--violet);
   padding: 4px 9px; border-radius: 999px;
 }
@@ -490,15 +490,15 @@ h1, h2, h3, h4, p { margin: 0; }
 .c-offer__price { font-size: 16.5px; font-weight: 650; letter-spacing: -.02em; text-align: right; white-space: nowrap; }
 .c-offer__price span { display: block; font-family: var(--mono); font-size: 14px; font-weight: 500; color: var(--moss); letter-spacing: 0; }
 .c-offer__reason {
-  font-size: 13px; line-height: 1.5; color: var(--ink-2);
+  font-size: 14px; line-height: 1.5; color: var(--ink-2);
   margin-top: var(--s3); padding-left: var(--s3); border-left: 2px solid var(--violet-sub);
 }
 .c-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: var(--s3); }
 .c-chip {
-  font-family: var(--mono); font-size: 11px; letter-spacing: .02em;
+  font-family: var(--mono); font-size: 14px; letter-spacing: .02em;
   padding: 3px 7px; border-radius: 6px; background: #f4f4f9; color: var(--ink-2);
 }
-.c-chip.s-opt { font-size: 13px; padding: 8px 12px; }
+.c-chip.s-opt { font-size: 14px; padding: 8px 12px; }
 
 /* c-disclosure : social proof at listing level.
    Panel fee sits once at basket footer (c-panel-fee), not as a margin on every card. */
@@ -508,7 +508,7 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 .c-disclosure__row { display: flex; gap: var(--s2); align-items: flex-start; font-size: var(--fs-floor); line-height: 1.45; color: var(--ink-2); }
 .c-disclosure__row + .c-disclosure__row { margin-top: 7px; }
-.c-disclosure__k { font-family: var(--mono); font-size: 14px; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3); flex: 0 0 54px; padding-top: 1px; }
+.c-disclosure__k { font-family: var(--mono); font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3); flex: 0 0 54px; padding-top: 1px; }
 .c-disclosure__n { font-family: var(--mono); font-weight: 600; color: var(--ink); }
 
 /* c-panel-fee : once-per-basket commercial intent (CAP Code). */
@@ -526,7 +526,7 @@ h1, h2, h3, h4, p { margin: 0; }
   list-style: none; display: inline-flex; align-items: center; gap: 5px;
 }
 .c-exp summary::-webkit-details-marker { display: none; }
-.c-exp summary::after { content: "+"; font-size: 13px; }
+.c-exp summary::after { content: "+"; font-size: 14px; }
 .c-exp[open] summary::after { content: "-"; }
 .c-exp__body { font-size: 14px; line-height: 1.55; color: var(--ink-2); margin-top: var(--s2); }
 .c-exp__body li { padding: 5px 0; border-bottom: 1px solid var(--line); }
@@ -550,8 +550,8 @@ h1, h2, h3, h4, p { margin: 0; }
   background: linear-gradient(150deg, #7d63ff, #4a2ee0);
   display: grid; place-items: center; color: #fff; font-weight: 650; font-size: 14px;
 }
-.c-human__n { font-size: 13.5px; font-weight: 600; }
-.c-human__r { font-size: 11.5px; color: var(--ink-3); margin-top: 1px; }
+.c-human__n { font-size: 14px; font-weight: 600; }
+.c-human__r { font-size: 14px; color: var(--ink-3); margin-top: 1px; }
 
 /* c-btn */
 .c-btn {
@@ -619,7 +619,7 @@ button[hidden], .c-btn[hidden], [hidden] { display: none !important; }
 .c-diff { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s2); margin-top: var(--s4); }
 .c-diff__i { background: #fff; border-radius: var(--r-md); padding: var(--s3); box-shadow: var(--shadow-card); }
 .c-diff__n { font-size: 24px; font-weight: 650; letter-spacing: -.03em; }
-.c-diff__l { font-family: var(--mono); font-size: 14px; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-3); margin-top: 3px; line-height: 1.3; }
+.c-diff__l { font-family: var(--mono); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-3); margin-top: 3px; line-height: 1.3; }
 .c-diff__i--warn .c-diff__n { color: var(--amber); }
 .c-diff__i--ok   .c-diff__n { color: var(--moss); }
 
@@ -753,7 +753,7 @@ body.is-left-handed .c-left-banner { display: block; }
 .c-prov,
 .c-survey__prog,
 .c-carousel__cat {
-  font-size: 12px !important;
+  font-size: 14px !important;
 }
 
 /* Customer-test mode: ?mode=test hides Market, Settings, Survey */
@@ -763,7 +763,8 @@ body.mode-test .c-nav__i[data-go="market"],
 body.mode-test .c-nav__i[data-go="settings"],
 body.mode-test .jump[data-go="market"],
 body.mode-test .jump[data-go="settings"],
-body.mode-test [data-go="market"] {
+body.mode-test [data-go="market"],
+body.mode-test #surveyCard {
   display: none !important;
 }
 body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
@@ -825,7 +826,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
   display: grid; place-items: center; margin-top: 1px;
 }
 .c-bulb__t { font-size: var(--fs-floor); font-weight: 650; color: var(--ink); }
-.c-bulb__s { font-size: 13px; line-height: 1.45; color: var(--ink-2); margin-top: 3px; }
+.c-bulb__s { font-size: 14px; line-height: 1.45; color: var(--ink-2); margin-top: 3px; }
 
 /* Security callout */
 .c-secure {
@@ -930,9 +931,9 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
   min-height: auto;
 }
 .c-board__col--now .c-task { border-left-color: var(--violet); box-shadow: var(--shadow-lift); }
-.c-board .c-task__name { font-size: 13.5px; }
+.c-board .c-task__name { font-size: 14px; }
 .c-board .c-task__why { font-size: 14px; margin-top: 5px; }
-.c-board .c-task__who { font-size: 13px; }
+.c-board .c-task__who { font-size: 14px; }
 .c-done {
   margin-top: var(--s4); border-radius: var(--r-md); background: #fff;
   box-shadow: var(--shadow-card);
@@ -947,7 +948,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
 .c-done__row {
   display: flex; justify-content: space-between; gap: var(--s2);
   padding: 8px 0; border-top: 1px solid var(--line);
-  font-size: 13px; color: var(--ink-3);
+  font-size: 14px; color: var(--ink-3);
 }
 
 /* Task meta table */
@@ -998,8 +999,8 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
 }
 .c-listing__top { display: flex; justify-content: space-between; gap: var(--s2); }
 .c-listing__n { font-size: var(--fs-action); font-weight: 650; letter-spacing: -.01em; }
-.c-listing__p { font-family: var(--mono); font-size: 13px; font-weight: 600; }
-.c-listing__m { font-size: 13px; color: var(--ink-2); margin-top: 4px; line-height: 1.4; }
+.c-listing__p { font-family: var(--mono); font-size: 14px; font-weight: 600; }
+.c-listing__m { font-size: 14px; color: var(--ink-2); margin-top: 4px; line-height: 1.4; }
 .c-listing__trust { font-family: var(--mono); font-size: 14px; color: var(--ink-3); margin-top: 6px; }
 .c-toolbar { display: flex; gap: var(--s2); margin-top: var(--s3); flex-wrap: wrap; }
 .c-toolbar button {
@@ -1121,7 +1122,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
   font-size: 14px; font-weight: 600; display: grid; place-items: center;
 }
 .c-alert-bar__t { font-size: var(--fs-floor); font-weight: 650; color: var(--amber); }
-.c-alert-bar__s { font-size: 13px; line-height: 1.4; color: var(--ink-2); margin-top: 2px; }
+.c-alert-bar__s { font-size: 14px; line-height: 1.4; color: var(--ink-2); margin-top: 2px; }
 .c-mile {
   display: block; width: 100%; text-align: left;
   border-radius: var(--r-md); padding: var(--s3) var(--s4);
@@ -1141,7 +1142,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
 .c-mile[data-status="done"] .c-mile__t { color: var(--moss); }
 .c-owner {
   display: inline-flex; align-items: center; gap: 4px;
-  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  font-family: var(--sans); font-size: 14px; font-weight: 600;
   letter-spacing: 0; text-transform: none;
   padding: 3px 8px; border-radius: 999px; margin-top: 4px;
 }
@@ -1159,7 +1160,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
 }
 .c-mile__top { display: flex; justify-content: space-between; gap: var(--s2); align-items: baseline; }
 .c-mile__t { font-size: var(--fs-action); font-weight: 650; }
-.c-mile__s { font-size: 13px; color: var(--ink-2); margin-top: 4px; line-height: 1.4; }
+.c-mile__s { font-size: 14px; color: var(--ink-2); margin-top: 4px; line-height: 1.4; }
 
 /* Kanban: horizontal scroll of 3 columns */
 .c-view-switch {
@@ -1168,7 +1169,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
 }
 .c-view-switch__i {
   min-height: 36px; padding: 6px 14px; border-radius: 999px;
-  font-size: 13px; font-weight: 600; color: var(--ink-3);
+  font-size: 14px; font-weight: 600; color: var(--ink-3);
 }
 .c-view-switch__i[aria-pressed="true"] { background: #fff; color: var(--violet); box-shadow: none !important; }
 .c-view-switch { overflow: hidden; }
@@ -1190,10 +1191,10 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
   display: flex; align-items: baseline; justify-content: space-between;
   padding: 6px 6px 8px; gap: 4px;
 }
-.c-kanban__h-t { font-size: 13px; font-weight: 700; letter-spacing: -.01em; }
+.c-kanban__h-t { font-size: 14px; font-weight: 700; letter-spacing: -.01em; }
 .c-kanban__h-n { font-family: var(--mono); font-size: 14px; color: var(--ink-3); }
 .c-kanban .c-task { padding: 10px; margin-bottom: 6px; }
-.c-kanban .c-task__name { font-size: 13.5px; }
+.c-kanban .c-task__name { font-size: 14px; }
 .c-tasks-visual { display: none; margin-top: var(--s4); }
 .c-tasks-visual[data-active="true"] { display: block; }
 .c-kanban-wrap[data-active="false"] { display: none; }
@@ -1222,7 +1223,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
 .c-calendar__day {
   aspect-ratio: 1; min-height: 36px; border-radius: 10px;
   display: grid; place-items: center;
-  font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--ink);
+  font-family: var(--mono); font-size: 14px; font-weight: 500; color: var(--ink);
 }
 .c-calendar__day:disabled { color: var(--ink-3); opacity: .4; }
 .c-calendar__day[aria-selected="true"] {
@@ -1489,7 +1490,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
       <button class="jump" data-go="settings">Settings</button>
       <button class="jump" data-overlay="basket">Basket</button>
       <button class="jump" data-overlay="discovery">Discovery</button>
-      <button class="jump" data-go="home" data-home-tab="pre" title="Engineer alias: former Fog">Pre-move</button>
+      <button class="jump" data-go="home" data-home-tab="pre" title="Engineer alias: Home → Pre-move">Pre-move</button>
       <button class="jump" data-go="home" data-home-tab="day0">Move-in day</button>
     </nav>
   </div>
@@ -1556,7 +1557,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
         </div>
       </section>
 
-      <!-- Fog removed as primary journey. Engineer demo jump "Pre-move" aliases to Home → Pre-move. -->
+      <!-- Former pre-exchange journey removed. Engineer demo jump "Pre-move" aliases to Home → Pre-move. -->
 
       <!-- ==================================================================
            SCREEN · DISCOVERY (full-screen sheet over Home via returnTo)
@@ -1824,7 +1825,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
         </div>
 
         <div class="c-datebar">
-          <span class="c-datebar__l">Moving <b id="homeMoveDate">14 August</b><br><span style="font-size:12px" id="homeDateProv">Solicitor feed updated this · Kentish Town Lettings</span></span>
+          <span class="c-datebar__l">Moving <b id="homeMoveDate">14 August</b><br><span style="font-size: 14px" id="homeDateProv">Solicitor feed updated this · Kentish Town Lettings</span></span>
           <button class="c-datebar__a" data-go="datechange" data-return-screen="home" data-return-tab="started">Change date</button>
         </div>
 
@@ -2191,7 +2192,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
         <div class="c-card" style="margin-top:var(--s4)">
           <p class="c-eyebrow">Was</p>
           <p class="num" style="font-size:19px;font-weight:600;margin-top:6px" id="dateWas">14 August 2026</p>
-          <p style="font-size:12px;color:var(--ink-3);margin-top:4px">Solicitor feed updated this · Kentish Town Lettings</p>
+          <p style="font-size: 14px;color:var(--ink-3);margin-top:4px">Solicitor feed updated this · Kentish Town Lettings</p>
           <div style="height:1px;background:var(--line);margin:var(--s4) 0"></div>
           <p class="c-eyebrow">Now · you are updating this</p>
           <div class="c-calendar" id="moveCalendar" aria-label="Choose a new move date"></div>
@@ -2877,20 +2878,20 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
   var speechActive = false;
   var speechWanted = false;
 
-  /* Single task dataset for List + Home lenses (Tasks screen). */
+  /* Single task dataset: List, Board, and Home board lenses. Toggle changes presentation only. Must-do copy identical across lenses. Board is additive (no decay/streaks/timers). */
   var BOARD_TASKS = [
     { id: 'broadband', title: 'Broadband check', whoDoesIt: 'Jay', state: 'done', dueLabel: 'Done', consequence: '', tier: 'must', column: 'done', legend: 'wifi live', complete: true },
-    { id: 'energy', title: 'Energy detect', whoDoesIt: 'Jay', state: 'done', dueLabel: 'OVO found', consequence: '', tier: 'must', column: 'done', legend: 'lights on', complete: true },
+    { id: 'energy', title: 'Auto-detect energy', whoDoesIt: 'Jay', state: 'live', dueLabel: 'in progress', consequence: 'Jay finds your current supplier from the national meter register.', tier: 'must', column: 'current', legend: 'lights on', complete: false },
     { id: 'water', title: 'Thames Water', whoDoesIt: 'Jay', state: 'done', dueLabel: 'confirmed', consequence: '', tier: 'must', column: 'done', legend: 'number registered', complete: true },
     { id: 'tv', title: 'TV licence', whoDoesIt: 'Jay', state: 'done', dueLabel: 'confirmed', consequence: '', tier: 'must', column: 'done', complete: true },
-    { id: 'council', title: 'Camden move-in date', whoDoesIt: 'Waiting on Camden', state: 'sent', dueLabel: 'sent · no receipt', consequence: 'Chase set for 16 Aug.', tier: 'must', column: 'current', urgent: true, complete: false },
-    { id: 'post', title: 'Redirect your post', whoDoesIt: 'You · 5 min', state: 'needs', dueLabel: 'do by 9 Aug', consequence: 'Opens address-change checklist.', tier: 'must', column: 'current', urgent: true, modal: 'post', complete: false },
+    { id: 'council', title: 'Camden council tax', whoDoesIt: 'Jay', state: 'sent', dueLabel: 'sent · no receipt', consequence: 'Chase set for 16 Aug.', tier: 'must', column: 'current', urgent: true, complete: false },
+    { id: 'post', title: 'Redirect post', whoDoesIt: 'You · 5 min', state: 'needs', dueLabel: 'do by 9 Aug', consequence: 'Opens address-change checklist.', tier: 'must', column: 'current', urgent: true, modal: 'post', complete: false },
     { id: 'packing', title: 'Packing best practices', whoDoesIt: 'You', state: 'needs', dueLabel: 'open', consequence: 'Label boxes, Day 1 kit, plates vertical, and more.', tier: 'must', column: 'current', complete: false },
     { id: 'meters', title: 'Meter readings', whoDoesIt: 'You + Jay', state: 'blocked', dueLabel: 'waiting for keys', consequence: '', tier: 'must', column: 'future', legend: 'meters read', complete: false },
     { id: 'deposit', title: 'Deposit protection photos', whoDoesIt: 'You', state: 'blocked', dueLabel: 'move-in day', consequence: '', tier: 'must', column: 'future', complete: false },
     { id: 'safety', title: 'Safety & essentials', whoDoesIt: 'You', state: 'blocked', dueLabel: 'move-in day', consequence: '', tier: 'must', column: 'future', complete: false },
     { id: 'engineer', title: 'Broadband engineer', whoDoesIt: '8 Aug', state: 'done', dueLabel: 'booked', consequence: '', tier: 'must', column: 'future', complete: true },
-    { id: 'removals', title: 'Removals booking', whoDoesIt: 'You', state: 'blocked', dueLabel: 'date fixed', consequence: '', tier: 'must', column: 'future', complete: false },
+    { id: 'removals', title: 'Removals / Man &amp; Van', whoDoesIt: 'You', state: 'blocked', dueLabel: 'blocked · no date', consequence: '', tier: 'must', column: 'future', complete: false },
     { id: 'gp', title: 'Register with a GP', whoDoesIt: 'You', state: 'needs', dueLabel: 'open', consequence: 'Find a practice taking patients near NW5.', tier: 'could', column: 'future', legend: 'GP still open', complete: false },
     { id: 'vote', title: 'Register to vote', whoDoesIt: 'You', state: 'needs', dueLabel: 'open', consequence: 'Update your electoral roll address.', tier: 'could', column: 'future', legend: 'vote still open', complete: false }
   ];

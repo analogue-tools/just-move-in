@@ -2,6 +2,8 @@
 ### Jay · agentic home setup · v0.4
 **Jeanne Piffaut · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 ---
 
 ## 0. How this pairs with the prototype
@@ -244,7 +246,7 @@ Fires from a partner feed or the `c-datebar` control.
   "offerId": "of_energy_1",
   "category": "energy",
   "rank": 1,
-  "supplier": "Octopus Energy",
+  "supplier": "OVO",
   "product": "12M Fixed",
   "monthlyGbp": 118,
   "savingVsDefaultGbp": 214,

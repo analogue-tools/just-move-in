@@ -2,6 +2,8 @@
 ### 60 reviews at 3 stars and below · what they change
 **Jeanne Piffaut · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 ---
 
 ## 0. The sample
@@ -50,7 +52,7 @@ Two details make this worse than ordinary marketing friction. Contact is describ
 | | |
 |---|---|
 | **Technical** | Consent scope, source and timestamp must be fields on the move record, and a one tap opt-out must propagate to every channel within minutes, not on request to an inbox. Contact frequency needs a hard cap per state. A mover in `watching` should receive almost nothing. |
-| **Customer** | This is the sceptical persona from Q22, and it is worse than I modelled. The default assumption on first contact is not indifference, it is suspicion of a scam. The opening screen has to survive that. |
+| **Customer** | This is the sceptical first-contact persona, and it is worse than I modelled. The default assumption on first contact is not indifference, it is suspicion of a scam. The opening screen has to survive that. |
 
 ### T3 · Actions taken on the wrong property or wrong person · 9 of 60
 
@@ -114,7 +116,7 @@ Separately, a mover acting for elderly parents had her own address affected, and
 | | |
 |---|---|
 | **Technical** | **Mandatory pre-switch validation: meter type, prepayment status, and vulnerability flag, before any energy action.** No switch executes without them. The Ofgem Priority Services Register should be offered at the same point rather than as an afterthought. |
-| **Customer** | Q27 identified disabled movers as one of the two segments who value this service most. This is the same segment carrying the highest downside when it goes wrong. |
+| **Customer** | disabled movers are one of the two segments the research flags who value this service most. This is the same segment carrying the highest downside when it goes wrong. |
 
 ### T9 · Referral partner damage · 4 of 60
 

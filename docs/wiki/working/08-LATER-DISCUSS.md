@@ -1,6 +1,8 @@
 # Later / discuss · parked ideas by theme
 **Jeanne Piffaut · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 Nothing here is forgotten. These are **not** in the v1 demo spine, or they need JMI confirmation, partner demand, or a design/eng cost conversation before building.
 
 **Status keys:** `discuss` · `needs-JMI` · `needs-partner-discovery` · `needs-design` · `needs-eng-estimate` · `parked-after-P0`

@@ -1,6 +1,9 @@
 # Primary Research: Mover Survey
 ### "Just Moved In?" · fielded July 2026 · Jeanne Piffaut
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
+
 > **Status:** Results below from the fuller July 2026 analysis (**n = 12**). Directional only. Treat shares as signal, not proof.
 
 ---
@@ -61,7 +64,7 @@ Written before the data, so the conclusions are not retrofitted.
 
 ## 4. Results
 
-**n = 12.** Small, so everything here is directional, not significant. I am reporting it as signal to act on, not proof. Where the number is too small to lean on, I say so.
+**n = 12.** Some questions have fewer answers where people skipped; I cite the true denominator each time. Small, so everything here is directional, not significant. I am reporting it as signal to act on, not proof. Where the number is too small to lean on, I say so.
 
 ### 4.1 Sample
 - **10 local moves, 1 relocation, 2 international** (one respondent counted an international move). Skews local, which suits the council and utility focus.

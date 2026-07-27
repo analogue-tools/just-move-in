@@ -1,6 +1,8 @@
 # Engineering · stakeholder wiki
 **Jeanne Piffaut · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 Authoritative deep dive: [`FLOWS-EVENTS-ANALYTICS.md`](../../FLOWS-EVENTS-ANALYTICS.md) · [`HANDOFF.md`](../../HANDOFF.md) · [`COMPONENTS.md`](../../COMPONENTS.md)
 
 This page is what I would bring into an eng working session: vision, what must be true, where events live, and what we need to discuss together. I am not pretending to replace your system design. The prototype is the whiteboard.

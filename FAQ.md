@@ -2,6 +2,8 @@
 
 **Jeanne Piffaut · maps to in-product `FAQSheet` + Ask Jay · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 Copy below is product-facing. Ask Jay may only answer from this corpus (plus linked task receipts). Unmatched or distress / complaint language escalates to the named Move Specialist.
 
 ---

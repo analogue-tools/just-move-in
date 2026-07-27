@@ -2,6 +2,8 @@
 
 **Jeanne Piffaut · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 Source of truth for screens: live prototype. Product constraints: [`HANDOFF.md`](../../HANDOFF.md) · [`COMPONENTS.md`](../../COMPONENTS.md)
 
 For design working sessions: vision, language, what each surface should feel like, and open topics. Per-screen Story columns live in the demo toolbar and (next) in Figma comments.
@@ -72,7 +74,7 @@ Typography / motion / colour in the prototype follow the existing Just Move In d
 | **Packing / Notion-like lists vs calm** | Survey and stickiness want hierarchy | Density that helps packing vs anxiety of a second product | Own tab? After Day 0 only? |
 | **Feature voting UI (Later)** | Movers co-shape the roadmap | Engagement vs derailing P0 | Moderation; when to show |
 | **Customer-support path duplication** | Named human builds trust | Showing it on every screen trains people to ignore it | High-stakes only; frequency rules |
-| **Motion budget** | Presence and hierarchy | 2–3 intentional motions vs decorative noise | Which moments earn motion (confirm, keys Yes, date cascade)? |
+| **Motion budget** | Presence and hierarchy | 2 to 3 intentional motions vs decorative noise | Which moments earn motion (confirm, keys Yes, date cascade)? |
 | **Figma Story template ownership** | Same Challenge → Next structure as the demo toolbar | Who writes / maintains comments per frame | Design owns template; Product owns constraints in the row |
 
 ---

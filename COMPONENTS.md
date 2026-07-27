@@ -2,6 +2,8 @@
 
 **Jeanne Piffaut · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 Class names in `prototype/index.html` map to this inventory. Built on shadcn/ui primitives where one exists. An engineer should be able to implement each row without inventing props, states or a11y behaviour.
 
 **Shared rules**

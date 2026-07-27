@@ -1,6 +1,8 @@
 # Research · primary and secondary
 **Jeanne Piffaut · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 Full instruments and deep tables live in the root library. This page is the interviewer-facing synthesis.
 
 Deep files: [`01-research-and-problem-framing.md`](../../01-research-and-problem-framing.md) · [`01c-negative-review-analysis.md`](../../01c-negative-review-analysis.md) · [`01d-primary-research-survey.md`](../../01d-primary-research-survey.md) · [`02-competitive-analysis.md`](../../02-competitive-analysis.md)

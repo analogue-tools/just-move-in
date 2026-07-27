@@ -2,6 +2,8 @@
 ### Just Move In · Product Discovery & Design Exercise
 **Jeanne Piffaut · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 ---
 
 ## 0. How to read this

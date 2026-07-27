@@ -2,11 +2,13 @@
 ### A lightweight PRD · Just Move In
 **Jeanne Piffaut · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 ---
 
 ## 0. How to read this
 
-This is a decisions document. The evidence sits in Deliverable 1 (research, questions Q1 to Q29) and Deliverable 2 (competitive, questions C1 to C22), and is referenced rather than repeated. Where a decision is contested, I have said what I gave up and what would change my mind.
+This is a decisions document. Evidence from the research and competitive work is written in plain language below so the file reads standalone. Where a decision is contested, I have said what I gave up and what would change my mind.
 
 | § | Contents |
 |---|---|
@@ -50,8 +52,8 @@ Every capability in the product falls into one of three buckets, and each bucket
 
 | Bucket | What it is | Who does it | Where it lives |
 |---|---|---|---|
-| **Understand** | Explaining what a tariff is, what happens next, why this pick | Jay, in conversation | **Voice and chat.** Infinite patience at zero social cost is the clearest place AI beats the human (Q15) |
-| **Decide** | Choosing a tariff, a package, a level of cover | The mover, once, in a basket | **UI.** Money decisions need to be seen, disclosed and auditable (Q9, Q11) |
+| **Understand** | Explaining what a tariff is, what happens next, why this pick | Jay, in conversation | **Voice and chat.** Infinite patience at zero social cost is the clearest place AI beats the human (AI patience at zero social cost beats a human on explanations) |
+| **Decide** | Choosing a tariff, a package, a level of cover | The mover, once, in a basket | **UI.** Money decisions need to be seen, disclosed and auditable (trust and commission-disclosure findings) |
 | **Do** | Notifying councils, placing orders, chasing installs, capturing readings | The system | **Invisible.** The best interface for admin is no interface |
 
 **Most of the product is invisible.** The interface exists for Understand and Decide only. This is the difference between what we are building and the generic assistant every competitor is heading towards.
@@ -62,15 +64,15 @@ The hard part of this brief is restraint. Nine explicit non goals.
 
 | # | Not doing | Why | Evidence |
 |---|---|---|---|
-| 1 | **Bills bundling** | Puts us inside the billing relationship and makes us inherit every metering and estimation error as a trust liability. Bunch's public complaints show the cost. We orchestrate the setup and stay out of the invoice | C3 |
-| 2 | **A comparison table** | Three or more options convert at 2.4% to 13.4% against 14.0% to 29.5% for a single offer. This is a measurable conversion penalty, not a style preference | Q8, C11 |
-| 3 | **An "ask me anything" chatbot as the front door** | It is what every competitor is building, it differentiates nothing, and it inherits all of the trust risk with none of the rails. Chat exists inside the product. It is not the product | C16, C18 |
-| 4 | **Voice for the whole move** | Voice AI leads in banking and telco because password resets map to scoped intents. It lags in healthcare and travel because of emotional handling and edge cases. A home move looks like the lagging group | C21 |
-| 5 | **Removing the humans** | Klarna rehired after AI only support lowered quality. 35 of 39 reviews name an individual. Removing the humans to prove the AI works destroys the asset we are scaling | Q13, C22 |
-| 6 | **Full autonomy on money** | Only 9% of consumers accept fully autonomous purchasing. 60% of UK adults abandon an agent after one mistake | Q9, Q10 |
-| 7 | **Direct to consumer acquisition** | Updater marketed to individual movers from 2011, failed, and only worked after pivoting to the brokerage channel. The referred sceptic is not a problem to fix, it is the only viable route | C6 |
-| 8 | **Owning the physical move** | Removals, packing and storage are a different supply chain with thin margins. Refer, take a fee, do not operate | Q21 |
-| 9 | **The neighbourhood and community layer in v1** | This is the retention thesis and it is the thing I most want to build. It is also the thing that most easily eats a quarter while the core rails go unbuilt. Deferred to v2, deliberately and uncomfortably | Q25 |
+| 1 | **Bills bundling** | Puts us inside the billing relationship and makes us inherit every metering and estimation error as a trust liability. Bunch's public complaints show the cost. We orchestrate the setup and stay out of the invoice | Bundler billing-error complaints in the competitive scan |
+| 2 | **A comparison table** | Three or more options convert at 2.4% to 13.4% against 14.0% to 29.5% for a single offer. This is a measurable conversion penalty, not a style preference | Ofgem one-offer conversion; comparison-site overload |
+| 3 | **An "ask me anything" chatbot as the front door** | It is what every competitor is building, it differentiates nothing, and it inherits all of the trust risk with none of the rails. Chat exists inside the product. It is not the product | Competitive scan: every rival is shipping a chat front door |
+| 4 | **Voice for the whole move** | Voice AI leads in banking and telco because password resets map to scoped intents. It lags in healthcare and travel because of emotional handling and edge cases. A home move looks like the lagging group | Voice AI benchmarks: lead in scoped intents, lag on emotional edge cases |
+| 5 | **Removing the humans** | Klarna rehired after AI only support lowered quality. 35 of 39 reviews name an individual. Removing the humans to prove the AI works destroys the asset we are scaling | Named specialists in reviews; human escape remains load-bearing |
+| 6 | **Full autonomy on money** | Only 9% of consumers accept fully autonomous purchasing. 60% of UK adults abandon an agent after one mistake | Low appetite for full autonomy; high abandon-after-one-mistake |
+| 7 | **Direct to consumer acquisition** | Updater marketed to individual movers from 2011, failed, and only worked after pivoting to the brokerage channel. The referred sceptic is not a problem to fix, it is the only viable route | Updater DTC failure, then brokerage pivot |
+| 8 | **Owning the physical move** | Removals, packing and storage are a different supply chain with thin margins. Refer, take a fee, do not operate | Removals are a different thin-margin supply chain |
+| 9 | **The neighbourhood and community layer in v1** | This is the retention thesis and it is the thing I most want to build. It is also the thing that most easily eats a quarter while the core rails go unbuilt. Deferred to v2, deliberately and uncomfortably | Neighbourhood layer is retention, not v1 rails |
 
 **On number 9.** I want to be explicit that this is a sequencing call rather than a judgement that the work does not matter. The first two weeks are where a transaction becomes a relationship. But a beautiful local discovery layer sitting on top of a plan that breaks when the completion date slips is a worse product than a plain plan that holds. Rails first.
 
@@ -105,9 +107,9 @@ The current human call runs discovery and setup sequentially across six products
 
 **Step 2 · Single discovery pass.** Six to nine questions, adaptive. The question set is scored by how much each answer changes a recommendation, and stops when confidence thresholds are met across all categories. A mover whose answers point clearly gets six questions. An ambiguous case gets nine.
 
-*Branch A, novice:* if the experience flag is set (first time renter, first time buyer, self declared), the flow opens with orientation rather than price. What these bills are, what you are choosing between, what happens if you do nothing. Deals come second (Q28).
+*Branch A, novice:* if the experience flag is set (first time renter, first time buyer, self declared), the flow opens with orientation rather than price. What these bills are, what you are choosing between, what happens if you do nothing. Deals come second (novices need orientation before price).
 
-*Branch B, time compressed:* if days to move is under 14, the ranking flips from price to activation speed, and we say so on screen. Movers accept a worse price for certainty when time poor, but only if told (Q29).
+*Branch B, time compressed:* if days to move is under 14, the ranking flips from price to activation speed, and we say so on screen. Movers accept a worse price for certainty when time poor, but only if told (time-poor movers trade price for speed when told).
 
 **Step 3 · The basket.** One recommendation per category. Each card carries the pick, a one line reason, the effort estimate, the saving against the default the mover would otherwise land on, the commission we earn, and a collapsed "why not the others". No comparison grid.
 
@@ -128,7 +130,7 @@ The current human call runs discovery and setup sequentially across six products
 | State | Entered when | Behaviour |
 |---|---|---|
 | `watching` | Partner referral, offer accepted or tenancy agreed | Profile stored. **No outbound tasks fire.** Low commitment content only |
-| `armed` | Exchange, or contract signed and deposit paid | Plan generated. Discovery invited. This is activation (Q23) |
+| `armed` | Exchange, or contract signed and deposit paid | Plan generated. Discovery invited. This is activation (exchange is the activation trigger) |
 | `active` | Discovery complete, basket confirmed | Tasks executing. Touchpoints scheduled |
 | `moved` | Keys confirmed, or move date passed | Day 0 voice intents unlock. Post move task set activates |
 | `settling` | Move date plus 1 to 14 | Settling tasks, first bill check, local layer in v2 |
@@ -148,13 +150,13 @@ The current human call runs discovery and setup sequentially across six products
 | `failed` | Rejected or errored, retry scheduled |
 | `escalated` | Assigned to the named human owner |
 
-**On `unconfirmable`.** This is the most important state in the model and it exists because of a competitive finding. SlothMove's weakness is not narrow scope, it is that movers cannot verify whether an update landed, with reviewers reporting silent failures (C8). **A green tick that might be false is worse than an honest "sent, no confirmation available from this council".** We surface the distinction in the UI. It costs us a little polish and buys the thing the whole product depends on.
+**On `unconfirmable`.** This is the most important state in the model and it exists because of a competitive finding. SlothMove's weakness is not narrow scope, it is that movers cannot verify whether an update landed, with reviewers reporting silent failures (SlothMove silent-failure pattern). **A green tick that might be false is worse than an honest "sent, no confirmation available from this council".** We surface the distinction in the UI. It costs us a little polish and buys the thing the whole product depends on.
 
 #### The cross cutting event: `move_date_changed`
 
 Fires from a partner feed or a one tap user action. Triggers a cascade that reschedules dependent tasks, cancels and reissues provider orders where the panel permits it, flags anything now impossible, and sends one message explaining what changed. **Nothing is re entered by the mover.**
 
-This is the moment the product most earns trust, because it is the moment the mover most expects to be let down (Q3).
+This is the moment the product most earns trust, because it is the moment the mover most expects to be let down (movers expect to be let down at confirmation).
 
 #### Edge states that must be designed, not discovered
 
@@ -169,7 +171,7 @@ Two intents at launch. Not more.
 | **Keys confirmation** | Mover says the keys are in hand, or answers an outbound call on move day | Sets `moved`, fires every downstream notification with the correct date, confirms the council tax start date back |
 | **Meter capture** | Same call, or inbound at any time | Captures opening and closing readings by voice plus camera, timestamps them, submits to both suppliers |
 
-**Why only two.** Independent benchmarks put realistic resolution at 30% to 50% for early deployments, with 70% to 85% reachable only for deeply integrated agents on well scoped use cases (C20). Two intents is what "well scoped" looks like. Meter readings are also the highest leverage and most forgotten item in the entire journey.
+**Why only two.** Independent benchmarks put realistic resolution at 30% to 50% for early deployments, with 70% to 85% reachable only for deeply integrated agents on well scoped use cases (realistic early AI resolution rates). Two intents is what "well scoped" looks like. Meter readings are also the highest leverage and most forgotten item in the entire journey.
 
 Everything else on Day 0 routes to a human or defers to the UI.
 
@@ -179,10 +181,10 @@ Four mechanisms, each traceable to a finding.
 
 | Mechanism | Implementation | Evidence |
 |---|---|---|
-| **Graduated autonomy** | Permission scopes per task category, defaulted by consequence, widened by the mover as trust accrues | Q10 |
-| **Commission disclosure** | Required field on every catalogue item, rendered by the offer card component | Q11, C12 |
-| **Audit log** | Plain language record of every action taken on the mover's behalf, visible to them, with undo where the downstream system allows | Q9 |
-| **Named human owner** | A field on the move record, exposed in the UI, receiving all escalations | Q13, C22 |
+| **Graduated autonomy** | Permission scopes per task category, defaulted by consequence, widened by the mover as trust accrues | Graduated autonomy matches trust research |
+| **Commission disclosure** | Required field on every catalogue item, rendered by the offer card component | Paid influence kills trust; panel gaps must be visible |
+| **Audit log** | Plain language record of every action taken on the mover's behalf, visible to them, with undo where the downstream system allows | Auditability after AI mistakes |
+| **Named human owner** | A field on the move record, exposed in the UI, receiving all escalations | Named specialists in reviews; human escape remains load-bearing |
 
 Jay is visibly a machine. No simulated typing delays, no human tells, AI status disclosed at the start of any voice call. Escalation triggers: distress language, repeated failure, complaint intent, and the vulnerability flag.
 
@@ -235,8 +237,8 @@ Metrics that must not move, so we cannot buy the north star with something worse
 |---|---|
 | Complaint rate, and FCA reportable complaints | Speed and automation should not be bought with mis selling |
 | Cancellation within 14 days of a switch | Catches recommendations that convert but do not suit |
-| Re presentation of a declined recommendation | Must stay at zero. "No hard sell" becomes a system property (Q18, C12) |
-| Time to human for vulnerability flagged movers | Accessibility is a value proposition here, not a compliance item (Q27) |
+| Re presentation of a declined recommendation | Must stay at zero. "No hard sell" becomes a system property (no hard sell; disclosure at choice) |
+| Time to human for vulnerability flagged movers | Accessibility is a value proposition here, not a compliance item (vulnerability / accessibility segment) |
 | Share of `confirmed` states that later prove false | Guards directly against the SlothMove failure mode |
 
 ### 3.4 The first four experiments
@@ -278,7 +280,7 @@ The nine decisions where a reasonable person could have gone the other way.
 |---|---|---|
 | Partner data does not carry the exchange event, so the core trigger cannot fire | **High** | Confirm the partner schema before build. Fall back to a mover confirmed trigger with a prompt, which is weaker but workable |
 | Councils have no confirmation path, so a large share of tasks sit in `unconfirmable` | Medium | Ship the honest state. Negotiate receipts with the largest authorities over time |
-| Panel gaps become visible and undermine the single recommendation | Medium | Expose scope honestly. A disclosed gap is survivable, a hidden one is not (C12) |
+| Panel gaps become visible and undermine the single recommendation | Medium | Expose scope honestly. A disclosed gap is survivable, a hidden one is not (panel gaps noticed by movers) |
 | The AI is perceived as a downgrade from the named specialist | **High** | Named human owner from day one. Position Jay as doing more, not as replacing someone |
 | Regulatory exposure on insurance and energy recommendations | Medium | Legal review of the recommendation logic and the rationale strings before launch. Store the rationale against every order |
 

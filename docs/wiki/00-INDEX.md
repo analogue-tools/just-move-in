@@ -1,4 +1,8 @@
 # Share checklist (for you)
+**Jeanne Piffaut · July 2026**
+
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 
 **Send by default**
 

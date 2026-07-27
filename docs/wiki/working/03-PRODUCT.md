@@ -1,6 +1,8 @@
 # Product proposal
 **Jeanne Piffaut · Jay · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 Demo: https://just-move-in-liard.vercel.app  
 Linked research: [02 · Research](02-RESEARCH.md) · Feature spine: [07 · Feature bridge](07-FEATURE-BRIDGE.md)  
 Deep PRD: [`03-product-strategy-prd.md`](../../03-product-strategy-prd.md)

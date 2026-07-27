@@ -1,6 +1,8 @@
 # Stakeholder collaboration · how we work together
 **Jeanne Piffaut · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 Case-study stance: I am not replacing your eng/design/sales process. The prototype + this wiki are the shared whiteboard so we can disagree on specifics without losing the spine.
 
 ---

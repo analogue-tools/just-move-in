@@ -2,6 +2,8 @@
 
 **Jeanne Piffaut · Product discovery case · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 > The home-setup call already works. Automating only the conversation would scale the wrong layer.  
 > **Jay** is the digital operator that does the admin, shows honest proof it happened, and survives the move date changing.
 
@@ -49,11 +51,11 @@ Local: open [`prototype/index.html`](prototype/index.html) (no build). Vercel se
 
 These are the rules I would hand an engineer before polish:
 
-1. **Watching** — referred, move not yet real → no outbound to councils or suppliers.  
-2. **Confirmed** — only with a stored receipt. Otherwise **`sent · no receipt`** (neither success nor failure).  
-3. **Date cascade** — deadlines redraw; **`lost = 0`** (nothing silently drops).  
-4. **Money in UI** — never by voice alone; panel fee said once at choice.  
-5. **Human path real** — named support on high stakes; pause and opt-out actually stop outreach.
+1. **Watching:** referred, move not yet real → no outbound to councils or suppliers.  
+2. **Confirmed:** only with a stored receipt. Otherwise **`sent · no receipt`** (neither success nor failure).  
+3. **Date cascade:** deadlines redraw; **`lost = 0`** (nothing silently drops).  
+4. **Money in UI:** never by voice alone; panel fee said once at choice.  
+5. **Human path real:** named support on high stakes; pause and opt-out actually stop outreach.
 
 North star I would measure: **Critical Path Completion** (time-sensitive setup finished before it becomes expensive or impossible), plus a **false confidence rate** (mover believes done vs honest state). Kill if we confirm without a receipt, or act on the wrong property.
 

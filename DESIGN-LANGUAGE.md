@@ -2,6 +2,8 @@
 
 **Jeanne Piffaut · Jay / Just Move In · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 This file explains *why* the prototype looks the way it does. Tokens live in `tokens/tokens.json`. Visual authority is `prototype/index.html`.
 
 ---
@@ -27,7 +29,7 @@ This file explains *why* the prototype looks the way it does. Tokens live in `to
 | Human-written | **Instrument Sans** | Headings, body, buttons, reasons, FAQ answers |
 | Machine-derived | **Mono** (IBM Plex Mono / Geist Mono in tooling) | States, prices, dates, timestamps, meter readings, panel-fee figures if shown |
 
-**Why this pairing.** Movers need to tell at a glance what a person decided and what a system reported. Sans carries warmth and brand; mono carries auditability. The split is the visual signature. If brand later swaps Instrument Sans for a licensed display face, keep the human/machine split intact.
+**Why this pairing.** Movers need to tell at a glance what a person decided and what a system reported. Sans carries warmth and brand; mono carries auditability. The split is the visual signature. The prototype uses Instrument Sans as a freely available stand-in for licensed Degular Display; IBM Plex Mono and Geist Mono are interchangeable for machine values. Keep the human/machine split intact when faces change.
 
 **Floors.** Nothing below 14px. Anything a mover reads in order to act is 16px or larger. GOV.UK dropped sub-14 sizes citing British Dyslexia Association guidance. Disabled movers appear unprompted in JMI reviews as a segment that needs this most.
 

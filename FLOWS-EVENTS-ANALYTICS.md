@@ -2,6 +2,8 @@
 ### System design · data flows · deployment · product flows · analytics
 **Jeanne Piffaut · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 This is the engineer wiki for taking the clickable demo to production. Intended to live in Notion (paste/import from this file); it is not part of the product UI.  
 Companion specs: [`HANDOFF.md`](HANDOFF.md) (states & contracts), [`USER-JOURNEY.md`](USER-JOURNEY.md) (life of the move), [`COMPONENTS.md`](COMPONENTS.md) (UI inventory).  
 **Product HTML (the app):** [`prototype/index.html`](prototype/index.html) · live: https://just-move-in-liard.vercel.app  
@@ -851,6 +853,24 @@ Treat **every intentional user interaction** and **every durable system transiti
 | 20 | `escalation_created` | Safety / stall / human |
 
 ---
+
+
+
+## Event catalogue (dashboard citations)
+
+Events referenced by `analytics/dashboard.html` and the README (source of truth with §4 to §6 and §D):
+
+| Event | Meaning |
+|---|---|
+| `referral_continue` | Mover continues from watching referral into the plan |
+| `discovery_start` | Discovery session opens |
+| `discovery_complete` | Discovery answers complete; ranking ready |
+| `basket_open` | Basket / plans screen opened |
+| `basket_confirmed` | Plans confirmed; orders may place |
+| `closure_continue` | Confirmed screen → Pre-move |
+| `keys_confirmed` | Moving-day keys Yes (voice or UI) |
+| `notify_sent` | Outbound notification dispatched to a destination |
+| `meter_read_submit` | Opening meter readings submitted |
 
 # 5 · Success metrics and funnels
 

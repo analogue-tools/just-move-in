@@ -1,6 +1,8 @@
 # Feature bridge · research → product
 **Jeanne Piffaut · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 This table is the spine: what we ship (or propose), why (research), how it is delivered (design / behavioural intent), data, and commercial role.
 
 **Objective tags:** `cash-once` · `cash-partner` · `cash-utility` · `sticky` · `emotion` · `trust` · `ops`

@@ -1,6 +1,8 @@
 # Jay · case study
 **Jeanne Piffaut · Just Move In · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 **Jay** turns Just Move In’s home-setup phone call into a digital operator that does the admin, shows honest proof it happened, and survives the move date changing.
 
 **Working demo:** https://just-move-in-liard.vercel.app  
@@ -305,7 +307,7 @@ The spine is for the mover. The same work has to make sense to the people who se
 
 Open topics I would bring to Sales / CS / Partnerships: panel economics and disclosure; partner weekly reports; Market ads rules; voucher hub vs spam; when AI FAQ ends and a human starts; specialist change-management (tell them week 0).
 
-Open topics for Design (same list, more detail in the design working notes): operator language vs brand kit; trust-safe sponsored Market; Revolut-like vouchers vs simple Market; packing hierarchy vs calm; feature voting later; how often to show the human support path; 2–3 intentional motions; who owns the Figma Story template.
+Open topics for Design (same list, more detail in the design working notes): operator language vs brand kit; trust-safe sponsored Market; Revolut-like vouchers vs simple Market; packing hierarchy vs calm; feature voting later; how often to show the human support path; 2 to 3 intentional motions; who owns the Figma Story template.
 
 ---
 

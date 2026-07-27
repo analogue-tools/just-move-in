@@ -1,6 +1,8 @@
 # Approach · how I worked this case
 **Jeanne Piffaut · July 2026**
 
+Part of the Jay case study. Full index in CASE-STUDY.md.
+
 > This is the abstract. It is not the research. Research is [02 · Research](02-RESEARCH.md).
 
 ---
