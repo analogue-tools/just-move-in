@@ -257,7 +257,7 @@ I would also gate rollout in phases: fix honest receipts **before** AI, run the 
 2. Movers will let Jay run boring no-money admin alone (inferred; if wrong, we still have a strong guided flow).
 3. The first fortnight after keys drives whether people come back (asserted; if wrong, pull renewal earlier).
 
-**Tradeoff underneath:** in a category where 60% quit after one mistake, design for a survivable bad case, not a dazzling happy path. An honest “sent, no reply yet” beats a fake green tick.
+**Tradeoff underneath:** in a category where 60% quit after one mistake, design for a survivable bad case, not a dazzling happy path. An honest `sent · no receipt` beats a fake green tick.
 
 ---
 
