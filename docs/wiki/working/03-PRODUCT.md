@@ -130,7 +130,8 @@ For each surface: vision, branding/commercial, feature ideas (shipped vs later),
 - **Later:** Commission design with suppliers; branding packs for businesses.
 
 ### Settings
-- **Proposal:** Control: LOA, pause, opt-out, notifications, date change, left-hand, audit.
+- **Proposal:** Control: LOA, pause, opt-out, notifications, date change, left-hand mode, audit.
+- **Left-hand mode:** Flip ask bar and primary nav taps for left-handed movers and Day 0 one-hand use. Inclusion, not branding.
 - **Later:** Font size / accessibility controls.
 
 ### Ask Jay + customer support human agent

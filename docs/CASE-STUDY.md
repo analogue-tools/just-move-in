@@ -278,7 +278,7 @@ I would also gate rollout in phases: fix honest receipts **before** AI, run the 
 | Date cascade | Move dates slip | Show what moved and what to redo; nothing silently lost | ops |
 | Ask Jay + customer support | Named humans; chat is not the product | FAQ / Ask Jay as side channel; named human on high-stakes screens only | trust |
 | Market / settling | Week-one needs | Free NHS/council vs local vs panel labelled; GP/dentist, electoral roll, deep links, first-bill check | cash-partner · sticky |
-| Settings | Consent / control | Pause, opt-out, signed permission, audit log | trust |
+| Settings | Consent / control; left-handers + Day 0 one-hand use | Pause, opt-out, signed permission, audit log; left-handed mode flips ask bar and primary taps | trust |
 | Renewal seeding | Habit window; re-consent later | Plant early; ask again around month 11 (not noisy in v1 UI) | sticky · trust |
 
 In the demo toolbar: **For design · eng · sales · CS** first, then **Features · evidence** (problem / design / evidence / road not taken). That toolbar is the live version of §6.

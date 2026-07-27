@@ -16,7 +16,7 @@ This file explains *why* the prototype looks the way it does. Tokens live in `to
 | **Transparency** | Seven-row task truth; date provenance; queued tasks show their send date |
 | **Stickiness** | Home board is the place you return to; settling fills in and never decays |
 | **Modularity** | Voice and UI both exist; lead modality follows access, buttons always remain |
-| **Accessibility, one-hand** | Large targets, readable type, works at 360px, sticky human escape |
+| **Accessibility, one-hand** | Large targets, readable type, works at 360px, sticky human escape. **Left-handed mode** flips the ask bar, compose row, and tab order so primary taps sit under the left thumb (Settings). Default apps bias right; Day 0 is often one free hand. Cheap inclusion, not a brand stunt. |
 | **Human escape** | Connect to customer support human agent on hard screens; FAQ + Ask Jay for soft questions |
 | **Real state** | Fog for `sent · no receipt`; green only with a stored receipt |
 

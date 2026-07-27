@@ -30,7 +30,7 @@ This table is the spine: what we ship (or propose), why (research), how it is de
 | **Customer support human agent escape** | Named human | 35/39 name a person; Kinch & Buell | Always reachable on high stakes | escalate_cs_agent | `trust` · `emotion` |
 | **Market** | Local help; labelled | Survey Q14 discounts+guides | Intention-led search; trust lines; panel fee note | market_search, listing_open | `cash-partner` · `sticky` |
 | **Post-move survey** | Optional, skippable | Learning loop | Soft card; skip always | survey_* | research · `sticky` |
-| **Settings controls** | Pause, opt-out, LOA, audit, a11y left-hand | Consent themes | Grouped settings | settings_* | `trust` |
+| **Settings controls** | Pause, opt-out, LOA, audit; left-hand mode | Consent; ~1 in 10 left-handed; Day 0 one free hand | Grouped settings; flip ask bar / nav primary taps | settings_*, `settings_left_hand_toggle` | `trust` |
 
 ---
 

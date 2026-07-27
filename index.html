@@ -2340,7 +2340,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
             <div class="c-toggle-row" style="border:0;padding:0">
               <div>
                 <div class="c-toggle-row__l">Left-handed mode</div>
-                <div class="c-toggle-row__s">Flips ask bar and primary controls to the left</div>
+                <div class="c-toggle-row__s">Puts the ask bar and main taps under your left thumb. Built for left-handed movers and one-hand use on moving day.</div>
               </div>
               <button type="button" class="c-switch" id="leftHandToggle" aria-pressed="false" aria-label="Left-handed mode"></button>
             </div>
@@ -2678,10 +2678,10 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
         <article class="story-feature" id="tm-settings">
           <div class="story-feature__top"><div><div class="story-feature__screen">Screen</div><h3>Settings</h3></div></div>
           <table class="story-table">
-            <tr><th>Design</th><td>Obvious grouping. Pause and opt out easy to find. Permission in plain English.</td></tr>
-            <tr><th>Engineering</th><td>settings_pause_toggle, settings_opt_out, settings_notify_toggle must stop schedulers and messages.</td></tr>
-            <tr><th>Sales</th><td>Never sell around an opt out.</td></tr>
-            <tr><th>Customer support</th><td>Opt out is sacred. Execute immediately.</td></tr>
+            <tr><th>Design</th><td>Obvious grouping. Pause and opt out easy to find. Permission in plain English. Left-handed mode flips ask bar and primary taps for left-hand and Day 0 one-hand use; reading order stays LTR.</td></tr>
+            <tr><th>Engineering</th><td>settings_pause_toggle, settings_opt_out, settings_notify_toggle must stop schedulers and messages. settings_left_hand_toggle persists preference only; no layout rewrite of Yes/No or copy direction.</td></tr>
+            <tr><th>Sales</th><td>Never sell around an opt out. Left-hand mode is inclusion, not a feature pitch.</td></tr>
+            <tr><th>Customer support</th><td>Opt out is sacred. Execute immediately. If someone struggles to reach primary buttons one-handed, point them to Left-handed mode.</td></tr>
           </table>
         </article>
 
@@ -2827,10 +2827,10 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
         <article class="story-feature" id="ft-settings">
           <div class="story-feature__top"><div><div class="story-feature__screen">Feature</div><h3>Settings</h3></div></div>
           <table class="story-table">
-            <tr><th>The problem</th><td>Consent without a real off switch is theatre, especially after unwanted-contact wounds.</td></tr>
-            <tr><th>The design</th><td>Pause, opt out, notifications, date change, and signed permission in clear groups. Exits are obvious.</td></tr>
-            <tr><th>The evidence</th><td class="story-cite">Trustpilot unwanted contact 16/60. Survey Q13 control objections. Product rule: kill switches must be honoured in the scheduler, not only in UI.</td></tr>
-            <tr><th>Road not taken</th><td>No decorative toggles that still send messages. No burying opt out.</td></tr>
+            <tr><th>The problem</th><td>Consent without a real off switch is theatre, especially after unwanted-contact wounds. Default mobile chrome also parks primary taps on the right, which fails left-handed movers and anyone with one free hand on Day 0.</td></tr>
+            <tr><th>The design</th><td>Pause, opt out, notifications, date change, and signed permission in clear groups. Exits are obvious. Left-handed mode flips the ask bar, compose row, and bottom nav so main taps sit under the left thumb; Yes/No stay LTR.</td></tr>
+            <tr><th>The evidence</th><td class="story-cite">Trustpilot unwanted contact 16/60. Survey control objections (Q13). Roughly one in ten people are left-handed; Day 0 access constraint is one free hand. Kill switches must be honoured in the scheduler, not only in UI.</td></tr>
+            <tr><th>Road not taken</th><td>No decorative toggles that still send messages. No burying opt out. No mirroring the whole UI into Arabic-style RTL as a fake left-hand fix.</td></tr>
           </table>
         </article>
 

@@ -61,6 +61,7 @@ Typography / motion / colour in the prototype follow the existing Just Move In d
 - Voice as optional Day 0 path, never the only path  
 - Plain language for receipts and failures  
 - Distress language → human path, not more automation  
+- **Left-handed mode (shipped in prototype).** About one in ten people are left-handed; most mobile chrome parks primary actions on the right. On moving day the free hand is often the awkward one. Settings → Left-handed mode flips the ask bar, compose controls, and bottom nav so the main tap targets sit under the left thumb. Yes/No and reading order stay LTR. This is inclusion for a real body constraint, in the same family as large targets and optional voice: build for the mover’s hand, not for a default right-hand layout. Not a branding exercise.
 
 ---
 
