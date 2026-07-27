@@ -2,14 +2,12 @@
 
 **Jeanne Piffaut · Product discovery case · July 2026**
 
-Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
-
 > The home-setup call already works. Automating only the conversation would scale the wrong layer.  
 > **Jay** is the digital operator that does the admin, shows honest proof it happened, and survives the move date changing.
 
-**Read this first:** [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md)  
-**Click this next:** https://just-move-in-liard.vercel.app  
-**Repo:** https://github.com/analogue-tools/just-move-in
+**Deep dive (this repo):** [`docs/wiki/00-INDEX.md`](docs/wiki/00-INDEX.md)  
+**Notion skim:** [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md)  
+**Demo:** https://just-move-in-liard.vercel.app  
 
 ---
 
@@ -30,18 +28,18 @@ So the product is not a smarter chat. It is **execution you can see**, on the sa
 | **Commercial** | Yearly utility attach + recurring layers (Market, later vouchers/ads) via trust and usefulness, still on that funnel |
 | **Moat** | Partner trigger + integration rails. Not the model |
 
-**Understand / Decide / Do:** Jay explains; the mover decides money in UI; the system does admin mostly invisibly. Voice is for access on moving day, never for financial commitment. A named customer support person stays on money, complaints, vulnerability, and failed automation.
+**Understand / Decide / Do:** Jay explains; the mover decides money in UI; the system does admin mostly invisibly. Voice is for access on moving day, never for financial commitment. A named customer support person stays on money, complaints, vulnerability, and failed automation. In the prototype that person is **Lyndon Beadle**.
 
 ---
 
-## How to spend 20 minutes
+## How to spend time here
 
 | Time | Do this |
 |---|---|
-| 2 min | Skim the case study brief map + thesis |
+| 2 min | Open the [wiki index](docs/wiki/00-INDEX.md) and skim the theme list |
 | 8 min | Demo: Referral → Discovery → Basket → Confirm → Pre-move → Day 0 → Tasks |
 | 5 min | Demo toolbar: **By team**, then **Why this** |
-| 5 min | Case study §4.1 Impact (OKRs, counters, kill criteria) + §7 Later (what I parked on purpose) |
+| Rest | Wiki themes you care about (Product, Eng, Design, Research…); instruments linked from each note |
 
 Local: open [`prototype/index.html`](prototype/index.html) in a browser (no build, no server; single file). Root [`index.html`](index.html) is the synced copy Vercel serves at `/`.
 
@@ -61,26 +59,15 @@ North star I would measure: **Critical Path Completion** (time-sensitive setup f
 
 ---
 
-## What this repo is
+## How this repo is organised
 
-A discovery artefact for co-building: case study + clickable prototype + the depth behind them. It is **not** a production system and **not** brand-final UI. Older one-pagers / six-pagers / walkthrough decks were removed so this stays one spine.
+| Layer | Role | Start |
+|---|---|---|
+| **Wiki** | Thematic spine for GitHub readers | [`docs/wiki/00-INDEX.md`](docs/wiki/00-INDEX.md) |
+| **Case study** | One-page Notion / interview skim | [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md) |
+| **Demo** | Clickable co-building whiteboard | [Live](https://just-move-in-liard.vercel.app) · [`prototype/index.html`](prototype/index.html) |
+| **Instruments** | Full tables, PRD, eng, survey coding | Linked from the wiki index (root `01`… files) |
 
-| If you care about… | Open |
-|---|---|
-| Narrative for interview / Notion | [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md) |
-| Primary survey (n=12, directional, denominators vary) + sheet links | Case study §2 · [`01d-primary-research-survey.md`](01d-primary-research-survey.md) |
-| Desk research framing | [`01-research-and-problem-framing.md`](01-research-and-problem-framing.md) |
-| Trustpilot coding (secondary) | [`01c-negative-review-analysis.md`](01c-negative-review-analysis.md) |
-| Competitive landscape | [`02-competitive-analysis.md`](02-competitive-analysis.md) |
-| Full PRD / tradeoffs / risks | [`03-product-strategy-prd.md`](03-product-strategy-prd.md) |
-| Eng detail + component inventory | [`04-engineering-spec.md`](04-engineering-spec.md) · [`COMPONENTS.md`](COMPONENTS.md) · [`HANDOFF.md`](HANDOFF.md) |
-| Events, funnels, dashboard | [`FLOWS-EVENTS-ANALYTICS.md`](FLOWS-EVENTS-ANALYTICS.md) · [`analytics/dashboard.html`](analytics/dashboard.html) |
-| Rollout + testing | [`06-rollout-plan.md`](06-rollout-plan.md) · [`08-testing-plan.md`](08-testing-plan.md) |
-| Journey + Market note | [`USER-JOURNEY.md`](USER-JOURNEY.md) · [`09-local-services-note.md`](09-local-services-note.md) |
-| Design language / FAQ | [`DESIGN-LANGUAGE.md`](DESIGN-LANGUAGE.md) · [`FAQ.md`](FAQ.md) |
-| Working notes by theme | [`docs/wiki/working/`](docs/wiki/working/) |
-| Scope decisions (send vs hold) | [`docs/wiki/00-INDEX.md`](docs/wiki/00-INDEX.md) |
-
-**How the tree is organised.** Share pack = [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md) + demo. Root `01` to `04`, `06`, `08`, `09` are depth deliverables (research → PRD → eng → rollout → testing → Market note). Design and feature-bridge working notes live under [`docs/wiki/working/`](docs/wiki/working/) (including themes that would have been `05` / `07` at root). Event names: [`FLOWS-EVENTS-ANALYTICS.md`](FLOWS-EVENTS-ANALYTICS.md) is authoritative; [`HANDOFF.md`](HANDOFF.md) §9 matches it.
+This is a discovery artefact for co-building. It is **not** a production system and **not** brand-final UI.
 
 Built with AI in the loop (Claude, Gemini, Cursor / Grok) and a first pass I protected as mine. The judgment was mine: the negative reviews flipped my own conclusion from inconsistent follow-up to a structural gap, which became the whole product. Prototype for critique.

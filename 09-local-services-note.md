@@ -2,7 +2,7 @@
 ### Why it should not be a search box
 **Jeanne Piffaut · July 2026**
 
-Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
+Wiki home: [`docs/wiki/00-INDEX.md`](docs/wiki/00-INDEX.md). Notion skim: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
 
 ---
 

@@ -358,4 +358,4 @@ These are **intentional bets and questions**, parked by theme until debated. The
 
 # 10. Where the rest of the work lives
 
-This page + the demo are enough to interview. The full set (research coding, competitive tables, PRD, eng states/events, rollout, testing) is in the project repo so the depth is available without stuffing it into the share pack: https://github.com/analogue-tools/just-move-in · start at `README.md`.
+This page + the demo are enough for a short interview skim. For a deep check in the repo, start at the **wiki spine:** [`docs/wiki/00-INDEX.md`](wiki/00-INDEX.md) (Approach → Research → Product → Eng → Design → …). Numbered root files are instruments linked from those notes. Repo front door: https://github.com/analogue-tools/just-move-in · `README.md`.

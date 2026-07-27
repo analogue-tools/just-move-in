@@ -1,7 +1,7 @@
 # Feature bridge · research → product
 **Jeanne Piffaut · July 2026**
 
-Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](../../CASE-STUDY.md).
+Wiki home: [`docs/wiki/00-INDEX.md`](../00-INDEX.md). Notion skim: [`docs/CASE-STUDY.md`](../../CASE-STUDY.md).
 
 This table is the spine: what we ship (or propose), why (research), how it is delivered (design / behavioural intent), data, and commercial role.
 

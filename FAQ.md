@@ -2,7 +2,7 @@
 
 **Jeanne Piffaut · maps to in-product `FAQSheet` + Ask Jay · July 2026**
 
-Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
+Wiki home: [`docs/wiki/00-INDEX.md`](docs/wiki/00-INDEX.md). Notion skim: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
 
 Copy below is product-facing. Ask Jay may only answer from this corpus (plus linked task receipts). Unmatched or distress / complaint language escalates to the named Move Specialist.
 

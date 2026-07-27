@@ -1,7 +1,7 @@
 # Stakeholder collaboration · how we work together
 **Jeanne Piffaut · July 2026**
 
-Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](../../CASE-STUDY.md).
+Wiki home: [`docs/wiki/00-INDEX.md`](../00-INDEX.md). Notion skim: [`docs/CASE-STUDY.md`](../../CASE-STUDY.md).
 
 Case-study stance: I am not replacing your eng/design/sales process. The prototype + this wiki are the shared whiteboard so we can disagree on specifics without losing the spine.
 
