@@ -44,17 +44,19 @@ Local: open [`prototype/index.html`](prototype/index.html) in a browser (no buil
 
 ---
 
-## Product contracts (non-negotiable)
+## Rules that must not break
 
-These are the rules I would hand an engineer before polish:
+Hand these to eng before polish:
 
-1. **Watching:** referred, move not yet real → no outbound to councils or suppliers.  
-2. **Confirmed:** only with a stored receipt. Otherwise **`sent · no receipt`** (neither success nor failure).  
-3. **Date cascade:** deadlines redraw; **`lost = 0`** (nothing silently drops).  
-4. **Money in UI:** never by voice alone; panel fee said once at choice.  
-5. **Human path real:** named support on high stakes; pause and opt-out actually stop outreach.
+| Rule | In plain terms |
+|---|---|
+| **Do not contact anyone too early** | After a referral, while the sale can still fall through, Jay may store the profile. Jay must not email or call councils or suppliers yet. |
+| **Never fake “done”** | Green / confirmed only when we have proof back from the other end. If we sent something and got silence, show **`sent · no receipt`**, not success. |
+| **If the move date changes, nothing disappears** | Deadlines and bookings redraw. Tasks are not silently dropped. |
+| **Money stays on a screen** | Tariff / plan choices and the panel-fee disclosure happen in the UI, not by voice alone. Say the fee once on that surface. |
+| **Pause and opt out are real** | They stop messages and jobs in the backend, not only in the UI. A named person (Lyndon in the demo) is reachable when money, distress, or failed automation needs a human. |
 
-North star I would measure: **Critical Path Completion** (time-sensitive setup finished before it becomes expensive or impossible), plus a **false confidence rate** (mover believes done vs honest state). Kill if we confirm without a receipt, or act on the wrong property.
+**What I would measure:** share of moves where time-sensitive setup finishes before it becomes expensive or impossible. Also: how often someone thinks a task is done when the UI still says it is not. **Ship blockers:** confirming without a receipt, or acting on the wrong property.
 
 ---
 
