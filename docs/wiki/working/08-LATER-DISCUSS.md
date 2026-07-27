@@ -1,7 +1,7 @@
 # Later / discuss · parked ideas by theme
 **Jeanne Piffaut · July 2026**
 
-Wiki home: [`docs/wiki/00-INDEX.md`](../00-INDEX.md). Notion skim: [`docs/CASE-STUDY.md`](../../CASE-STUDY.md).
+Repo map: [`README.md`](../../../README.md). Notion skim: [`docs/CASE-STUDY.md`](../../CASE-STUDY.md).
 
 Nothing here is forgotten. These are **not** in the v1 demo spine, or they need JMI confirmation, partner demand, or a design/eng cost conversation before building.
 

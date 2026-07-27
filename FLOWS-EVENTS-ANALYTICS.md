@@ -2,7 +2,7 @@
 ### System design · data flows · deployment · product flows · analytics
 **Jeanne Piffaut · July 2026**
 
-Wiki home: [`docs/wiki/00-INDEX.md`](docs/wiki/00-INDEX.md). Notion skim: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
+Repo map: [`README.md`](README.md). Notion skim: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
 
 This is the engineer wiki for taking the clickable demo to production. Intended to live in Notion (paste/import from this file); it is not part of the product UI.  
 Companion specs: [`HANDOFF.md`](HANDOFF.md) (states & contracts), [`USER-JOURNEY.md`](USER-JOURNEY.md) (life of the move), [`COMPONENTS.md`](COMPONENTS.md) (UI inventory).  

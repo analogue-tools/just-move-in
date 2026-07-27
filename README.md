@@ -5,7 +5,6 @@
 > The home-setup call already works. Automating only the conversation would scale the wrong layer.  
 > **Jay** is the digital operator that does the admin, shows honest proof it happened, and survives the move date changing.
 
-**Deep dive (this repo):** [`docs/wiki/00-INDEX.md`](docs/wiki/00-INDEX.md)  
 **Notion skim:** [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md)  
 **Demo:** https://just-move-in-liard.vercel.app  
 
@@ -36,10 +35,10 @@ So the product is not a smarter chat. It is **execution you can see**, on the sa
 
 | Time | Do this |
 |---|---|
-| 2 min | Open the [wiki index](docs/wiki/00-INDEX.md) and skim the theme list |
+| 2 min | Skim the theme list below |
 | 8 min | Demo: Referral → Discovery → Basket → Confirm → Pre-move → Day 0 → Tasks |
 | 5 min | Demo toolbar: **By team**, then **Why this** |
-| Rest | Wiki themes you care about (Product, Eng, Design, Research…); instruments linked from each note |
+| Rest | Open the themes you care about; use instruments when a note is not enough |
 
 Local: open [`prototype/index.html`](prototype/index.html) in a browser (no build, no server; single file). Root [`index.html`](index.html) is the synced copy Vercel serves at `/`.
 
@@ -59,14 +58,45 @@ North star I would measure: **Critical Path Completion** (time-sensitive setup f
 
 ---
 
-## How this repo is organised
+## Deep dive (by theme)
 
-| Layer | Role | Start |
+Thematic notes first. Numbered root files are instruments behind them.
+
+| # | Open | What it is |
 |---|---|---|
-| **Wiki** | Thematic spine for GitHub readers | [`docs/wiki/00-INDEX.md`](docs/wiki/00-INDEX.md) |
-| **Case study** | One-page Notion / interview skim | [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md) |
-| **Demo** | Clickable co-building whiteboard | [Live](https://just-move-in-liard.vercel.app) · [`prototype/index.html`](prototype/index.html) |
-| **Instruments** | Full tables, PRD, eng, survey coding | Linked from the wiki index (root `01`… files) |
+| 01 | [`docs/wiki/working/01-APPROACH.md`](docs/wiki/working/01-APPROACH.md) | How I worked the case |
+| 02 | [`docs/wiki/working/02-RESEARCH.md`](docs/wiki/working/02-RESEARCH.md) | Primary + secondary synthesis |
+| 03 | [`docs/wiki/working/03-PRODUCT.md`](docs/wiki/working/03-PRODUCT.md) | Product direction and surfaces |
+| 04 | [`docs/wiki/working/04-ENGINEERING.md`](docs/wiki/working/04-ENGINEERING.md) | Eng constraints and pointers |
+| 05 | [`docs/wiki/working/05-DESIGN.md`](docs/wiki/working/05-DESIGN.md) | Design language and open topics |
+| 06 | [`docs/wiki/working/06-SALES-CUSTOMER-SUPPORT.md`](docs/wiki/working/06-SALES-CUSTOMER-SUPPORT.md) | Sales / CS / partnerships |
+| 07 | [`docs/wiki/working/07-FEATURE-BRIDGE.md`](docs/wiki/working/07-FEATURE-BRIDGE.md) | Research → feature → events |
+| 08 | [`docs/wiki/working/08-LATER-DISCUSS.md`](docs/wiki/working/08-LATER-DISCUSS.md) | Parked bets and discuss list |
+| 09 | [`docs/wiki/working/09-STAKEHOLDER-COLLABORATION.md`](docs/wiki/working/09-STAKEHOLDER-COLLABORATION.md) | How I would run the room |
+| 10 | [`docs/wiki/working/10-BRIEF-CHECK.md`](docs/wiki/working/10-BRIEF-CHECK.md) | Brief coverage check |
+
+**In the demo toolbar:** **By team** · **Why this**
+
+---
+
+## Instruments (when a theme note is not enough)
+
+| Need | File |
+|---|---|
+| Survey write-up + sheets | [`01d-primary-research-survey.md`](01d-primary-research-survey.md) |
+| Desk research Q tables | [`01-research-and-problem-framing.md`](01-research-and-problem-framing.md) |
+| Negative Trustpilot coding | [`01c-negative-review-analysis.md`](01c-negative-review-analysis.md) |
+| Full competitive tables | [`02-competitive-analysis.md`](02-competitive-analysis.md) |
+| Full PRD | [`03-product-strategy-prd.md`](03-product-strategy-prd.md) |
+| Eng states / adapters | [`04-engineering-spec.md`](04-engineering-spec.md) · [`HANDOFF.md`](HANDOFF.md) · [`COMPONENTS.md`](COMPONENTS.md) |
+| Events / funnels / dashboard | [`FLOWS-EVENTS-ANALYTICS.md`](FLOWS-EVENTS-ANALYTICS.md) · [`analytics/dashboard.html`](analytics/dashboard.html) |
+| Rollout / testing | [`06-rollout-plan.md`](06-rollout-plan.md) · [`08-testing-plan.md`](08-testing-plan.md) |
+| Journey / Market note | [`USER-JOURNEY.md`](USER-JOURNEY.md) · [`09-local-services-note.md`](09-local-services-note.md) |
+| Design tokens / FAQ | [`DESIGN-LANGUAGE.md`](DESIGN-LANGUAGE.md) · [`FAQ.md`](FAQ.md) |
+
+Event names: FLOWS is authoritative; HANDOFF §9 matches it.
+
+---
 
 This is a discovery artefact for co-building. It is **not** a production system and **not** brand-final UI.
 

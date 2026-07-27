@@ -1,7 +1,7 @@
 # Engineering · stakeholder wiki
 **Jeanne Piffaut · July 2026**
 
-Wiki home: [`docs/wiki/00-INDEX.md`](../00-INDEX.md). Notion skim: [`docs/CASE-STUDY.md`](../../CASE-STUDY.md).
+Repo map: [`README.md`](../../../README.md). Notion skim: [`docs/CASE-STUDY.md`](../../CASE-STUDY.md).
 
 Authoritative deep dive: [`FLOWS-EVENTS-ANALYTICS.md`](../../../FLOWS-EVENTS-ANALYTICS.md) · [`HANDOFF.md`](../../../HANDOFF.md) · [`COMPONENTS.md`](../../../COMPONENTS.md)
 

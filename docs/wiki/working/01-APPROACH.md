@@ -1,7 +1,7 @@
 # Approach · how I worked this case
 **Jeanne Piffaut · July 2026**
 
-Wiki home: [`docs/wiki/00-INDEX.md`](../00-INDEX.md). Notion skim: [`docs/CASE-STUDY.md`](../../CASE-STUDY.md).
+Repo map: [`README.md`](../../../README.md). Notion skim: [`docs/CASE-STUDY.md`](../../CASE-STUDY.md).
 
 > This is the abstract. It is not the research. Research is [02 · Research](02-RESEARCH.md).
 

@@ -2,7 +2,7 @@
 
 **Jeanne Piffaut · July 2026**
 
-Wiki home: [`docs/wiki/00-INDEX.md`](docs/wiki/00-INDEX.md). Notion skim: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
+Repo map: [`README.md`](README.md). Notion skim: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
 
 Behavioural spec. **The prototype is authoritative on anything visual. This file is authoritative on anything behavioural.** If the prototype shows a state this file does not define, this file is wrong and needs updating.
 

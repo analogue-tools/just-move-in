@@ -1,7 +1,7 @@
 # Primary Research: Mover Survey
 ### "Just Moved In?" · fielded July 2026 · Jeanne Piffaut
 
-Wiki home: [`docs/wiki/00-INDEX.md`](docs/wiki/00-INDEX.md). Notion skim: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
+Repo map: [`README.md`](README.md). Notion skim: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
 
 
 > **Status:** Results below from the fuller July 2026 analysis (**n = 12**). Directional only. Treat shares as signal, not proof.

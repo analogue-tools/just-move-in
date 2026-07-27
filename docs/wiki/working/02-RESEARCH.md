@@ -1,7 +1,7 @@
 # Research · primary and secondary
 **Jeanne Piffaut · July 2026**
 
-Wiki home: [`docs/wiki/00-INDEX.md`](../00-INDEX.md). Notion skim: [`docs/CASE-STUDY.md`](../../CASE-STUDY.md).
+Repo map: [`README.md`](../../../README.md). Notion skim: [`docs/CASE-STUDY.md`](../../CASE-STUDY.md).
 
 Full instruments and deep tables live in the root library. This page is the interviewer-facing synthesis.
 
