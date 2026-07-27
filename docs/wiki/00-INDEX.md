@@ -12,8 +12,9 @@ Part of the Jay case study. Full index in CASE-STUDY.md.
 
 **In the demo toolbar**
 
-- For design · eng · sales · CS  
-- Features · evidence  
+- By team  
+- Why this  
+ 
 
 **Only if they ask**
 

@@ -6,7 +6,7 @@ Part of the Jay case study. Full index in CASE-STUDY.md.
 **Jay** turns Just Move In’s home-setup phone call into a digital operator that does the admin, shows honest proof it happened, and survives the move date changing.
 
 **Working demo:** https://just-move-in-liard.vercel.app  
-*(Toolbar outside the phone: design / eng / sales / CS notes, then Features · evidence. Separate from the mover UI.)*
+*(Toolbar outside the phone: **By team**, then **Why this**. Separate from the mover UI.)*
 
 ---
 
@@ -281,7 +281,7 @@ I would also gate rollout in phases: fix honest receipts **before** AI, run the 
 | Settings | Consent / control; left-handers + Day 0 one-hand use | Pause, opt-out, signed permission, audit log; left-handed mode flips ask bar and primary taps | trust |
 | Renewal seeding | Habit window; re-consent later | Plant early; ask again around month 11 (not noisy in v1 UI) | sticky · trust |
 
-In the demo toolbar: **For design · eng · sales · CS** first, then **Features · evidence** (problem / design / evidence / road not taken). That toolbar is the live version of §6.
+In the demo toolbar: **By team** first, then **Why this** (problem / design / evidence / road not taken). That toolbar is the live version of §6.
 
 ---
 
@@ -354,7 +354,7 @@ These are **intentional bets and questions**, parked by theme until debated. The
 3. Home stages · Pre-move (You vs Jay) · Day 0  
 4. Tasks (List / Board / Visual)  
 5. Market · Settings · Ask Jay / connect to a person  
-6. Toolbar: teams notes first; Features · evidence second  
+6. Toolbar: **By team** first; **Why this** second  
 
 ---
 

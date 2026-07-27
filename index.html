@@ -1477,8 +1477,8 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
       <div class="demo-bar__meta">prototype v0.98 · Jeanne Piffaut</div>
       <div class="demo-bar__spacer"></div>
       <div class="demo-story-btns">
-        <button type="button" class="demo-story-btn" id="storyOpen" data-story-open data-story-view="teams">For design · eng · sales · CS</button>
-        <button type="button" class="demo-story-btn demo-story-btn--ghost" id="storyOpenTables" data-story-open data-story-view="tables">Features · evidence</button>
+        <button type="button" class="demo-story-btn" id="storyOpen" data-story-open data-story-view="teams">By team</button>
+        <button type="button" class="demo-story-btn demo-story-btn--ghost" id="storyOpenTables" data-story-open data-story-view="tables">Why this</button>
       </div>
     </header>
 
@@ -2536,15 +2536,15 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
     <div class="story-panel__card" id="storyCard">
       <div class="story-panel__head">
         <div>
-          <h2 id="storyTitle">For design · eng · sales · CS</h2>
-          <p id="storyLead">What each team has to believe and do. Feature evidence (problem, design, evidence, road not taken) is on the next tab.</p>
+          <h2 id="storyTitle">By team</h2>
+          <p id="storyLead">What Design, Eng, Sales, and CS each own on this screen. Why this (problem, design, evidence, road not taken) is on the next tab.</p>
         </div>
         <button type="button" class="story-panel__close" id="storyClose" data-story-close>Close</button>
       </div>
 
       <div class="story-tabs" role="tablist" aria-label="Story views">
-        <button type="button" class="story-tab" role="tab" id="storyTabNotes" data-story-tab="teams" aria-selected="true">For design · eng · sales · CS</button>
-        <button type="button" class="story-tab" role="tab" id="storyTabTables" data-story-tab="tables" aria-selected="false">Features · evidence</button>
+        <button type="button" class="story-tab" role="tab" id="storyTabNotes" data-story-tab="teams" aria-selected="true">By team</button>
+        <button type="button" class="story-tab" role="tab" id="storyTabTables" data-story-tab="tables" aria-selected="false">Why this</button>
       </div>
 
       <!-- TAB 1: Teams (lead) -->
@@ -2696,7 +2696,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
         </article>
       </div>
 
-      <!-- TAB 2: Features · evidence -->
+      <!-- TAB 2: Why this -->
       <div class="story-view" id="storyViewTables" data-story-view-panel="tables" hidden>
         <nav class="story-jump" aria-label="Jump to feature">
           <a href="#ft-referral">Referral</a>
@@ -3650,12 +3650,12 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
     if (tabNotes) tabNotes.setAttribute('aria-selected', teams ? 'true' : 'false');
     if (storyTitle) {
       storyTitle.textContent = teams
-        ? 'For design · eng · sales · CS'
-        : 'Features · evidence';
+        ? 'By team'
+        : 'Why this';
     }
     if (storyLead) {
       storyLead.textContent = teams
-        ? 'What each team has to believe and do. Feature evidence (problem, design, evidence, road not taken) is on the next tab.'
+        ? 'What Design, Eng, Sales, and CS each own on this screen. Why this (problem, design, evidence, road not taken) is on the next tab.'
         : 'Every screen: the problem it solves, the design choice, the evidence, and the road not taken.';
     }
   }

@@ -64,6 +64,6 @@ See [08 · Later / discuss](08-LATER-DISCUSS.md) for full categorisation. High-s
 
 ## Live in the demo
 
-Toolbar leads with **For design · eng · sales · CS**.  
-**Features · evidence**: the problem · the design · the evidence (numbers + source) · road not taken.  
+Toolbar leads with **By team**.  
+**Why this**: the problem · the design · the evidence (numbers + source) · road not taken.  
 This markdown table remains the compact spine.
