@@ -1,9 +1,9 @@
 # Sales & Customer Support · stakeholder wiki
 **Jeanne Piffaut · July 2026**
 
-Part of the Jay case study. Full index in CASE-STUDY.md.
+Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](../../CASE-STUDY.md).
 
-For BD / partnerships / CS human-agent ops. Product constraints live in [`HANDOFF.md`](../../HANDOFF.md). Later backlog: [08 · Later / Discuss](08-LATER-DISCUSS.md).
+For BD / partnerships / CS human-agent ops. Product constraints live in [`HANDOFF.md`](../../../HANDOFF.md). Later backlog: [08 · Later / Discuss](08-LATER-DISCUSS.md).
 
 ---
 

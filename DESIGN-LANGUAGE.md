@@ -2,7 +2,7 @@
 
 **Jeanne Piffaut · Jay / Just Move In · July 2026**
 
-Part of the Jay case study. Full index in CASE-STUDY.md.
+Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
 
 This file explains *why* the prototype looks the way it does. Tokens live in `tokens/tokens.json`. Visual authority is `prototype/index.html`.
 
@@ -18,7 +18,7 @@ This file explains *why* the prototype looks the way it does. Tokens live in `to
 | **Modularity** | Voice and UI both exist; lead modality follows access, buttons always remain |
 | **Accessibility, one-hand** | Large targets, readable type, works at 360px, sticky human escape. **Left-handed mode** flips the ask bar, compose row, and tab order so primary taps sit under the left thumb (Settings). Default apps bias right; Day 0 is often one free hand. Cheap inclusion, not a brand stunt. |
 | **Human escape** | Connect to customer support human agent on hard screens; FAQ + Ask Jay for soft questions |
-| **Real state** | Fog for `sent · no receipt`; green only with a stored receipt |
+| **Real state** | Fog *colour* for `sent · no receipt`; green only with a stored receipt |
 
 ---
 
@@ -39,27 +39,30 @@ This file explains *why* the prototype looks the way it does. Tokens live in `to
 
 ## Colour: fog is the thesis
 
+**Naming:** **Fog** here is only the colour token for the unconfirmable state (`sent · no receipt`). The pre-exchange product stage is called **Watching**, not Fog. Do not use “Fog” for the watching phase in prose.
+
 | Token (concept) | Job |
 |---|---|
 | Ink / paper / card / line | Everyday reading and surfaces |
 | Violet (Jay) | Primary action and "Jay is here"; never success |
 | Amber | Deadline pressure and time; never "you failed" alone |
 | Moss | Destination confirmed; receipt stored |
-| **Fog** | **Sent, no receipt available.** Neither success nor failure |
+| **Fog** | **UI copy: `sent · no receipt`.** Neither success nor failure |
 
-Competitors paint unconfirmed council notifications green. Fog exists so we refuse that lie. Do not collapse fog into success or destructive in code review. There is no red in the mover-facing flow: genuine failures use amber plus explicit copy naming the fix.
+Competitors paint unconfirmed council notifications green. The fog token exists so we refuse that lie. Do not collapse it into success or destructive in code review. There is no red in the mover-facing flow: genuine failures use amber plus explicit copy naming the fix.
 
 Atmospheric ground (soft paper, light depth) beats a flat white slab. Atmosphere comes from stage, board density and honest status, not from decorative gradients as the main idea.
 
 ---
 
-## Home is board-first
+## Home is stage-first; Tasks is the board
 
-The Home tab is a **system of record**, not a marketing dashboard.
+Home is a **system of record** by stage (Getting started → Pre-move → Day 0 → After), not a marketing dashboard. Pre-move You vs Jay rows render from the same `BOARD_TASKS` store as Tasks.
 
-- **Ongoing** (left): work in flight.
-- **Upcoming** (right): what is next.
-- **Must-Do** heavier than **Could-Do** (type, chrome, position).
+Tasks lenses share one store:
+
+- **List / Board:** Done | Current | Future
+- **Must-Do** heavier than **Could-Do** (type, chrome, position)
 - Optional attention widget: one thing that needs a human glance.
 - Same task data as List lens; switcher preserves scroll and does not refetch.
 

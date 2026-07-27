@@ -1,7 +1,7 @@
 # Brief check · did we answer the case?
 **Jeanne Piffaut · July 2026**
 
-Part of the Jay case study. Full index in CASE-STUDY.md.
+Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](../../CASE-STUDY.md).
 
 Quick map from typical Just Move In discovery brief themes → where this case answers them. Adjust if the official brief wording differs.
 

@@ -1,7 +1,7 @@
 # Primary Research: Mover Survey
 ### "Just Moved In?" · fielded July 2026 · Jeanne Piffaut
 
-Part of the Jay case study. Full index in CASE-STUDY.md.
+Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
 
 
 > **Status:** Results below from the fuller July 2026 analysis (**n = 12**). Directional only. Treat shares as signal, not proof.

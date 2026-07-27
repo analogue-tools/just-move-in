@@ -2,9 +2,9 @@
 
 **Jeanne Piffaut · July 2026**
 
-Part of the Jay case study. Full index in CASE-STUDY.md.
+Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](../../CASE-STUDY.md).
 
-Source of truth for screens: live prototype. Product constraints: [`HANDOFF.md`](../../HANDOFF.md) · [`COMPONENTS.md`](../../COMPONENTS.md)
+Source of truth for screens: live prototype. Product constraints: [`HANDOFF.md`](../../../HANDOFF.md) · [`COMPONENTS.md`](../../../COMPONENTS.md)
 
 For design working sessions: vision, language, what each surface should feel like, and open topics. Per-screen Story columns live in the demo toolbar and (next) in Figma comments.
 

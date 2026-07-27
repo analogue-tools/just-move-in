@@ -2,7 +2,7 @@
 ### How we validate this, who we test with, and what we ask
 **Jeanne Piffaut · July 2026**
 
-Part of the Jay case study. Full index in CASE-STUDY.md.
+Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
 
 ---
 

@@ -2,7 +2,7 @@
 ### Jay · agentic home setup · v0.4
 **Jeanne Piffaut · July 2026**
 
-Part of the Jay case study. Full index in CASE-STUDY.md.
+Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
 
 ---
 
@@ -319,19 +319,20 @@ Anything outside these two intents transfers. Do not add a general question-answ
 
 Minimum set to compute the north star, Critical Path Completion.
 
+Event names match [`FLOWS-EVENTS-ANALYTICS.md`](FLOWS-EVENTS-ANALYTICS.md) and [`HANDOFF.md`](HANDOFF.md) §9. Minimum set for Critical Path Completion:
+
 | Event | Properties |
 |---|---|
-| `move_state_changed` | `from`, `to`, `moveId`, `trigger` |
+| `referral_continue` / `discovery_complete` / `basket_confirmed` | `moveId`, funnel step |
 | `task_state_changed` | `taskId`, `catalogueId`, `from`, `to`, `reason`, `actor` |
 | `critical_task_completed_in_window` | `catalogueId`, `daysBeforeDeadline` |
 | `critical_task_missed_window` | `catalogueId`, `daysLate`, `estimatedCostGbp` |
-| `date_changed` | `oldDate`, `newDate`, `rescheduled`, `needsRedoing`, `lostOrReentered` |
-| `offer_viewed` / `offer_confirmed` / `offer_declined` | `offerId`, `category`, `rank`, `commissionGbp` |
-| `disclosure_expanded` | `offerId` |
-| `alternatives_expanded` | `offerId` |
-| `human_requested` | `screen`, `trigger` (`user` or `auto`) |
-| `voice_intent_completed` / `voice_intent_transferred` | `intent`, `durationSec` |
-| `unconfirmable_shown` | `catalogueId`, `destination` |
+| `move_date_changed` | `oldDate`, `newDate`, `lost` (must stay 0) |
+| `plan_selected` / `ack_panel_fee` / `basket_confirmed` | `offerId`, `category`, `rank` |
+| `panel_fee_view` | `surface` |
+| `human_escape_tap` | `screen`, `trigger` (`user` or `auto`) |
+| `keys_confirmed` / `meter_read_submit` / `voice_session_start` | `intent`, `channel` |
+| `notify_unconfirmable` | `catalogueId`, `destination` |
 
 **Counter metric queries to build alongside:** complaint rate, cancellation within 14 days of a switch, re-presentation of a declined recommendation (must be zero), time to human for vulnerability-flagged movers, and share of `confirmed` states later proven false.
 
@@ -345,7 +346,7 @@ Written so they can be pasted into tickets.
 - Renders with `move.state == watching` and fires zero outbound tasks
 - Shows the full 31-item map grouped by stage, with counts, and no individual task is actionable
 - Named owner is present with a real `movesCompleted` figure
-- Trust markers pull live figures. A hard-coded review count fails review
+- Production trust markers pull live figures. Prototype may use labelled illustrative markers
 
 **Plan screen**
 - Must-do and could-do render as separate lists with different components. A could-do item must never render in `c-task`

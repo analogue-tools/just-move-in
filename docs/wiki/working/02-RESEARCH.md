@@ -1,11 +1,11 @@
 # Research · primary and secondary
 **Jeanne Piffaut · July 2026**
 
-Part of the Jay case study. Full index in CASE-STUDY.md.
+Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](../../CASE-STUDY.md).
 
 Full instruments and deep tables live in the root library. This page is the interviewer-facing synthesis.
 
-Deep files: [`01-research-and-problem-framing.md`](../../01-research-and-problem-framing.md) · [`01c-negative-review-analysis.md`](../../01c-negative-review-analysis.md) · [`01d-primary-research-survey.md`](../../01d-primary-research-survey.md) · [`02-competitive-analysis.md`](../../02-competitive-analysis.md)
+Deep files: [`01-research-and-problem-framing.md`](../../../01-research-and-problem-framing.md) · [`01c-negative-review-analysis.md`](../../../01c-negative-review-analysis.md) · [`01d-primary-research-survey.md`](../../../01d-primary-research-survey.md) · [`02-competitive-analysis.md`](../../../02-competitive-analysis.md)
 
 ---
 
@@ -73,7 +73,7 @@ Marketplace analogues I care about for commercial mechanics (not as “copy thei
 | **Treatwell / Fresha** | Marketplace ops; shops are often unhappy about commission. Design commission so suppliers do not push cash-off-app. |
 | **Revolut** | Intent-led vouchers / offers in one place, not in the face. |
 
-Utility / setup competitors (Homebox, SlothMove, Updater, Nous, comparison sites) are fully tabulated in [`02-competitive-analysis.md`](../../02-competitive-analysis.md).
+Utility / setup competitors (Homebox, SlothMove, Updater, Nous, comparison sites) are fully tabulated in [`02-competitive-analysis.md`](../../../02-competitive-analysis.md).
 
 **Frontier framing (conceptual, not a literal MUBIT product claim):** most tools in this space sit on “holds up at scale” without compounding into capability: they advise, notify, or compare, but they do not absorb date change, presence on Day 0, or honest receipts. The opening is orchestration that **compounds** with partner data + rails + trust. Graph-style “more context” without execution still leaves the same gap: similarity is not experience.
 

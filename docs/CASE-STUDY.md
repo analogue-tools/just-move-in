@@ -1,8 +1,6 @@
 # Jay · case study
 **Jeanne Piffaut · Just Move In · July 2026**
 
-Part of the Jay case study. Full index in CASE-STUDY.md.
-
 **Jay** turns Just Move In’s home-setup phone call into a digital operator that does the admin, shows honest proof it happened, and survives the move date changing.
 
 **Working demo:** https://just-move-in-liard.vercel.app  
@@ -294,7 +292,7 @@ The spine is for the mover. The same work has to make sense to the people who se
 | **Mover** | One profile, see what actually happened, You vs Jay ownership, human when money or distress hits | That Jay replaces every utility portal, or that voice is the whole product |
 | **Referring partner** | Looks competent at handoff; named in the UI; no spam while the sale can still fall through; later: weekly “what happened to my referrals” | Instant attach on day one of watching |
 | **Sales / partnerships** | Story: starts at referral, watching gate, confirm = commerce, date change survives, Day 0 evidence, stickiness after keys | Bills bundling; “AI replaces the specialist”; chatbot-first pitch |
-| **Customer support** | Clear when FAQ ends and a person starts; show `sent · no receipt` instead of a fake green tick; distress priority; pause/opt-out actually kill outreach | Ticket volume as the success metric (success = stuck notifications chased, no false confirms, humans reachable) |
+| **Customer support** | Clear when FAQ ends and a person starts; show `sent · no receipt` instead of a fake green tick; distress priority; pause/opt-out actually kill outreach. In the prototype the named person is **Lyndon Beadle** | Ticket volume as the success metric (success = stuck notifications chased, no false confirms, humans reachable) |
 | **Engineering** | Three hard contracts: watching = no outbound; confirmed only with receipt; date cascade loses nothing. Demo + toolbar are the whiteboard | That the HTML is production; adapters and receipt model still need reality-check |
 | **Design** | Calm operator tone; no expanders for must-do; status language that matches CS scripts. Open topics: brand kit vs operator language, ads treatment, voucher hub, packing density, motion budget, support-path frequency, Figma Story ownership | Final brand polish or Market ad density without another design pass |
 

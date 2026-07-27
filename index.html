@@ -316,6 +316,7 @@ h1, h2, h3, h4, p { margin: 0; }
 .c-task-list__h {
   font-family: var(--mono); font-size: 12px; letter-spacing: .06em;
   text-transform: uppercase; color: var(--ink-3); margin-bottom: var(--s2);
+  /* ALL-CAPS mono kicker: 12px floor exception */
 }
 
 .toggle {
@@ -1527,7 +1528,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
         </div>
 
         <div class="c-card" style="margin-top:var(--s5)">
-          <p class="c-eyebrow">Meet your move specialist</p>
+          <p class="c-eyebrow">Your move team</p>
           <div class="c-human" style="margin-top:var(--s3)">
             <div class="c-human__av">JY</div>
             <div>
@@ -1544,7 +1545,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
 
         <div style="margin-top:var(--s5)">
           <div class="c-trust">
-            <span class="c-trust__i"><b>4.6 Trustpilot</b>3,743 reviews</span>
+            <span class="c-trust__i" title="Illustrative demo marker · production pulls live figures"><b>4.6 Trustpilot</b>demo marker</span>
             <span class="c-trust__i"><b>FCA</b>authorised firm</span>
             <span class="c-trust__i"><b>ICO</b>data registered</span>
           </div>
@@ -1553,7 +1554,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
         <div style="margin-top:var(--s5)">
           <button class="c-btn c-btn--primary" data-go="home" data-home-tab="started">Show me my plan</button>
           <button class="c-btn c-btn--ghost" data-go="home" data-home-tab="started">Pause for now · remind me at exchange</button>
-          <button class="c-btn c-btn--ghost">Opt out of this referral</button>
+          <button type="button" class="c-btn c-btn--ghost" data-modal="opt-out">Opt out of this referral</button>
         </div>
       </section>
 
@@ -1877,45 +1878,9 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
 
         <div class="c-tabpanel" data-tabpanel="pre" data-active="false">
           <p class="c-eyebrow">Needs you</p>
-          <button class="c-task" data-urgent="true" data-modal="post" data-return-screen="home" data-return-tab="pre">
-            <div class="c-task__top">
-              <div><div class="c-task__name">Redirect post</div><span class="c-owner c-owner--you">👤 You</span></div>
-              <span class="c-state c-state--needs">do by 9 Aug</span>
-            </div>
-          </button>
-          <button class="c-task" data-go="task" data-task-id="removals" data-return-screen="home" data-return-tab="pre">
-            <div class="c-task__top">
-              <div><div class="c-task__name">Removals / Man &amp; Van</div><span class="c-owner c-owner--you">👤 You</span></div>
-              <span class="c-state c-state--blocked">blocked · no date</span>
-            </div>
-          </button>
-          <button class="c-task" data-go="task" data-task-id="packing" data-return-screen="home" data-return-tab="pre">
-            <div class="c-task__top">
-              <div><div class="c-task__name">Packing best practices</div><span class="c-owner c-owner--you">👤 You</span></div>
-              <span class="c-state c-state--needs">open</span>
-            </div>
-          </button>
-
+          <div id="preMoveYou"></div>
           <p class="c-eyebrow" style="margin-top:var(--s5)">Jay is handling</p>
-          <button class="c-task" data-go="task" data-task-id="broadband" data-return-screen="home" data-return-tab="pre">
-            <div class="c-task__top">
-              <div><div class="c-task__name">Broadband check</div><span class="c-owner c-owner--jay">⚡ Jay</span></div>
-              <span class="c-state c-state--done">done</span>
-            </div>
-          </button>
-          <button class="c-task" data-go="task" data-task-id="energy" data-return-screen="home" data-return-tab="pre">
-            <div class="c-task__top">
-              <div><div class="c-task__name">Auto-detect energy</div><span class="c-owner c-owner--jay">⚡ Jay</span></div>
-              <span class="c-state c-state--live">in progress</span>
-            </div>
-            <p class="c-task__why">Jay finds your current supplier from the national meter register.</p>
-          </button>
-          <button class="c-task" data-go="task" data-task-id="council" data-return-screen="home" data-return-tab="pre">
-            <div class="c-task__top">
-              <div><div class="c-task__name">Camden council tax</div><span class="c-owner c-owner--jay">⚡ Jay</span></div>
-              <span class="c-state c-state--sent">sent · no receipt</span>
-            </div>
-          </button>
+          <div id="preMoveJay"></div>
         </div>
 
         <div class="c-tabpanel" data-tabpanel="day0" data-active="false">
@@ -2388,7 +2353,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
                 <div class="c-toggle-row__l">Opt out of this referral</div>
                 <div class="c-toggle-row__s">Stops all Jay activity on this move</div>
               </div>
-              <button type="button" style="color:var(--amber);font-weight:650;min-height:auto;padding:0">Opt out</button>
+              <button type="button" data-modal="opt-out" style="color:var(--amber);font-weight:650;min-height:auto;padding:0">Opt out</button>
             </div>
           </div>
         </div>
@@ -2878,7 +2843,9 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
   var speechActive = false;
   var speechWanted = false;
 
-  /* Single task dataset: List, Board, and Home board lenses. Toggle changes presentation only. Must-do copy identical across lenses. Board is additive (no decay/streaks/timers). */
+  /* Single task dataset: List, Board, Visual, and Home → Pre-move. Toggle changes presentation only. Must-do copy identical across lenses. Board is additive (no decay/streaks/timers). */
+  var PRE_MOVE_YOU = ['post', 'removals', 'packing'];
+  var PRE_MOVE_JAY = ['broadband', 'energy', 'council'];
   var BOARD_TASKS = [
     { id: 'broadband', title: 'Broadband check', whoDoesIt: 'Jay', state: 'done', dueLabel: 'Done', consequence: '', tier: 'must', column: 'done', legend: 'wifi live', complete: true },
     { id: 'energy', title: 'Auto-detect energy', whoDoesIt: 'Jay', state: 'live', dueLabel: 'in progress', consequence: 'Jay finds your current supplier from the national meter register.', tier: 'must', column: 'current', legend: 'lights on', complete: false },
@@ -2904,9 +2871,14 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
     live: 'c-state--live'
   };
 
-  function taskButtonHtml(t) {
+  function taskButtonHtml(t, opts) {
+    opts = opts || {};
     var attrs = 'class="c-task" type="button"';
     if (t.urgent) attrs += ' data-urgent="true"';
+    if (opts.returnScreen) {
+      attrs += ' data-return-screen="' + opts.returnScreen + '"';
+      if (opts.returnTab) attrs += ' data-return-tab="' + opts.returnTab + '"';
+    }
     if (t.modal) attrs += ' data-modal="' + t.modal + '"';
     else if (t.id && t.id !== 'water' && t.id !== 'tv' && t.id !== 'gp' && t.id !== 'vote') {
       attrs += ' data-go="task" data-task-id="' + t.id + '"';
@@ -2918,11 +2890,14 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
     var why = t.consequence
       ? '<p class="c-task__why">' + t.consequence + '</p>'
       : '';
+    var who = opts.ownerBadge
+      ? '<span class="c-owner ' + (opts.ownerBadge === 'you' ? 'c-owner--you' : 'c-owner--jay') + '">' +
+        (opts.ownerBadge === 'you' ? '👤 You' : '⚡ Jay') + '</span>'
+      : '<div class="c-task__who">' + t.whoDoesIt + '</div>';
     return (
       '<button ' + attrs + '>' +
         '<div class="c-task__top">' +
-          '<div><div class="c-task__name">' + t.title + '</div>' +
-          '<div class="c-task__who">' + t.whoDoesIt + '</div></div>' +
+          '<div><div class="c-task__name">' + t.title + '</div>' + who + '</div>' +
           '<span class="c-state ' + (STATE_CLASS[t.state] || 'c-state--needs') + '">' + t.dueLabel + '</span>' +
         '</div>' + why +
       '</button>'
@@ -2985,6 +2960,22 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
 
     if (homeList) {
       homeList.innerHTML = BOARD_TASKS.filter(function (t) { return t.tier === 'must'; }).map(taskButtonHtml).join('');
+    }
+
+    var preYou = document.getElementById('preMoveYou');
+    var preJay = document.getElementById('preMoveJay');
+    var preOpts = { returnScreen: 'home', returnTab: 'pre' };
+    if (preYou) {
+      preYou.innerHTML = PRE_MOVE_YOU.map(function (id) {
+        var task = BOARD_TASKS.filter(function (t) { return t.id === id; })[0];
+        return task ? taskButtonHtml(task, Object.assign({ ownerBadge: 'you' }, preOpts)) : '';
+      }).join('');
+    }
+    if (preJay) {
+      preJay.innerHTML = PRE_MOVE_JAY.map(function (id) {
+        var task = BOARD_TASKS.filter(function (t) { return t.id === id; })[0];
+        return task ? taskButtonHtml(task, Object.assign({ ownerBadge: 'jay' }, preOpts)) : '';
+      }).join('');
     }
   }
 
@@ -3340,6 +3331,10 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
     taskCancel: {
       title: 'Cancel this task?',
       html: '<p class="c-sub">Jay will stop chasing this and mark it cancelled. You can restart it later from Home.</p><div class="c-btn-row"><button class="c-btn c-btn--ghost" type="button" data-close-modal>Keep it</button><button class="c-btn c-btn--primary" type="button" data-task-cancel-confirm>Yes, cancel</button></div>'
+    },
+    'opt-out': {
+      title: 'Opt out of this referral?',
+      html: '<p class="c-sub">We stop all outreach for this move. Kentish Town Lettings will not be told you used Jay. You can ask your agent to refer you again later.</p><div class="c-btn-row" style="margin-top:var(--s4)"><button class="c-btn c-btn--ghost" type="button" data-close-modal>Keep the referral</button><button class="c-btn c-btn--primary" type="button" data-opt-out-confirm>Yes, opt out</button></div>'
     },
     'tip-energy': {
       title: 'Energy tips',
@@ -4130,6 +4125,19 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
       openChat('Please cancel the current task (' + (pendingTaskId || 'task') + ').');
       return;
     }
+    if (e.target.closest('[data-opt-out-confirm]')) {
+      closeModal();
+      var refScreen = document.querySelector('[data-screen="referral"]');
+      if (refScreen) {
+        refScreen.innerHTML =
+          '<p class="c-eyebrow">Referral ended</p>' +
+          '<h1 class="c-display">You have opted out.</h1>' +
+          '<p class="c-sub">No more messages for this move. Jay will not contact suppliers or councils. Your agent was not told you used the service.</p>' +
+          '<p class="c-sub" style="margin-top:var(--s4)">Demo only · reload the page to restart the referral.</p>';
+      }
+      go('referral');
+      return;
+    }
     if (e.target.closest('[data-close-modal]')) {
       closeModal();
       return;
@@ -4493,7 +4501,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
   var initial = (location.hash || '').replace('#', '');
   if (initial) {
     if (initial === 'dayzero') go('dayzero');
-    else if (initial === 'fog') go('home', { homeTab: 'pre' });
+    else if (initial === 'fog' || initial === 'pre') go('home', { homeTab: 'pre' });
     else if (initial === 'settling') go('home', { homeTab: 'post' });
     else if (initial === 'plan') go('home', { homeTab: 'started' });
     else go(initial);

@@ -1,9 +1,9 @@
 # Engineering · stakeholder wiki
 **Jeanne Piffaut · July 2026**
 
-Part of the Jay case study. Full index in CASE-STUDY.md.
+Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](../../CASE-STUDY.md).
 
-Authoritative deep dive: [`FLOWS-EVENTS-ANALYTICS.md`](../../FLOWS-EVENTS-ANALYTICS.md) · [`HANDOFF.md`](../../HANDOFF.md) · [`COMPONENTS.md`](../../COMPONENTS.md)
+Authoritative deep dive: [`FLOWS-EVENTS-ANALYTICS.md`](../../../FLOWS-EVENTS-ANALYTICS.md) · [`HANDOFF.md`](../../../HANDOFF.md) · [`COMPONENTS.md`](../../../COMPONENTS.md)
 
 This page is what I would bring into an eng working session: vision, what must be true, where events live, and what we need to discuss together. I am not pretending to replace your system design. The prototype is the whiteboard.
 
@@ -38,7 +38,7 @@ For each important wireframe / feature (to expand in Figma comments / Story):
 | Guardrails | What must never ship |
 | Open eng questions | What we decide together |
 
-The event catalogue and per-tab flow charts already exist in [`FLOWS-EVENTS-ANALYTICS.md`](../../FLOWS-EVENTS-ANALYTICS.md). Do not re-derive blindly; reconcile the demo to that wiki.
+The event catalogue and per-tab flow charts already exist in [`FLOWS-EVENTS-ANALYTICS.md`](../../../FLOWS-EVENTS-ANALYTICS.md). Do not re-derive blindly; reconcile the demo to that wiki.
 
 ---
 

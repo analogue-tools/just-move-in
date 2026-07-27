@@ -2,7 +2,7 @@
 ### System design · data flows · deployment · product flows · analytics
 **Jeanne Piffaut · July 2026**
 
-Part of the Jay case study. Full index in CASE-STUDY.md.
+Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
 
 This is the engineer wiki for taking the clickable demo to production. Intended to live in Notion (paste/import from this file); it is not part of the product UI.  
 Companion specs: [`HANDOFF.md`](HANDOFF.md) (states & contracts), [`USER-JOURNEY.md`](USER-JOURNEY.md) (life of the move), [`COMPONENTS.md`](COMPONENTS.md) (UI inventory).  
@@ -391,7 +391,7 @@ flowchart TB
     B -->|Show plan| C[App: Referral → Home Getting Started]
   end
 
-  subgraph S1["Fog · watching"]
+  subgraph S1["Watching · pre-exchange"]
     C --> D[LOA active]
     D --> E[Discovery answers]
     E --> F[Basket confirm]

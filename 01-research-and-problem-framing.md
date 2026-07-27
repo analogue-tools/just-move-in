@@ -2,7 +2,7 @@
 ### Just Move In · Product Discovery & Design Exercise
 **Jeanne Piffaut · July 2026**
 
-Part of the Jay case study. Full index in CASE-STUDY.md.
+Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
 
 ---
 
@@ -38,7 +38,7 @@ Secondary research plus two passes over the Trustpilot corpus, completed inside 
 
 **The caveat matters.** The 39 review sample is drawn from Trustpilot's "reviews shaping this summary" sets across five positive theme categories. It is selected to illustrate themes, not sampled at random, and contains no reviews below 5 stars. **It cannot be used to estimate sentiment distribution.** Where this document discusses weaknesses in §4, the evidence comes from pass one. Percentages from pass two describe that sample only and are labelled as such.
 
-Primary research (five recent movers) is scoped in §9 but not executed. The three load bearing and least evidenced conclusions are flagged there. AI usage is documented in Deliverable 5.
+Primary research was executed after this desk-research pass: survey n=12 plus directed storytelling (see [`01d-primary-research-survey.md`](01d-primary-research-survey.md) and [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md) §2). §9 still lists what I would validate next at larger n. AI usage is documented in the case study Approach (§1), not a separate Deliverable 5.
 
 ---
 

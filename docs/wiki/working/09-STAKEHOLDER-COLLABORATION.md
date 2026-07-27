@@ -1,7 +1,7 @@
 # Stakeholder collaboration · how we work together
 **Jeanne Piffaut · July 2026**
 
-Part of the Jay case study. Full index in CASE-STUDY.md.
+Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](../../CASE-STUDY.md).
 
 Case-study stance: I am not replacing your eng/design/sales process. The prototype + this wiki are the shared whiteboard so we can disagree on specifics without losing the spine.
 
@@ -30,7 +30,7 @@ Case-study stance: I am not replacing your eng/design/sales process. The prototy
 | Feature bridge | [07 · Feature bridge](07-FEATURE-BRIDGE.md) | Research → product map |
 | Later / Discuss | [08 · Later / Discuss](08-LATER-DISCUSS.md) | Explicit parking lot by theme |
 | Live demo | https://just-move-in-liard.vercel.app | Walkthrough + Loom |
-| Flows / events | [`FLOWS-EVENTS-ANALYTICS.md`](../../FLOWS-EVENTS-ANALYTICS.md) | Eng deep dive |
+| Flows / events | [`FLOWS-EVENTS-ANALYTICS.md`](../../../FLOWS-EVENTS-ANALYTICS.md) | Eng deep dive |
 | Figma Story comments | (next) | Per-wireframe Challenge → Next |
 
 ---

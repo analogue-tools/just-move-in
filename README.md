@@ -2,7 +2,7 @@
 
 **Jeanne Piffaut · Product discovery case · July 2026**
 
-Part of the Jay case study. Full index in CASE-STUDY.md.
+Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
 
 > The home-setup call already works. Automating only the conversation would scale the wrong layer.  
 > **Jay** is the digital operator that does the admin, shows honest proof it happened, and survives the move date changing.
@@ -81,4 +81,6 @@ A discovery artefact for co-building: case study + clickable prototype + the dep
 | Working notes by theme | [`docs/wiki/working/`](docs/wiki/working/) |
 | Scope decisions (send vs hold) | [`docs/wiki/00-INDEX.md`](docs/wiki/00-INDEX.md) |
 
-Built with AI in the loop (Claude, Gemini, Cursor / Grok) and a first pass I protected as mine. Prototype for critique.
+**How the tree is organised.** Share pack = [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md) + demo. Root `01` to `04`, `06`, `08`, `09` are depth deliverables (research → PRD → eng → rollout → testing → Market note). Design and feature-bridge working notes live under [`docs/wiki/working/`](docs/wiki/working/) (including themes that would have been `05` / `07` at root). Event names: [`FLOWS-EVENTS-ANALYTICS.md`](FLOWS-EVENTS-ANALYTICS.md) is authoritative; [`HANDOFF.md`](HANDOFF.md) §9 matches it.
+
+Built with AI in the loop (Claude, Gemini, Cursor / Grok) and a first pass I protected as mine. The judgment was mine: the negative reviews flipped my own conclusion from inconsistent follow-up to a structural gap, which became the whole product. Prototype for critique.

@@ -2,7 +2,7 @@
 ### A lightweight PRD · Just Move In
 **Jeanne Piffaut · July 2026**
 
-Part of the Jay case study. Full index in CASE-STUDY.md.
+Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
 
 ---
 
@@ -86,7 +86,7 @@ Modality is decided by **access**, not by preference. This is the single most us
 
 | Phase | What the mover physically has | Lead | Rationale |
 |---|---|---|---|
-| **t minus 30, The Fog** | Full desktop and mobile, high attention | **Neither. Ambient only** | Certainty is too low to activate. Capture the profile, show the map, ask for nothing |
+| **t minus 30, Watching (pre-exchange)** | Full desktop and mobile, high attention | **Neither. Ambient only** | Certainty is too low to activate. Capture the profile, show the map, ask for nothing |
 | **t minus 14, The Countdown** | At a desk, 20 to 50 minutes, fragmented | **UI leads, voice assists** | Four commercial decisions that need to be seen, compared and disclosed. Voice is the escape hatch for "explain that again" |
 | **Moving day** | Mobile data only, weak signal, low battery, one free hand, probably no broadband | **Voice leads, UI optional** | The only rail that works. Everything on this day must be completable by voice alone |
 | **t plus 14** | Mobile first, evenings, attention low but recovering | **UI leads, ambient** | Discovery and belonging are browsing behaviours, not conversational ones |

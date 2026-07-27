@@ -2,7 +2,7 @@
 
 **Jeanne Piffaut · July 2026**
 
-Part of the Jay case study. Full index in CASE-STUDY.md.
+Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
 
 Class names in `prototype/index.html` map to this inventory. Built on shadcn/ui primitives where one exists. An engineer should be able to implement each row without inventing props, states or a11y behaviour.
 
@@ -25,7 +25,7 @@ Class names in `prototype/index.html` map to this inventory. Built on shadcn/ui 
 | Task row | `.task` / `c-task` | none | `task`, `urgent?` | default, urgent (`border-l-warning`) | Entire row is a button or link; state announced | Must-do only |
 | Could-do tile | `.could` / `c-could` | none | `item` | none | Link/button with name | No state chip, no deadline, no progress contribution |
 | AccordionStageMap | `.s-map` / `AccordionStageMap` | `Accordion` | `stages[]`, `counts`, `expandedId` | collapsed / expanded per stage | `aria-expanded`, keyboard | Referral + fog: whole move map, items not individually actionable while `watching` |
-| Board | `.board` / `Board` | none | `columns[]`, `attentionWidget?` | Ongoing, Upcoming | Column headings as `h2`/`h3`; list semantics | System of record. Must-Do heavier than Could-Do |
+| Board | `.board` / `Board` / `c-kanban` | none | `columns[]` from `BOARD_TASKS` | Done, Current, Future | Column headings as `h2`/`h3`; list semantics | Same store as List. Must-Do heavier than Could-Do |
 | BoardCard | `.board-card` | none | `taskId`, `list`, `state`, `weight` | heavy (must), light (could) | Same as Task row / Could-do | Weight controls type and chrome only |
 | OfferCarousel | `.offer-carousel` / `OfferCarousel` | none | `primary`, `alternatives[]` | primary slot + horizontal alternatives | Focusable slides; swipe + arrow keys; `aria-roledescription="carousel"` | **Exactly one primary per category.** Alternatives one swipe away |
 | Offer card | `.card` + `.badge` / `c-offer` | `Card` | `offer` | primary | Heading = supplier + product | Reason + saving + panel scope; no primary £ earnings line |
@@ -48,7 +48,7 @@ Class names in `prototype/index.html` map to this inventory. Built on shadcn/ui 
 | Verified badge | `.verified` | `Badge` | none | none | Text "Verified", colour secondary | Marketplace listing level only |
 | Chip | `.chip` | `Badge` | `label` | none |, | Attributes, mono, tabular |
 | Option pill | `.opt` | `ToggleGroup` | `label`, `pressed` | selected / unselected | `aria-pressed` | Single-select groups |
-| Bottom nav | `.tab` / `c-nav` | `Tabs` | `current` | Home, Tasks, Market, Jay | `aria-current="page"` | Four tabs |
+| Bottom nav | `.tab` / `c-nav` | `Tabs` | `current` | Home, Tasks, Market, Settings | `aria-current="page"` | Four tabs |
 | Row | `.row` | `Separator` | children | none |, | List row with bottom border |
 | Trust markers | `.trust` / `c-trust` | none | `markers[]` | none | Live figures | Hard-coded review counts fail review |
 | Numeric | `.num` | none | `value` | none |, | `lining-nums tabular-nums` on every machine figure |
@@ -84,7 +84,7 @@ Fog / pending colour token applies only to `unconfirmable` and honest in-flight 
 
 **Home tab**
 1. `DateProvenanceBar`
-2. `Board` (Ongoing | Upcoming)
+2. `Board` (Done | Current | Future)
 3. Optional attention widget
 4. Sticky `AskBar`
 

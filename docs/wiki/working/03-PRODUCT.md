@@ -1,11 +1,11 @@
 # Product proposal
 **Jeanne Piffaut · Jay · July 2026**
 
-Part of the Jay case study. Full index in CASE-STUDY.md.
+Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](../../CASE-STUDY.md).
 
 Demo: https://just-move-in-liard.vercel.app  
 Linked research: [02 · Research](02-RESEARCH.md) · Feature spine: [07 · Feature bridge](07-FEATURE-BRIDGE.md)  
-Deep PRD: [`03-product-strategy-prd.md`](../../03-product-strategy-prd.md)
+Deep PRD: [`03-product-strategy-prd.md`](../../../03-product-strategy-prd.md)
 
 ---
 
@@ -46,7 +46,7 @@ Movers do not know what they do not know. Pre, during, post. The product is the 
 | **Objective O3** | Stickiness in the 3-month habit window |
 | **KR examples** | Market return visits; post-move task completion; survey response rate |
 
-Predictions and what to look for: see analytics mock [`analytics/dashboard.html`](../../analytics/dashboard.html) and [`FLOWS-EVENTS-ANALYTICS.md`](../../FLOWS-EVENTS-ANALYTICS.md).
+Predictions and what to look for: see analytics mock [`analytics/dashboard.html`](../../../analytics/dashboard.html) and [`FLOWS-EVENTS-ANALYTICS.md`](../../../FLOWS-EVENTS-ANALYTICS.md).
 
 ---
 
@@ -171,7 +171,7 @@ flowchart LR
 
 Outside UI: solicitor/agent date feed, council/water/supplier adapters, chase scheduler, CS escalation, partner weekly report (future).
 
-Engineering event charts: [`FLOWS-EVENTS-ANALYTICS.md`](../../FLOWS-EVENTS-ANALYTICS.md).
+Engineering event charts: [`FLOWS-EVENTS-ANALYTICS.md`](../../../FLOWS-EVENTS-ANALYTICS.md).
 
 ---
 
@@ -181,7 +181,7 @@ Engineering event charts: [`FLOWS-EVENTS-ANALYTICS.md`](../../FLOWS-EVENTS-ANALY
 |---|---|
 | **Success metrics** | Activation funnel, basket confirm rate, time-to-chase for sent · no receipt, Day 0 keys completion, Market return, opt-out rate |
 | **Guardrails / kill** | Outbound while watching; false confirmed; cascade lost > 0; distress without customer support human agent path |
-| **Internal dashboard** | [`analytics/dashboard.html`](../../analytics/dashboard.html) as the mock; production specs in FLOWS wiki |
+| **Internal dashboard** | [`analytics/dashboard.html`](../../../analytics/dashboard.html) as the mock; production specs in FLOWS wiki |
 | **Partner report** | Per-referred-client value; established **with** partners (discovery first). Weekly. Qualitative + quantitative. |
 | **Analysis plan** | Qualitative (CS + directed storytelling) + app events + market trends → opportunities agents do not know about |
 

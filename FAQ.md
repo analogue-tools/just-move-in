@@ -2,7 +2,7 @@
 
 **Jeanne Piffaut · maps to in-product `FAQSheet` + Ask Jay · July 2026**
 
-Part of the Jay case study. Full index in CASE-STUDY.md.
+Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
 
 Copy below is product-facing. Ask Jay may only answer from this corpus (plus linked task receipts). Unmatched or distress / complaint language escalates to the named Move Specialist.
 
@@ -29,14 +29,14 @@ Your letting agent or partner referred your move to Just Move In. We help set up
 No. You can ignore messages, opt out in one tap, or talk to your named specialist. Opt-out applies across channels.
 
 ### Is Jay a real person?
-Jay is the digital move operator. Your named Move Specialist (for example customer support human agent) is a real person who owns escalations. We say which is which on every hard screen.
+Jay is the digital move operator. Your named customer support person owns escalations. In this prototype that person is **Lyndon Beadle** (“Connect to Lyndon”). We say which is which on every hard screen.
 
 ### How do you get paid?
 Suppliers on our panel pay Just Move In a panel fee. **It does not change your price.** We use the same rule across the panel. Free local listings are labelled as earning us nothing.
 
 ---
 
-## B · Before exchange (The Fog)
+## B · Before exchange (Watching)
 
 ### Why is there nothing to do yet?
 Until exchange (or a confirmed tenancy start), the date can still fall through. Acting early means repeating work and contacting organisations about a move that may not happen. We watch for the date and show you the map of what is coming.

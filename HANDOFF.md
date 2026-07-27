@@ -2,7 +2,7 @@
 
 **Jeanne Piffaut · July 2026**
 
-Part of the Jay case study. Full index in CASE-STUDY.md.
+Part of the Jay case study. Full index: [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md).
 
 Behavioural spec. **The prototype is authoritative on anything visual. This file is authoritative on anything behavioural.** If the prototype shows a state this file does not define, this file is wrong and needs updating.
 
@@ -204,19 +204,27 @@ Make this a database constraint, not a convention. It is the single rule the who
   "moveId": "mv_8f21c",
   "columns": [
     {
-      "id": "ongoing",
-      "title": "Ongoing",
+      "id": "done",
+      "title": "Done",
       "items": [
-        { "taskId": "tk_council_new", "list": "must", "state": "unconfirmable", "weight": "heavy" },
-        { "taskId": "tk_broadband", "list": "must", "state": "submitted", "weight": "heavy" }
+        { "taskId": "tk_water_old", "list": "must", "state": "confirmed", "weight": "heavy" },
+        { "taskId": "tk_tv", "list": "must", "state": "confirmed", "weight": "heavy" }
       ]
     },
     {
-      "id": "upcoming",
-      "title": "Upcoming",
+      "id": "current",
+      "title": "Current",
+      "items": [
+        { "taskId": "tk_council_new", "list": "must", "state": "sent_no_receipt", "weight": "heavy" },
+        { "taskId": "tk_broadband", "list": "must", "state": "live", "weight": "heavy" }
+      ]
+    },
+    {
+      "id": "future",
+      "title": "Future",
       "items": [
         { "taskId": "tk_meter", "list": "must", "state": "blocked", "weight": "heavy" },
-        { "taskId": "tk_gp", "list": "could", "state": "ready", "weight": "light" }
+        { "taskId": "tk_gp", "list": "could", "state": "needs", "weight": "light" }
       ]
     }
   ],
@@ -225,7 +233,6 @@ Make this a database constraint, not a convention. It is the single rule the who
     "reason": "install_slot_tomorrow",
     "priority": 1
   },
-  "completedTaskIds": ["tk_water_old", "tk_tv"],
   "lens": "board"
 }
 ```
@@ -321,25 +328,26 @@ Treatwell-style cues: search + map + need entry. Local discovery stays inside th
 
 ## 9 · Analytics events
 
+**Source of truth for names and funnels:** [`FLOWS-EVENTS-ANALYTICS.md`](FLOWS-EVENTS-ANALYTICS.md) (§4 to §6 and the event catalogue). Names below match that file. Do not invent parallel catalogues.
+
 | Event | Properties |
 |---|---|
-| `move_state_changed` | `from`, `to`, `trigger` |
-| `task_state_changed` | `taskId`, `catalogueId`, `from`, `to`, `reason`, `actor` |
-| `critical_task_completed_in_window` | `catalogueId`, `daysBeforeDeadline` |
-| `critical_task_missed_window` | `catalogueId`, `daysLate`, `estimatedCostGbp` |
-| `date_changed` | `oldDate`, `newDate`, `rescheduled`, `needsRedoing`, `lostOrReentered` |
-| `offer_viewed` / `offer_confirmed` / `offer_declined` | `offerId`, `category`, `rank`, `panelFeeApplies` |
-| `panel_fee_note_shown` / `panel_fee_note_expanded` | `surface` (`basket`, `marketplace`, `offer`) |
-| `human_requested` | `screen`, `trigger` (`user` or `auto`) |
-| `faq_opened` / `ask_jay_answered` / `ask_jay_escalated` | `topicId`, `matched`, `confidence` |
-| `voice_intent_completed` / `voice_intent_transferred` | `intent`, `durationSec` |
-| `unconfirmable_shown` | `catalogueId`, `destination` |
-| `board_column_viewed` | `columnId` |
-| `marketplace_search` / `marketplace_map_pan` | `query`, `needCluster`, `resultCount` |
-| `lens_switched` | `from`, `to` |
+| `referral_continue` / `referral_pause` / `referral_opt_out` | `partnerId`, `moveId` |
+| `discovery_start` / `discovery_complete` / `discovery_abandon` | `moveId`, `answersComplete` |
+| `basket_open` / `plan_selected` / `ack_panel_fee` / `basket_confirmed` | `offerId`, `category`, `rank`, `panelFeeApplies` |
+| `panel_fee_view` | `surface` (`basket`, `market`, `confirm`) |
+| `closure_continue` | `moveId` |
+| `human_escape_tap` | `screen`, `trigger` (`user` or `auto`) |
+| `faq_open` / `chat_open` / `chat_send` | `topicId`, `matched` |
+| `keys_confirmed` / `meter_read_submit` / `voice_session_start` | `intent`, `channel` (`ui` or `voice`) |
+| `notify_sent` / `notify_confirmed` / `notify_unconfirmable` | `catalogueId`, `destination` |
+| `move_date_changed` / `cascade_diff_view` / `cascade_ack` | `oldDate`, `newDate`, `lost` (must stay 0) |
+| `market_search` / `listing_open` | `query`, `listingType`, `resultCount` |
+| `tasks_view_toggle` | `from`, `to` (presentation only; same task store) |
+| `task_state_changed` | `taskId`, `from`, `to`, `actor` |
 | `confidence_probe_answered` | `taskId`, `statedConfidence`, `actualState` |
 
-The last one computes **false confidence rate**: the share of movers reporting high confidence a task is done when its state is `queued` or `unconfirmable`. Nobody else in this market can compute it, because nobody else shows real state.
+`confidence_probe_answered` supports **false confidence rate**: movers who report high confidence a task is done when its state is still queued or `sent · no receipt`.
 
 ---
 
@@ -351,13 +359,13 @@ Written to be pasted into tickets.
 - Renders with `move.state == watching` and fires zero outbound tasks
 - Shows all 31 items grouped by stage, none individually actionable
 - Named owner present with a real `movesCompleted` figure
-- Trust markers pull live figures. A hard-coded review count fails review
+- Production trust markers pull live figures. The prototype may use labelled illustrative markers; unlabelled hard-coded counts fail review
 
 **Plan / Home board**
 - Must-do and could-do use different components. A could-do item must never render in `.task`
 - Must-do sorted by `deadlineAt` ascending, then lead time descending
 - Could-do has no state chip, no deadline, no progress contribution
-- Board columns: Ongoing | Upcoming; Must-Do visually heavier than Could-Do
+- Tasks board columns: Done | Current | Future (same `BOARD_TASKS` store as List). Must-Do visually heavier than Could-Do. Home uses stage tabs (Getting started / Pre-move / Day 0 / After), not a second board model.
 - Date change action reachable in one tap
 - `DateProvenanceBar` shows source + confidence; estimated dates never look confirmed
 - **Lens / board switcher preserves scroll position and does not refetch**
