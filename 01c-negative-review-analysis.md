@@ -16,7 +16,7 @@ Reviews are coded by theme below. Most carry more than one, so the counts sum to
 
 ---
 
-## 1. The headline, and it reverses something I wrote
+## 1. The headline
 
 **The five star reviews are about the call. The one to three star reviews are almost never about the call. They are about what happened before it and after it.**
 
