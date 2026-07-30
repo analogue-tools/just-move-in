@@ -22,7 +22,7 @@ Reviews are coded by theme below. Most carry more than one, so the counts sum to
 
 At least **10 of the 60** explicitly praise the person while rating the service 1 to 3 stars. The pattern is consistent enough to quote in outline: the agent was pleasant, thorough, friendly, efficient, and then nothing happened. One reviewer describes being impressed enough to have planned a glowing review. Another wrote a positive review when prompted, then discovered none of the agreed changes had been made.
 
-**In Deliverable 2 I wrote that the failure mode is "variance in follow through". That is too generous and I want to correct it.** The failure mode is a structural gap between what the call promises and what the system afterwards does, and the negative tail shows it is not occasional.
+The failure mode is a structural gap between what the call promises and what the system afterwards does, and the negative tail shows it is not occasional.
 
 This has a direct strategic consequence. **Automating the call would be solving the part that already works.** The product is the execution layer and the receipts, not the conversation.
 
@@ -62,7 +62,7 @@ A new energy account opened in a mover's name at the address she had left, leadi
 
 | | |
 |---|---|
-| **Technical** | **A liability check is a missing primitive in my data model and I am adding it.** Before any notification fires, the system must resolve: which property, which person is liable, from which date, under what agreement. Tenure and bill responsibility are tenancy facts, not address facts, and the landlord case proves the address alone is not enough. |
+| **Technical** | Before any notification fires, the system must resolve: which property, which person is liable, from which date, under what agreement. Tenure and bill responsibility are tenancy facts, not address facts, and the landlord case proves the address alone is not enough. |
 | **Customer** | The consequence of a wrong action here is a credit file, not an inconvenience. That asymmetry justifies a confirmation step even where the task is otherwise auto-run. |
 
 ### T4 · Commercial opacity · 13 of 60
