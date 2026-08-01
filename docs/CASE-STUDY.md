@@ -28,8 +28,8 @@ I read the brief and the website, wrote down what I wanted to know and how I wou
 **Steps:** brief + website → AI-assisted desk research with sources → primary survey + directed storytelling → competitive landscape as status-quo anchor → HTML from intuition → critique/refine loops → Vercel.
 
 **How I think about it**
-- Protected a first pass so the thinking stayed mine; design is continuous once something is visible.
-- Clarity of output over pretending to own every eng detail.
+- I built something from the primary and secondary research with my reflection. it It's a starting stage product, design is continuous and plural once something is visible.
+- Clarity of output over focusing on eng detail.
 - Most of the product should be **invisible admin**. Screens are for understand + approve; the few mover-facing surfaces are only part of the value.
 - Home is the **anxiety anchor**: each screen answers *Where am I? / What’s happening? / What’s next?* in a few seconds.
 - Ownership and must-do stay in the open flow (people miss expanders). One continuous discovery → basket.
