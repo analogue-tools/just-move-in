@@ -2516,13 +2516,13 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
       <div class="story-view" id="storyViewNotes" data-story-view-panel="teams">
         <nav class="story-jump" aria-label="Jump to team notes">
           <a href="#tm-referral">Referral</a>
-          <a href="#tm-home">Home start</a>
-          <a href="#tm-discovery">Questions</a>
-          <a href="#tm-basket">Plans</a>
+          <a href="#tm-home">Home</a>
+          <a href="#tm-discovery">Discovery</a>
+          <a href="#tm-basket">Basket</a>
           <a href="#tm-confirmed">Confirmed</a>
           <a href="#tm-pre">Pre-move</a>
           <a href="#tm-day0">Move-in day</a>
-          <a href="#tm-post">After move</a>
+          <a href="#tm-post">Post-move</a>
           <a href="#tm-tasks">Tasks</a>
           <a href="#tm-date">Date change</a>
           <a href="#tm-market">Market</a>
@@ -2541,7 +2541,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
         </article>
 
         <article class="story-feature" id="tm-home">
-          <div class="story-feature__top"><div><div class="story-feature__screen">Screen</div><h3>Home start</h3></div></div>
+          <div class="story-feature__top"><div><div class="story-feature__screen">Screen</div><h3>Home</h3></div></div>
           <table class="story-table">
             <tr><th>Design</th><td>One stage story, one main next action. Permission status in plain English. No promo clutter fighting the CTA.</td></tr>
             <tr><th>Engineering</th><td>Stage from move, task, and date state. Permission status readable by the client. Main CTA opens questions or plans.</td></tr>
@@ -2551,7 +2551,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
         </article>
 
         <article class="story-feature" id="tm-discovery">
-          <div class="story-feature__top"><div><div class="story-feature__screen">Screen</div><h3>Questions</h3></div></div>
+          <div class="story-feature__top"><div><div class="story-feature__screen">Screen</div><h3>Discovery</h3></div></div>
           <table class="story-table">
             <tr><th>Design</th><td>Tap-first. Nudge toward complete answers. Chat is secondary. Stop when confidence is enough.</td></tr>
             <tr><th>Engineering</th><td>One household profile. Events: discovery_start, discovery_answer, discovery_ready, discovery_complete, discovery_abandon.</td></tr>
@@ -2561,7 +2561,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
         </article>
 
         <article class="story-feature" id="tm-basket">
-          <div class="story-feature__top"><div><div class="story-feature__screen">Screen</div><h3>Plans</h3></div></div>
+          <div class="story-feature__top"><div><div class="story-feature__screen">Screen</div><h3>Basket</h3></div></div>
           <table class="story-table">
             <tr><th>Design</th><td>One recommendation primary, alternatives secondary. Reasons visible. Fee once. Confirm is a real decision. Safety blocks are firm.</td></tr>
             <tr><th>Engineering</th><td>Rank from questions and time to move. Same fee flag across panel. Hard blocks for prepay and medical. Events: basket_open, plan_selected, ack_panel_fee, basket_confirm_blocked, basket_confirmed, escalate_human.</td></tr>
@@ -2601,7 +2601,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
         </article>
 
         <article class="story-feature" id="tm-post">
-          <div class="story-feature__top"><div><div class="story-feature__screen">Screen</div><h3>After move</h3></div></div>
+          <div class="story-feature__top"><div><div class="story-feature__screen">Screen</div><h3>Post-move</h3></div></div>
           <table class="story-table">
             <tr><th>Design</th><td>Soft, skippable, practical. Market available; ads are not the hero.</td></tr>
             <tr><th>Engineering</th><td>survey_step, survey_complete, market_deep_link. Skip always works.</td></tr>
@@ -2614,7 +2614,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
           <div class="story-feature__top"><div><div class="story-feature__screen">Screen</div><h3>Tasks</h3></div></div>
           <table class="story-table">
             <tr><th>Design</th><td>List default. Board and Visual are lenses. Owner and status on every row.</td></tr>
-            <tr><th>Engineering</th><td>Single task store. tasks_view_toggle is presentation only. task_open, task_action_*, human_escape_tap.</td></tr>
+            <tr><th>Engineering</th><td>Single task store. task_view_toggle is presentation only. task_open, task_action_*, human_escape_tap.</td></tr>
             <tr><th>Sales</th><td>When a partner asks where something is, Tasks is the answer.</td></tr>
             <tr><th>Customer support</th><td>Use Tasks as the source of truth on calls.</td></tr>
           </table>
@@ -2665,13 +2665,13 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
       <div class="story-view" id="storyViewTables" data-story-view-panel="tables" hidden>
         <nav class="story-jump" aria-label="Jump to feature">
           <a href="#ft-referral">Referral</a>
-          <a href="#ft-home">Home start</a>
-          <a href="#ft-discovery">Questions</a>
-          <a href="#ft-basket">Plans</a>
+          <a href="#ft-home">Home</a>
+          <a href="#ft-discovery">Discovery</a>
+          <a href="#ft-basket">Basket</a>
           <a href="#ft-confirmed">Confirmed</a>
           <a href="#ft-pre">Pre-move</a>
           <a href="#ft-day0">Move-in day</a>
-          <a href="#ft-post">After move</a>
+          <a href="#ft-post">Post-move</a>
           <a href="#ft-tasks">Tasks</a>
           <a href="#ft-date">Date change</a>
           <a href="#ft-market">Market</a>
@@ -2690,7 +2690,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
         </article>
 
         <article class="story-feature" id="ft-home">
-          <div class="story-feature__top"><div><div class="story-feature__screen">Feature</div><h3>Home start</h3></div></div>
+          <div class="story-feature__top"><div><div class="story-feature__screen">Feature</div><h3>Home</h3></div></div>
           <table class="story-table">
             <tr><th>The problem</th><td>Movers lose the plot: where they are, what is next, and what they authorised a third party to do.</td></tr>
             <tr><th>The design</th><td>Home as stage hub. One dominant next action. Signed permission as a short readable status, not a legal wall.</td></tr>
@@ -2700,7 +2700,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
         </article>
 
         <article class="story-feature" id="ft-discovery">
-          <div class="story-feature__top"><div><div class="story-feature__screen">Feature</div><h3>Questions</h3></div></div>
+          <div class="story-feature__top"><div><div class="story-feature__screen">Feature</div><h3>Discovery</h3></div></div>
           <table class="story-table">
             <tr><th>The problem</th><td>Household facts get retyped at every utility checkout, while the real pain is missed outcomes and weak decisions, not form theatre.</td></tr>
             <tr><th>The design</th><td>Short tap questions collected once. Answers feed energy, broadband, and contents ranking. Ask Jay stays a side channel.</td></tr>
@@ -2710,7 +2710,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
         </article>
 
         <article class="story-feature" id="ft-basket">
-          <div class="story-feature__top"><div><div class="story-feature__screen">Feature</div><h3>Plans</h3></div></div>
+          <div class="story-feature__top"><div><div class="story-feature__screen">Feature</div><h3>Basket</h3></div></div>
           <table class="story-table">
             <tr><th>The problem</th><td>Comparison grids freeze movers. Opaque “best deals” look paid. Prepaid meters and medical needs are hard failure modes.</td></tr>
             <tr><th>The design</th><td>One recommended option per category with short reasons. Alternatives behind arrows. Same panel fee stated once. Safety gates can block confirm and escalate to a human.</td></tr>
@@ -2750,7 +2750,7 @@ body.mode-test .c-nav { grid-template-columns: repeat(2, 1fr); }
         </article>
 
         <article class="story-feature" id="ft-post">
-          <div class="story-feature__top"><div><div class="story-feature__screen">Feature</div><h3>After move</h3></div></div>
+          <div class="story-feature__top"><div><div class="story-feature__screen">Feature</div><h3>Post-move</h3></div></div>
           <table class="story-table">
             <tr><th>The problem</th><td>If the product dies after keys, week-one usefulness and stickiness never start.</td></tr>
             <tr><th>The design</th><td>Bins, guides, small tasks. Skippable survey. Clear path into Market. No hard sell.</td></tr>

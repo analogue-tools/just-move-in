@@ -718,7 +718,7 @@ flowchart TD
 
 | Event | When | Key props |
 |---|---|---|
-| `tasks_view_toggle` | Kanban / Visual | `view` |
+| `task_view_toggle` | Kanban / Visual | `view` |
 | `task_action_change_plan` | CTA | `task_id`, `category` |
 | `task_action_change` | Opens change modal | `task_id` |
 | `task_action_cancel` | Cancel confirm | `task_id` |
@@ -844,7 +844,7 @@ Treat **every intentional user interaction** and **every durable system transiti
 | 11 | `voice_*` / `keys_*` / `meter_*` / `deposit_*` / `safety_checklist_item` | Day 0 |
 | 12 | `welcome_celebrate_shown` / `soft_landing_tap` | Day 0 |
 | 13 | `bill_*` / `survey_*` / `bins_open` / `vote_link_open` | Post-move |
-| 14 | `tasks_view_toggle` | Tasks |
+| 14 | `task_view_toggle` | Tasks |
 | 15 | `date_selected` / `move_date_changed` / `cascade_*` | Date change |
 | 16 | `market_*` / `listing_*` | Market |
 | 17 | `settings_*` / `loa_*` | Settings |
